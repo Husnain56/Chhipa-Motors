@@ -1,0 +1,32 @@
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Motors.csproj.AssemblyReference.cache
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.MainForm.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Motors.csproj.GenerateResource.cache
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Motors.GeneratedMSBuildEditorConfig.editorconfig
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Motors.AssemblyInfoInputs.cache
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Motors.AssemblyInfo.cs
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Motors.csproj.CoreCompileInputs.cache
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\Chhipa Motors.exe
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\Chhipa Motors.deps.json
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\Chhipa Motors.runtimeconfig.json
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\Chhipa Motors.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\Chhipa Motors.pdb
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\QRCoder.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\SiticoneNetCoreUI.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\System.CodeDom.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\System.Composition.AttributedModel.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\System.Composition.Convention.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\System.Composition.Hosting.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\System.Composition.Runtime.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\System.Composition.TypedParts.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\System.Management.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Management.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa M.7758EA6A.Up2Date
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Motors.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\refint\Chhipa Motors.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Motors.pdb
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Motors.genruntimeconfig.cache
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\ref\Chhipa Motors.dll
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.Properties.Resources.resources
