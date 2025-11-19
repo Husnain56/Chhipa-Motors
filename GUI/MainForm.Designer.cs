@@ -32,6 +32,7 @@
             mySiticoneLicenseSettings1 = new SiticoneNetCoreUI.MySiticoneLicenseSettings();
             pnl_main = new SiticoneNetCoreUI.SiticoneContentPanel();
             pb_wallpaper = new SiticoneNetCoreUI.SiticonePictureBox();
+            label1 = new Label();
             pb_Acc = new SiticoneNetCoreUI.SiticonePictureBox();
             lbl_ChhipaMotors_Text = new Label();
             pnl_main.SuspendLayout();
@@ -43,6 +44,7 @@
             pnl_main.ContentBackColor = Color.FromArgb(245, 245, 245);
             pnl_main.ContentPadding = new Padding(0);
             pnl_main.Controls.Add(pb_wallpaper);
+            pnl_main.Controls.Add(label1);
             pnl_main.Controls.Add(pb_Acc);
             pnl_main.Controls.Add(lbl_ChhipaMotors_Text);
             pnl_main.DefaultTitleFont = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -52,7 +54,7 @@
             pnl_main.Font = new Font("Segoe UI", 8F);
             pnl_main.Location = new Point(0, 0);
             pnl_main.Name = "pnl_main";
-            pnl_main.Size = new Size(1594, 861);
+            pnl_main.Size = new Size(1350, 729);
             pnl_main.TabIndex = 0;
             pnl_main.TargetNavbar = null;
             pnl_main.TitleBackColor = Color.White;
@@ -90,17 +92,26 @@
             pb_wallpaper.Images = (List<Image>)resources.GetObject("pb_wallpaper.Images");
             pb_wallpaper.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             pb_wallpaper.IsCircular = false;
-            pb_wallpaper.Location = new Point(3, 0);
+            pb_wallpaper.Location = new Point(0, 0);
             pb_wallpaper.MaintainAspectRatio = true;
             pb_wallpaper.Name = "pb_wallpaper";
             pb_wallpaper.PlaceholderImage = null;
             pb_wallpaper.RotationAngle = 0F;
             pb_wallpaper.Saturation = 1F;
             pb_wallpaper.ShowBorder = false;
-            pb_wallpaper.Size = new Size(1594, 828);
+            pb_wallpaper.Size = new Size(1350, 695);
             pb_wallpaper.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
             pb_wallpaper.TabIndex = 3;
             pb_wallpaper.Text = "siticonePictureBox1";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(123, 785);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 13);
+            label1.TabIndex = 8;
+            label1.Text = "label1";
             // 
             // pb_Acc
             // 
@@ -132,7 +143,7 @@
             pb_Acc.Images = (List<Image>)resources.GetObject("pb_Acc.Images");
             pb_Acc.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             pb_Acc.IsCircular = false;
-            pb_Acc.Location = new Point(1505, 33);
+            pb_Acc.Location = new Point(1297, 37);
             pb_Acc.MaintainAspectRatio = true;
             pb_Acc.Name = "pb_Acc";
             pb_Acc.PlaceholderImage = null;
@@ -149,7 +160,7 @@
             lbl_ChhipaMotors_Text.BackColor = Color.Transparent;
             lbl_ChhipaMotors_Text.Font = new Font("Castellar", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_ChhipaMotors_Text.ForeColor = Color.White;
-            lbl_ChhipaMotors_Text.Location = new Point(658, 33);
+            lbl_ChhipaMotors_Text.Location = new Point(474, 37);
             lbl_ChhipaMotors_Text.Name = "lbl_ChhipaMotors_Text";
             lbl_ChhipaMotors_Text.Size = new Size(364, 42);
             lbl_ChhipaMotors_Text.TabIndex = 2;
@@ -159,7 +170,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1594, 861);
+            ClientSize = new Size(1350, 729);
             Controls.Add(pnl_main);
             Name = "MainForm";
             Text = "MainForm";
@@ -171,9 +182,10 @@
         #endregion
         private SiticoneNetCoreUI.MySiticoneLicenseSettings mySiticoneLicenseSettings1;
         private SiticoneNetCoreUI.SiticoneContentPanel pnl_main;
-        private SiticoneNetCoreUI.SiticonePictureBox pb_wallpaper;
         private Label lbl_ChhipaMotors_Text;
         private SiticoneNetCoreUI.SiticonePictureBox pb_Acc;
+        private Label label1;
+        private SiticoneNetCoreUI.SiticonePictureBox pb_wallpaper;
     }
 }
 
