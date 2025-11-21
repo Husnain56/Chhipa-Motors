@@ -31,22 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             mySiticoneLicenseSettings1 = new SiticoneNetCoreUI.MySiticoneLicenseSettings();
             pnl_main = new SiticoneNetCoreUI.SiticoneContentPanel();
-            pb_blur_screen = new SiticoneNetCoreUI.SiticonePictureBox();
-            container_menu = new SiticoneNetCoreUI.SiticoneSplitContainer();
-            btn_menu_acc = new SiticoneNetCoreUI.SiticoneDashboardButton();
-            btn_menu_services_list = new SiticoneNetCoreUI.SiticoneDashboardButton();
-            btn_menu_purchases_list = new SiticoneNetCoreUI.SiticoneDashboardButton();
-            btn_menu_manufacturer_list = new SiticoneNetCoreUI.SiticoneDashboardButton();
-            btn_close_menu = new SiticoneNetCoreUI.SiticoneButton();
-            btn_menu = new SiticoneNetCoreUI.SiticoneButtonAdvanced();
-            lbl_msg = new Label();
-            pb_nissan_mf = new SiticoneNetCoreUI.SiticonePictureBox();
-            pb_lambo_mf = new SiticoneNetCoreUI.SiticonePictureBox();
+            lbl_msg = new SiticoneNetCoreUI.SiticoneShimmerLabel();
             pb_MacLaren_mf = new SiticoneNetCoreUI.SiticonePictureBox();
             pb_porsche_mf = new SiticoneNetCoreUI.SiticonePictureBox();
+            container_menu = new SiticoneNetCoreUI.SiticoneSplitContainer();
+            btn_menu_purchases_list = new SiticoneNetCoreUI.SiticoneDashboardButton();
+            btn_menu_manufacturer_list = new SiticoneNetCoreUI.SiticoneDashboardButton();
+            btn_menu_acc = new SiticoneNetCoreUI.SiticoneDashboardButton();
+            btn_menu_services_list = new SiticoneNetCoreUI.SiticoneDashboardButton();
+            btn_close_menu = new SiticoneNetCoreUI.SiticoneButton();
+            pb_blur_screen = new SiticoneNetCoreUI.SiticonePictureBox();
+            btn_menu = new SiticoneNetCoreUI.SiticoneButtonAdvanced();
+            pb_nissan_mf = new SiticoneNetCoreUI.SiticonePictureBox();
+            pb_lambo_mf = new SiticoneNetCoreUI.SiticonePictureBox();
             pb_porsche_logo = new SiticoneNetCoreUI.SiticonePictureBox();
             pb_Acc = new SiticoneNetCoreUI.SiticonePictureBox();
-            lbl_ChhipaMotors_Text = new Label();
             pb_wallpaper = new SiticoneNetCoreUI.SiticonePictureBox();
             pnl_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)container_menu).BeginInit();
@@ -61,14 +60,14 @@
             pnl_main.BackColor = Color.Black;
             pnl_main.ContentBackColor = Color.Black;
             pnl_main.ContentPadding = new Padding(0);
-            pnl_main.Controls.Add(pb_blur_screen);
-            pnl_main.Controls.Add(container_menu);
-            pnl_main.Controls.Add(btn_menu);
             pnl_main.Controls.Add(lbl_msg);
-            pnl_main.Controls.Add(pb_nissan_mf);
-            pnl_main.Controls.Add(pb_lambo_mf);
             pnl_main.Controls.Add(pb_MacLaren_mf);
             pnl_main.Controls.Add(pb_porsche_mf);
+            pnl_main.Controls.Add(container_menu);
+            pnl_main.Controls.Add(pb_blur_screen);
+            pnl_main.Controls.Add(btn_menu);
+            pnl_main.Controls.Add(pb_nissan_mf);
+            pnl_main.Controls.Add(pb_lambo_mf);
             pnl_main.Controls.Add(pb_porsche_logo);
             pnl_main.Controls.Add(pb_Acc);
             pnl_main.Controls.Add(pb_wallpaper);
@@ -87,48 +86,113 @@
             pnl_main.TitlePadding = new Padding(20, 0, 20, 0);
             pnl_main.TitleSeparatorColor = Color.Silver;
             // 
-            // pb_blur_screen
+            // lbl_msg
             // 
-            pb_blur_screen.BackColor = Color.FromArgb(30, 30, 30);
-            pb_blur_screen.BorderColor = Color.FromArgb(40, 40, 40);
-            pb_blur_screen.BorderWidth = 1;
-            pb_blur_screen.Brightness = 1F;
-            pb_blur_screen.Contrast = 1F;
-            pb_blur_screen.CornerRadius = 10;
-            pb_blur_screen.DraggingSpeed = 3.15F;
-            pb_blur_screen.EnableAsyncLoading = false;
-            pb_blur_screen.EnableCaching = false;
-            pb_blur_screen.EnableDragDrop = false;
-            pb_blur_screen.EnableExtendedImageSources = false;
-            pb_blur_screen.EnableFilters = false;
-            pb_blur_screen.EnableFlipping = false;
-            pb_blur_screen.EnableGlow = false;
-            pb_blur_screen.EnableHighDpiSupport = false;
-            pb_blur_screen.EnableMouseInteraction = false;
-            pb_blur_screen.EnablePlaceholder = false;
-            pb_blur_screen.EnableRotation = false;
-            pb_blur_screen.EnableShadow = true;
-            pb_blur_screen.EnableSlideshow = false;
-            pb_blur_screen.FlipHorizontal = false;
-            pb_blur_screen.FlipVertical = false;
-            pb_blur_screen.Grayscale = false;
-            pb_blur_screen.Image = (Image)resources.GetObject("pb_blur_screen.Image");
-            pb_blur_screen.ImageOpacity = 1F;
-            pb_blur_screen.Images = (List<Image>)resources.GetObject("pb_blur_screen.Images");
-            pb_blur_screen.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            pb_blur_screen.IsCircular = false;
-            pb_blur_screen.Location = new Point(1087, 0);
-            pb_blur_screen.MaintainAspectRatio = true;
-            pb_blur_screen.Name = "pb_blur_screen";
-            pb_blur_screen.PlaceholderImage = null;
-            pb_blur_screen.RotationAngle = 0F;
-            pb_blur_screen.Saturation = 1F;
-            pb_blur_screen.ShowBorder = true;
-            pb_blur_screen.Size = new Size(248, 716);
-            pb_blur_screen.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            pb_blur_screen.TabIndex = 28;
-            pb_blur_screen.Text = "siticonePictureBox1";
-            pb_blur_screen.Click += pb_blur_screen_Click;
+            lbl_msg.AutoReverse = false;
+            lbl_msg.BaseColor = Color.White;
+            lbl_msg.Direction = SiticoneNetCoreUI.ShimmerDirection.LeftToRight;
+            lbl_msg.Font = new Font("Modern No. 20", 47.9999924F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_msg.IsAnimating = true;
+            lbl_msg.IsPaused = false;
+            lbl_msg.Location = new Point(0, 787);
+            lbl_msg.Name = "lbl_msg";
+            lbl_msg.PauseDuration = 0;
+            lbl_msg.ShimmerColor = Color.Cyan;
+            lbl_msg.ShimmerOpacity = 1F;
+            lbl_msg.ShimmerSpeed = 50;
+            lbl_msg.ShimmerWidth = 0.2F;
+            lbl_msg.Size = new Size(1176, 79);
+            lbl_msg.TabIndex = 30;
+            lbl_msg.Text = "The Ride to Your Next Car Starts Here";
+            lbl_msg.ToolTipText = "";
+            // 
+            // pb_MacLaren_mf
+            // 
+            pb_MacLaren_mf.BackColor = Color.White;
+            pb_MacLaren_mf.BorderColor = Color.Black;
+            pb_MacLaren_mf.BorderWidth = 1;
+            pb_MacLaren_mf.Brightness = 1F;
+            pb_MacLaren_mf.Contrast = 1F;
+            pb_MacLaren_mf.CornerRadius = 0;
+            pb_MacLaren_mf.DraggingSpeed = 3.15F;
+            pb_MacLaren_mf.EnableAsyncLoading = false;
+            pb_MacLaren_mf.EnableCaching = false;
+            pb_MacLaren_mf.EnableDragDrop = false;
+            pb_MacLaren_mf.EnableExtendedImageSources = false;
+            pb_MacLaren_mf.EnableFilters = false;
+            pb_MacLaren_mf.EnableFlipping = false;
+            pb_MacLaren_mf.EnableGlow = false;
+            pb_MacLaren_mf.EnableHighDpiSupport = false;
+            pb_MacLaren_mf.EnableMouseInteraction = false;
+            pb_MacLaren_mf.EnablePlaceholder = false;
+            pb_MacLaren_mf.EnableRotation = false;
+            pb_MacLaren_mf.EnableShadow = false;
+            pb_MacLaren_mf.EnableSlideshow = false;
+            pb_MacLaren_mf.FlipHorizontal = false;
+            pb_MacLaren_mf.FlipVertical = false;
+            pb_MacLaren_mf.Grayscale = false;
+            pb_MacLaren_mf.Image = (Image)resources.GetObject("pb_MacLaren_mf.Image");
+            pb_MacLaren_mf.ImageOpacity = 1F;
+            pb_MacLaren_mf.Images = (List<Image>)resources.GetObject("pb_MacLaren_mf.Images");
+            pb_MacLaren_mf.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_MacLaren_mf.IsCircular = false;
+            pb_MacLaren_mf.Location = new Point(690, 960);
+            pb_MacLaren_mf.MaintainAspectRatio = true;
+            pb_MacLaren_mf.Name = "pb_MacLaren_mf";
+            pb_MacLaren_mf.PlaceholderImage = null;
+            pb_MacLaren_mf.RotationAngle = 0F;
+            pb_MacLaren_mf.Saturation = 1F;
+            pb_MacLaren_mf.ShowBorder = true;
+            pb_MacLaren_mf.Size = new Size(545, 466);
+            pb_MacLaren_mf.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
+            pb_MacLaren_mf.TabIndex = 15;
+            pb_MacLaren_mf.Text = "siticonePictureBox2";
+            pb_MacLaren_mf.MouseEnter += pb_mf_MouseEnter;
+            pb_MacLaren_mf.MouseLeave += pb_mf_MouseLeave;
+            // 
+            // pb_porsche_mf
+            // 
+            pb_porsche_mf.BackColor = Color.White;
+            pb_porsche_mf.BorderColor = Color.Black;
+            pb_porsche_mf.BorderWidth = 1;
+            pb_porsche_mf.Brightness = 1F;
+            pb_porsche_mf.Contrast = 1F;
+            pb_porsche_mf.CornerRadius = 0;
+            pb_porsche_mf.DraggingSpeed = 3.15F;
+            pb_porsche_mf.EnableAsyncLoading = false;
+            pb_porsche_mf.EnableCaching = false;
+            pb_porsche_mf.EnableDragDrop = false;
+            pb_porsche_mf.EnableExtendedImageSources = false;
+            pb_porsche_mf.EnableFilters = false;
+            pb_porsche_mf.EnableFlipping = false;
+            pb_porsche_mf.EnableGlow = false;
+            pb_porsche_mf.EnableHighDpiSupport = false;
+            pb_porsche_mf.EnableMouseInteraction = false;
+            pb_porsche_mf.EnablePlaceholder = false;
+            pb_porsche_mf.EnableRotation = false;
+            pb_porsche_mf.EnableShadow = false;
+            pb_porsche_mf.EnableSlideshow = false;
+            pb_porsche_mf.FlipHorizontal = false;
+            pb_porsche_mf.FlipVertical = false;
+            pb_porsche_mf.Grayscale = false;
+            pb_porsche_mf.Image = (Image)resources.GetObject("pb_porsche_mf.Image");
+            pb_porsche_mf.ImageOpacity = 1F;
+            pb_porsche_mf.Images = (List<Image>)resources.GetObject("pb_porsche_mf.Images");
+            pb_porsche_mf.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_porsche_mf.IsCircular = false;
+            pb_porsche_mf.Location = new Point(100, 960);
+            pb_porsche_mf.MaintainAspectRatio = true;
+            pb_porsche_mf.Name = "pb_porsche_mf";
+            pb_porsche_mf.PlaceholderImage = null;
+            pb_porsche_mf.RotationAngle = 0F;
+            pb_porsche_mf.Saturation = 1F;
+            pb_porsche_mf.ShowBorder = true;
+            pb_porsche_mf.Size = new Size(545, 466);
+            pb_porsche_mf.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
+            pb_porsche_mf.TabIndex = 14;
+            pb_porsche_mf.Text = "siticonePictureBox1";
+            pb_porsche_mf.MouseEnter += pb_mf_MouseEnter;
+            pb_porsche_mf.MouseLeave += pb_mf_MouseLeave;
             // 
             // container_menu
             // 
@@ -163,11 +227,10 @@
             // 
             container_menu.Panel1.AccessibleName = "pnl_options";
             container_menu.Panel1.BackColor = Color.Black;
-            container_menu.Panel1.Controls.Add(btn_menu_acc);
-            container_menu.Panel1.Controls.Add(btn_menu_services_list);
             container_menu.Panel1.Controls.Add(btn_menu_purchases_list);
             container_menu.Panel1.Controls.Add(btn_menu_manufacturer_list);
-            container_menu.Panel1.Controls.Add(lbl_ChhipaMotors_Text);
+            container_menu.Panel1.Controls.Add(btn_menu_acc);
+            container_menu.Panel1.Controls.Add(btn_menu_services_list);
             container_menu.Panel1Title = "Panel 1";
             // 
             // container_menu.Panel2
@@ -197,96 +260,6 @@
             container_menu.SwapPanelsHotkey = Keys.Control | Keys.Alt | Keys.S;
             container_menu.TabIndex = 26;
             container_menu.ToggleOrientationHotkey = Keys.Control | Keys.Alt | Keys.O;
-            // 
-            // btn_menu_acc
-            // 
-            btn_menu_acc.AccessibilityDescription = "";
-            btn_menu_acc.AccessibleDescription = "Button ";
-            btn_menu_acc.AccessibleName = "";
-            btn_menu_acc.AccessibleRole = AccessibleRole.PushButton;
-            btn_menu_acc.AnimationSpeed = 0.09F;
-            btn_menu_acc.BackColor = Color.Transparent;
-            btn_menu_acc.BadgeColor = Color.FromArgb(239, 68, 68);
-            btn_menu_acc.BadgeCount = 0;
-            btn_menu_acc.BadgePadding = 8;
-            btn_menu_acc.BadgeSize = 20;
-            btn_menu_acc.BadgeTextColor = Color.White;
-            btn_menu_acc.CornerRadiusBottomLeft = 8;
-            btn_menu_acc.CornerRadiusBottomRight = 8;
-            btn_menu_acc.CornerRadiusTopLeft = 8;
-            btn_menu_acc.CornerRadiusTopRight = 8;
-            btn_menu_acc.DescriptionColor = SystemColors.Highlight;
-            btn_menu_acc.DescriptionFont = new Font("Lucida Fax", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_menu_acc.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_menu_acc.GradientEndColor = Color.FromArgb(0, 200, 255);
-            btn_menu_acc.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            btn_menu_acc.GradientStartColor = Color.FromArgb(41, 121, 255);
-            btn_menu_acc.HoverColor = Color.FromArgb(45, 45, 45);
-            btn_menu_acc.ImageSize = new Size(24, 24);
-            btn_menu_acc.IndicatorColor = Color.White;
-            btn_menu_acc.IndicatorGradientColor = Color.White;
-            btn_menu_acc.IndicatorWidth = 3;
-            btn_menu_acc.IsAccessibilityEnabled = true;
-            btn_menu_acc.IsSelected = false;
-            btn_menu_acc.Location = new Point(55, 569);
-            btn_menu_acc.Name = "btn_menu_acc";
-            btn_menu_acc.NormalColor = Color.DarkGray;
-            btn_menu_acc.PressColor = Color.FromArgb(30, 30, 30);
-            btn_menu_acc.RippleColor = Color.White;
-            btn_menu_acc.SelectedColor = Color.DimGray;
-            btn_menu_acc.SelectedDescriptionColor = Color.LightGray;
-            btn_menu_acc.SelectedTextColor = Color.White;
-            btn_menu_acc.ShowBadge = false;
-            btn_menu_acc.Size = new Size(250, 57);
-            btn_menu_acc.TabIndex = 4;
-            btn_menu_acc.Text = "Account";
-            btn_menu_acc.TextColor = Color.White;
-            btn_menu_acc.UseGradientBackground = false;
-            // 
-            // btn_menu_services_list
-            // 
-            btn_menu_services_list.AccessibilityDescription = "";
-            btn_menu_services_list.AccessibleDescription = "Button ";
-            btn_menu_services_list.AccessibleName = "";
-            btn_menu_services_list.AccessibleRole = AccessibleRole.PushButton;
-            btn_menu_services_list.AnimationSpeed = 0.09F;
-            btn_menu_services_list.BackColor = Color.Transparent;
-            btn_menu_services_list.BadgeColor = Color.FromArgb(239, 68, 68);
-            btn_menu_services_list.BadgeCount = 0;
-            btn_menu_services_list.BadgePadding = 8;
-            btn_menu_services_list.BadgeSize = 20;
-            btn_menu_services_list.BadgeTextColor = Color.White;
-            btn_menu_services_list.CornerRadiusBottomLeft = 8;
-            btn_menu_services_list.CornerRadiusBottomRight = 8;
-            btn_menu_services_list.CornerRadiusTopLeft = 8;
-            btn_menu_services_list.CornerRadiusTopRight = 8;
-            btn_menu_services_list.DescriptionColor = SystemColors.Highlight;
-            btn_menu_services_list.DescriptionFont = new Font("Lucida Fax", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_menu_services_list.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_menu_services_list.GradientEndColor = Color.FromArgb(0, 200, 255);
-            btn_menu_services_list.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            btn_menu_services_list.GradientStartColor = Color.FromArgb(41, 121, 255);
-            btn_menu_services_list.HoverColor = Color.FromArgb(45, 45, 45);
-            btn_menu_services_list.ImageSize = new Size(24, 24);
-            btn_menu_services_list.IndicatorColor = Color.White;
-            btn_menu_services_list.IndicatorGradientColor = Color.White;
-            btn_menu_services_list.IndicatorWidth = 3;
-            btn_menu_services_list.IsAccessibilityEnabled = true;
-            btn_menu_services_list.IsSelected = false;
-            btn_menu_services_list.Location = new Point(55, 262);
-            btn_menu_services_list.Name = "btn_menu_services_list";
-            btn_menu_services_list.NormalColor = Color.DarkGray;
-            btn_menu_services_list.PressColor = Color.FromArgb(30, 30, 30);
-            btn_menu_services_list.RippleColor = Color.White;
-            btn_menu_services_list.SelectedColor = Color.DimGray;
-            btn_menu_services_list.SelectedDescriptionColor = Color.LightGray;
-            btn_menu_services_list.SelectedTextColor = Color.White;
-            btn_menu_services_list.ShowBadge = false;
-            btn_menu_services_list.Size = new Size(250, 57);
-            btn_menu_services_list.TabIndex = 3;
-            btn_menu_services_list.Text = "Services";
-            btn_menu_services_list.TextColor = Color.White;
-            btn_menu_services_list.UseGradientBackground = false;
             // 
             // btn_menu_purchases_list
             // 
@@ -377,6 +350,98 @@
             btn_menu_manufacturer_list.Text = "Manufacturers";
             btn_menu_manufacturer_list.TextColor = Color.White;
             btn_menu_manufacturer_list.UseGradientBackground = false;
+            btn_menu_manufacturer_list.Click += btn_menu_manufacturer_list_Click;
+            // 
+            // btn_menu_acc
+            // 
+            btn_menu_acc.AccessibilityDescription = "";
+            btn_menu_acc.AccessibleDescription = "Button ";
+            btn_menu_acc.AccessibleName = "";
+            btn_menu_acc.AccessibleRole = AccessibleRole.PushButton;
+            btn_menu_acc.AnimationSpeed = 0.09F;
+            btn_menu_acc.BackColor = Color.Transparent;
+            btn_menu_acc.BadgeColor = Color.FromArgb(239, 68, 68);
+            btn_menu_acc.BadgeCount = 0;
+            btn_menu_acc.BadgePadding = 8;
+            btn_menu_acc.BadgeSize = 20;
+            btn_menu_acc.BadgeTextColor = Color.White;
+            btn_menu_acc.CornerRadiusBottomLeft = 8;
+            btn_menu_acc.CornerRadiusBottomRight = 8;
+            btn_menu_acc.CornerRadiusTopLeft = 8;
+            btn_menu_acc.CornerRadiusTopRight = 8;
+            btn_menu_acc.DescriptionColor = SystemColors.Highlight;
+            btn_menu_acc.DescriptionFont = new Font("Lucida Fax", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_menu_acc.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_menu_acc.GradientEndColor = Color.FromArgb(0, 200, 255);
+            btn_menu_acc.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            btn_menu_acc.GradientStartColor = Color.FromArgb(41, 121, 255);
+            btn_menu_acc.HoverColor = Color.FromArgb(45, 45, 45);
+            btn_menu_acc.ImageSize = new Size(24, 24);
+            btn_menu_acc.IndicatorColor = Color.White;
+            btn_menu_acc.IndicatorGradientColor = Color.White;
+            btn_menu_acc.IndicatorWidth = 3;
+            btn_menu_acc.IsAccessibilityEnabled = true;
+            btn_menu_acc.IsSelected = false;
+            btn_menu_acc.Location = new Point(55, 552);
+            btn_menu_acc.Name = "btn_menu_acc";
+            btn_menu_acc.NormalColor = Color.DarkGray;
+            btn_menu_acc.PressColor = Color.FromArgb(30, 30, 30);
+            btn_menu_acc.RippleColor = Color.White;
+            btn_menu_acc.SelectedColor = Color.DimGray;
+            btn_menu_acc.SelectedDescriptionColor = Color.LightGray;
+            btn_menu_acc.SelectedTextColor = Color.White;
+            btn_menu_acc.ShowBadge = false;
+            btn_menu_acc.Size = new Size(250, 57);
+            btn_menu_acc.TabIndex = 4;
+            btn_menu_acc.Text = "Account";
+            btn_menu_acc.TextColor = Color.White;
+            btn_menu_acc.UseGradientBackground = false;
+            btn_menu_acc.Click += btn_menu_acc_Click;
+            // 
+            // btn_menu_services_list
+            // 
+            btn_menu_services_list.AccessibilityDescription = "";
+            btn_menu_services_list.AccessibleDescription = "Button ";
+            btn_menu_services_list.AccessibleName = "";
+            btn_menu_services_list.AccessibleRole = AccessibleRole.PushButton;
+            btn_menu_services_list.AnimationSpeed = 0.09F;
+            btn_menu_services_list.BackColor = Color.Transparent;
+            btn_menu_services_list.BadgeColor = Color.FromArgb(239, 68, 68);
+            btn_menu_services_list.BadgeCount = 0;
+            btn_menu_services_list.BadgePadding = 8;
+            btn_menu_services_list.BadgeSize = 20;
+            btn_menu_services_list.BadgeTextColor = Color.White;
+            btn_menu_services_list.CornerRadiusBottomLeft = 8;
+            btn_menu_services_list.CornerRadiusBottomRight = 8;
+            btn_menu_services_list.CornerRadiusTopLeft = 8;
+            btn_menu_services_list.CornerRadiusTopRight = 8;
+            btn_menu_services_list.DescriptionColor = SystemColors.Highlight;
+            btn_menu_services_list.DescriptionFont = new Font("Lucida Fax", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_menu_services_list.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_menu_services_list.GradientEndColor = Color.FromArgb(0, 200, 255);
+            btn_menu_services_list.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            btn_menu_services_list.GradientStartColor = Color.FromArgb(41, 121, 255);
+            btn_menu_services_list.HoverColor = Color.FromArgb(45, 45, 45);
+            btn_menu_services_list.ImageSize = new Size(24, 24);
+            btn_menu_services_list.IndicatorColor = Color.White;
+            btn_menu_services_list.IndicatorGradientColor = Color.White;
+            btn_menu_services_list.IndicatorWidth = 3;
+            btn_menu_services_list.IsAccessibilityEnabled = true;
+            btn_menu_services_list.IsSelected = false;
+            btn_menu_services_list.Location = new Point(55, 262);
+            btn_menu_services_list.Name = "btn_menu_services_list";
+            btn_menu_services_list.NormalColor = Color.DarkGray;
+            btn_menu_services_list.PressColor = Color.FromArgb(30, 30, 30);
+            btn_menu_services_list.RippleColor = Color.White;
+            btn_menu_services_list.SelectedColor = Color.DimGray;
+            btn_menu_services_list.SelectedDescriptionColor = Color.LightGray;
+            btn_menu_services_list.SelectedTextColor = Color.White;
+            btn_menu_services_list.ShowBadge = false;
+            btn_menu_services_list.Size = new Size(250, 57);
+            btn_menu_services_list.TabIndex = 3;
+            btn_menu_services_list.Text = "Services";
+            btn_menu_services_list.TextColor = Color.White;
+            btn_menu_services_list.UseGradientBackground = false;
             // 
             // btn_close_menu
             // 
@@ -454,6 +519,49 @@
             btn_close_menu.UseParticles = false;
             btn_close_menu.Click += btn_close_menu_Click_1;
             // 
+            // pb_blur_screen
+            // 
+            pb_blur_screen.BackColor = Color.FromArgb(30, 30, 30);
+            pb_blur_screen.BorderColor = Color.FromArgb(40, 40, 40);
+            pb_blur_screen.BorderWidth = 1;
+            pb_blur_screen.Brightness = 1F;
+            pb_blur_screen.Contrast = 1F;
+            pb_blur_screen.CornerRadius = 10;
+            pb_blur_screen.DraggingSpeed = 3.15F;
+            pb_blur_screen.EnableAsyncLoading = false;
+            pb_blur_screen.EnableCaching = false;
+            pb_blur_screen.EnableDragDrop = false;
+            pb_blur_screen.EnableExtendedImageSources = false;
+            pb_blur_screen.EnableFilters = false;
+            pb_blur_screen.EnableFlipping = false;
+            pb_blur_screen.EnableGlow = false;
+            pb_blur_screen.EnableHighDpiSupport = false;
+            pb_blur_screen.EnableMouseInteraction = false;
+            pb_blur_screen.EnablePlaceholder = false;
+            pb_blur_screen.EnableRotation = false;
+            pb_blur_screen.EnableShadow = true;
+            pb_blur_screen.EnableSlideshow = false;
+            pb_blur_screen.FlipHorizontal = false;
+            pb_blur_screen.FlipVertical = false;
+            pb_blur_screen.Grayscale = false;
+            pb_blur_screen.Image = (Image)resources.GetObject("pb_blur_screen.Image");
+            pb_blur_screen.ImageOpacity = 1F;
+            pb_blur_screen.Images = (List<Image>)resources.GetObject("pb_blur_screen.Images");
+            pb_blur_screen.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_blur_screen.IsCircular = false;
+            pb_blur_screen.Location = new Point(1087, 0);
+            pb_blur_screen.MaintainAspectRatio = true;
+            pb_blur_screen.Name = "pb_blur_screen";
+            pb_blur_screen.PlaceholderImage = null;
+            pb_blur_screen.RotationAngle = 0F;
+            pb_blur_screen.Saturation = 1F;
+            pb_blur_screen.ShowBorder = true;
+            pb_blur_screen.Size = new Size(248, 716);
+            pb_blur_screen.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
+            pb_blur_screen.TabIndex = 28;
+            pb_blur_screen.Text = "siticonePictureBox1";
+            pb_blur_screen.Click += pb_blur_screen_Click;
+            // 
             // btn_menu
             // 
             btn_menu.BackColor = Color.Transparent;
@@ -519,18 +627,6 @@
             btn_menu.TextShadowOffsetX = 1;
             btn_menu.TextShadowOffsetY = 1;
             btn_menu.Click += btn_menu_Click;
-            // 
-            // lbl_msg
-            // 
-            lbl_msg.AutoSize = true;
-            lbl_msg.BackColor = Color.Transparent;
-            lbl_msg.Font = new Font("Arial", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_msg.ForeColor = Color.White;
-            lbl_msg.Location = new Point(0, 803);
-            lbl_msg.Name = "lbl_msg";
-            lbl_msg.Size = new Size(1159, 72);
-            lbl_msg.TabIndex = 12;
-            lbl_msg.Text = "The Road To Your Next Car Starts Here";
             // 
             // pb_nissan_mf
             // 
@@ -620,94 +716,6 @@
             pb_lambo_mf.MouseEnter += pb_mf_MouseEnter;
             pb_lambo_mf.MouseLeave += pb_mf_MouseLeave;
             // 
-            // pb_MacLaren_mf
-            // 
-            pb_MacLaren_mf.BackColor = Color.White;
-            pb_MacLaren_mf.BorderColor = Color.Black;
-            pb_MacLaren_mf.BorderWidth = 1;
-            pb_MacLaren_mf.Brightness = 1F;
-            pb_MacLaren_mf.Contrast = 1F;
-            pb_MacLaren_mf.CornerRadius = 0;
-            pb_MacLaren_mf.DraggingSpeed = 3.15F;
-            pb_MacLaren_mf.EnableAsyncLoading = false;
-            pb_MacLaren_mf.EnableCaching = false;
-            pb_MacLaren_mf.EnableDragDrop = false;
-            pb_MacLaren_mf.EnableExtendedImageSources = false;
-            pb_MacLaren_mf.EnableFilters = false;
-            pb_MacLaren_mf.EnableFlipping = false;
-            pb_MacLaren_mf.EnableGlow = false;
-            pb_MacLaren_mf.EnableHighDpiSupport = false;
-            pb_MacLaren_mf.EnableMouseInteraction = false;
-            pb_MacLaren_mf.EnablePlaceholder = false;
-            pb_MacLaren_mf.EnableRotation = false;
-            pb_MacLaren_mf.EnableShadow = false;
-            pb_MacLaren_mf.EnableSlideshow = false;
-            pb_MacLaren_mf.FlipHorizontal = false;
-            pb_MacLaren_mf.FlipVertical = false;
-            pb_MacLaren_mf.Grayscale = false;
-            pb_MacLaren_mf.Image = (Image)resources.GetObject("pb_MacLaren_mf.Image");
-            pb_MacLaren_mf.ImageOpacity = 1F;
-            pb_MacLaren_mf.Images = (List<Image>)resources.GetObject("pb_MacLaren_mf.Images");
-            pb_MacLaren_mf.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            pb_MacLaren_mf.IsCircular = false;
-            pb_MacLaren_mf.Location = new Point(690, 960);
-            pb_MacLaren_mf.MaintainAspectRatio = true;
-            pb_MacLaren_mf.Name = "pb_MacLaren_mf";
-            pb_MacLaren_mf.PlaceholderImage = null;
-            pb_MacLaren_mf.RotationAngle = 0F;
-            pb_MacLaren_mf.Saturation = 1F;
-            pb_MacLaren_mf.ShowBorder = true;
-            pb_MacLaren_mf.Size = new Size(545, 466);
-            pb_MacLaren_mf.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            pb_MacLaren_mf.TabIndex = 15;
-            pb_MacLaren_mf.Text = "siticonePictureBox2";
-            pb_MacLaren_mf.MouseEnter += pb_mf_MouseEnter;
-            pb_MacLaren_mf.MouseLeave += pb_mf_MouseLeave;
-            // 
-            // pb_porsche_mf
-            // 
-            pb_porsche_mf.BackColor = Color.White;
-            pb_porsche_mf.BorderColor = Color.Black;
-            pb_porsche_mf.BorderWidth = 1;
-            pb_porsche_mf.Brightness = 1F;
-            pb_porsche_mf.Contrast = 1F;
-            pb_porsche_mf.CornerRadius = 0;
-            pb_porsche_mf.DraggingSpeed = 3.15F;
-            pb_porsche_mf.EnableAsyncLoading = false;
-            pb_porsche_mf.EnableCaching = false;
-            pb_porsche_mf.EnableDragDrop = false;
-            pb_porsche_mf.EnableExtendedImageSources = false;
-            pb_porsche_mf.EnableFilters = false;
-            pb_porsche_mf.EnableFlipping = false;
-            pb_porsche_mf.EnableGlow = false;
-            pb_porsche_mf.EnableHighDpiSupport = false;
-            pb_porsche_mf.EnableMouseInteraction = false;
-            pb_porsche_mf.EnablePlaceholder = false;
-            pb_porsche_mf.EnableRotation = false;
-            pb_porsche_mf.EnableShadow = false;
-            pb_porsche_mf.EnableSlideshow = false;
-            pb_porsche_mf.FlipHorizontal = false;
-            pb_porsche_mf.FlipVertical = false;
-            pb_porsche_mf.Grayscale = false;
-            pb_porsche_mf.Image = (Image)resources.GetObject("pb_porsche_mf.Image");
-            pb_porsche_mf.ImageOpacity = 1F;
-            pb_porsche_mf.Images = (List<Image>)resources.GetObject("pb_porsche_mf.Images");
-            pb_porsche_mf.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            pb_porsche_mf.IsCircular = false;
-            pb_porsche_mf.Location = new Point(100, 960);
-            pb_porsche_mf.MaintainAspectRatio = true;
-            pb_porsche_mf.Name = "pb_porsche_mf";
-            pb_porsche_mf.PlaceholderImage = null;
-            pb_porsche_mf.RotationAngle = 0F;
-            pb_porsche_mf.Saturation = 1F;
-            pb_porsche_mf.ShowBorder = true;
-            pb_porsche_mf.Size = new Size(545, 466);
-            pb_porsche_mf.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            pb_porsche_mf.TabIndex = 14;
-            pb_porsche_mf.Text = "siticonePictureBox1";
-            pb_porsche_mf.MouseEnter += pb_mf_MouseEnter;
-            pb_porsche_mf.MouseLeave += pb_mf_MouseLeave;
-            // 
             // pb_porsche_logo
             // 
             pb_porsche_logo.BackColor = Color.Transparent;
@@ -791,18 +799,6 @@
             pb_Acc.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Zoom;
             pb_Acc.TabIndex = 6;
             // 
-            // lbl_ChhipaMotors_Text
-            // 
-            lbl_ChhipaMotors_Text.AutoSize = true;
-            lbl_ChhipaMotors_Text.BackColor = Color.Transparent;
-            lbl_ChhipaMotors_Text.Font = new Font("Castellar", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_ChhipaMotors_Text.ForeColor = Color.White;
-            lbl_ChhipaMotors_Text.Location = new Point(338, 46);
-            lbl_ChhipaMotors_Text.Name = "lbl_ChhipaMotors_Text";
-            lbl_ChhipaMotors_Text.Size = new Size(654, 77);
-            lbl_ChhipaMotors_Text.TabIndex = 2;
-            lbl_ChhipaMotors_Text.Text = "Chhipa Motors";
-            // 
             // pb_wallpaper
             // 
             pb_wallpaper.BackColor = Color.FromArgb(30, 30, 30);
@@ -854,9 +850,7 @@
             Name = "MainForm";
             Text = "MainForm";
             pnl_main.ResumeLayout(false);
-            pnl_main.PerformLayout();
             container_menu.Panel1.ResumeLayout(false);
-            container_menu.Panel1.PerformLayout();
             container_menu.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)container_menu).EndInit();
             container_menu.ResumeLayout(false);
@@ -866,10 +860,8 @@
         #endregion
         private SiticoneNetCoreUI.MySiticoneLicenseSettings mySiticoneLicenseSettings1;
         private SiticoneNetCoreUI.SiticoneContentPanel pnl_main;
-        private Label lbl_ChhipaMotors_Text;
         private SiticoneNetCoreUI.SiticonePictureBox pb_Acc;
         private SiticoneNetCoreUI.SiticonePictureBox pb_wallpaper;
-        private Label lbl_msg;
         private SiticoneNetCoreUI.SiticonePictureBox pb_nissan_mf;
         private SiticoneNetCoreUI.SiticonePictureBox pb_lambo_mf;
         private SiticoneNetCoreUI.SiticonePictureBox pb_MacLaren_mf;
@@ -883,6 +875,7 @@
         private SiticoneNetCoreUI.SiticoneDashboardButton btn_menu_services_list;
         private SiticoneNetCoreUI.SiticoneDashboardButton btn_menu_purchases_list;
         private SiticoneNetCoreUI.SiticoneDashboardButton btn_menu_acc;
+        private SiticoneNetCoreUI.SiticoneShimmerLabel lbl_msg;
     }
 }
 

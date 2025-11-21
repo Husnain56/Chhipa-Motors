@@ -31,3 +31,8 @@ D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Mot
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\ref\Chhipa Motors.dll
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.Properties.Resources.resources
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa Motors.sourcelink.json
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Manufacturers_menu.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.AccountPage.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.CreateAccount.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Login.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.UserInfo.resources
