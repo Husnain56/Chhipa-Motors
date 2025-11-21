@@ -4,6 +4,21 @@
     <Compile Update="GUI\AccountPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="GUI\Car Cards\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Car Cards\UserControl_Lamborghini.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\Car Cards\UserControl_McLaren.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\Car Cards\UserControl_Nissan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\Car Cards\UserControl_Porsche.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="GUI\CreateAccount.cs">
       <SubType>UserControl</SubType>
     </Compile>

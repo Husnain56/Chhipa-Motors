@@ -36,3 +36,8 @@ D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Mot
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.CreateAccount.resources
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Login.resources
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.UserInfo.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Car_Cards.UserControl_Lamborghini.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Car_Cards.UserControl_McLaren.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Car_Cards.UserControl_Nissan.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Car_Cards.UserControl_Porsche.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Car_Cards.TestForm.resources

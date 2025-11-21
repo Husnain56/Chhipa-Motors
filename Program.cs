@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Chhipa_Motors.GUI;
+using Chhipa_Motors.GUI.Car_Cards;
 
 namespace Chhipa_Motors
 {
@@ -20,7 +21,7 @@ namespace Chhipa_Motors
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new TestForm());
         }
     }
 }
