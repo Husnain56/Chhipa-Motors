@@ -15,7 +15,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
         public TestForm()
         {
             InitializeComponent();
-            Controls.Add(new UserControl_Porsche() { Dock = DockStyle.Fill });
+            Controls.Add(new UserControl_Nissan() { Dock = DockStyle.Fill });
         }
     }
 }
