@@ -65,7 +65,7 @@
             pb_porschelogo.Images = (List<Image>)resources.GetObject("pb_porschelogo.Images");
             pb_porschelogo.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             pb_porschelogo.IsCircular = false;
-            pb_porschelogo.Location = new Point(264, 3);
+            pb_porschelogo.Location = new Point(345, 147);
             pb_porschelogo.MaintainAspectRatio = true;
             pb_porschelogo.Name = "pb_porschelogo";
             pb_porschelogo.PlaceholderImage = null;
@@ -76,7 +76,7 @@
             pb_porschelogo.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
             pb_porschelogo.TabIndex = 32;
             pb_porschelogo.Text = "siticonePictureBox1";
-            pb_porschelogo.MouseEnter += pb_mf_MouseEnter;  
+            pb_porschelogo.MouseEnter += pb_mf_MouseEnter;
             pb_porschelogo.MouseLeave += pb_mf_MouseLeave;
             // 
             // pb_mcLarenLogo
@@ -109,19 +109,19 @@
             pb_mcLarenLogo.Images = (List<Image>)resources.GetObject("pb_mcLarenLogo.Images");
             pb_mcLarenLogo.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             pb_mcLarenLogo.IsCircular = false;
-            pb_mcLarenLogo.Location = new Point(264, 159);
+            pb_mcLarenLogo.Location = new Point(304, -52);
             pb_mcLarenLogo.MaintainAspectRatio = true;
             pb_mcLarenLogo.Name = "pb_mcLarenLogo";
             pb_mcLarenLogo.PlaceholderImage = null;
             pb_mcLarenLogo.RotationAngle = 0F;
             pb_mcLarenLogo.Saturation = 1F;
             pb_mcLarenLogo.ShowBorder = true;
-            pb_mcLarenLogo.Size = new Size(150, 150);
+            pb_mcLarenLogo.Size = new Size(258, 153);
             pb_mcLarenLogo.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
             pb_mcLarenLogo.TabIndex = 33;
             pb_mcLarenLogo.Text = "siticonePictureBox1";
-            pb_mcLarenLogo.MouseLeave += pb_mf_MouseLeave;
             pb_mcLarenLogo.MouseEnter += pb_mf_MouseEnter;
+            pb_mcLarenLogo.MouseLeave += pb_mf_MouseLeave;
             // 
             // pb_lambologo
             // 
@@ -153,7 +153,7 @@
             pb_lambologo.Images = (List<Image>)resources.GetObject("pb_lambologo.Images");
             pb_lambologo.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             pb_lambologo.IsCircular = false;
-            pb_lambologo.Location = new Point(264, 363);
+            pb_lambologo.Location = new Point(345, 345);
             pb_lambologo.MaintainAspectRatio = true;
             pb_lambologo.Name = "pb_lambologo";
             pb_lambologo.PlaceholderImage = null;
@@ -164,8 +164,8 @@
             pb_lambologo.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
             pb_lambologo.TabIndex = 34;
             pb_lambologo.Text = "siticonePictureBox1";
-            pb_lambologo.MouseLeave += pb_mf_MouseLeave;
             pb_lambologo.MouseEnter += pb_mf_MouseEnter;
+            pb_lambologo.MouseLeave += pb_mf_MouseLeave;
             // 
             // pb_nissanlogo
             // 
@@ -197,7 +197,7 @@
             pb_nissanlogo.Images = (List<Image>)resources.GetObject("pb_nissanlogo.Images");
             pb_nissanlogo.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             pb_nissanlogo.IsCircular = false;
-            pb_nissanlogo.Location = new Point(264, 560);
+            pb_nissanlogo.Location = new Point(334, 573);
             pb_nissanlogo.MaintainAspectRatio = true;
             pb_nissanlogo.Name = "pb_nissanlogo";
             pb_nissanlogo.PlaceholderImage = null;
@@ -208,8 +208,8 @@
             pb_nissanlogo.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
             pb_nissanlogo.TabIndex = 36;
             pb_nissanlogo.Text = "siticonePictureBox1";
-            pb_nissanlogo.MouseLeave += pb_mf_MouseLeave;
             pb_nissanlogo.MouseEnter += pb_mf_MouseEnter;
+            pb_nissanlogo.MouseLeave += pb_mf_MouseLeave;
             // 
             // Manufacturers_menu
             // 
@@ -222,7 +222,7 @@
             Controls.Add(pb_mcLarenLogo);
             Controls.Add(pb_porschelogo);
             Name = "Manufacturers_menu";
-            Size = new Size(687, 676);
+            Size = new Size(1063, 776);
             ResumeLayout(false);
         }
 

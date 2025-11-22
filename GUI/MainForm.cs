@@ -1,4 +1,6 @@
-﻿using SiticoneNetCoreUI;
+﻿using Chhipa_Motors.GUI.Admin_Panel;
+using Chhipa_Motors.GUI.Car_Cards;
+using SiticoneNetCoreUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace Chhipa_Motors.GUI
 {
     public partial class MainForm : Form
@@ -31,7 +32,7 @@ namespace Chhipa_Motors.GUI
             pb_MacLaren_mf.BringToFront();
             pb_nissan_mf.BringToFront();
             lbl_msg.BringToFront();
-            btn_menu.BringToFront();
+            pb_menu.BringToFront();
             container_menu.BringToFront();
             pb_blur_screen.BringToFront();
 
@@ -40,7 +41,7 @@ namespace Chhipa_Motors.GUI
 
             pb_Acc.Parent = pb_wallpaper;
             lbl_msg.Parent = pnl_main;
-            btn_menu.Parent = pb_wallpaper;
+            pb_menu.Parent = pb_wallpaper;
             container_menu.Parent = pb_wallpaper;
             pb_blur_screen.Parent = pnl_main;
 
@@ -56,7 +57,7 @@ namespace Chhipa_Motors.GUI
         private void pb_mf_MouseEnter(object sender, EventArgs e)
         {
             var pic = sender as SiticonePictureBox;
-            pic.BorderColor = Color.White;
+            pic.BorderColor = Color.Silver;
             pic.BorderWidth = 2;
 
         }
@@ -66,38 +67,49 @@ namespace Chhipa_Motors.GUI
             var pic = sender as SiticonePictureBox;
             pic.BorderWidth = 0;
         }
-
+        private void pnl_AfterNavigate(object sender, SiticoneContentPanel.NavigationEventArgs e)
+        {
+            pnl_dynamic_menu.AddContentToView("Manufacturers", new Manufacturers_menu());
+            pnl_dynamic_menu.AddContentToView("Purchases", new UserControl_Users());
+            pnl_dynamic_menu.AddContentToView("Bookings", new UserControl_CreateAdmin());
+            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo());
+        }
         private void btn_menu_Click(object sender, EventArgs e)
         {
             container_menu.Show();
             pb_blur_screen.Show();
-            btn_menu.Hide();
+            pb_menu.Hide();
             pnl_main.AutoScroll = false;
-            btn_menu_manufacturer_list.IsSelected = true;
-            LoadContent(new Manufacturers_menu());
+            pnl_dynamic_menu.AfterNavigate += pnl_AfterNavigate;
+            navbar_menu.SelectedItem = navbar_menu.Items[0];
+            pnl_dynamic_menu.AddContentToView("Manufacturers", new Manufacturers_menu());
         }
 
-        private void btn_close_menu_Click(object sender, EventArgs e)
+        private void pb_acc_Click(object sender, EventArgs e)
         {
-            container_menu.Hide();
-            pb_blur_screen.Hide();
-            btn_menu.Show();
-            pnl_main.AutoScroll = true;
+            container_menu.Show();
+            pb_blur_screen.Show();
+            pb_menu.Hide();
+            pnl_main.AutoScroll = false;
+            pnl_dynamic_menu.AfterNavigate += pnl_AfterNavigate;
+            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo());
+            navbar_menu.SelectedItem = navbar_menu.Items[3];
         }
 
         private void pb_blur_screen_Click(object sender, EventArgs e)
         {
             container_menu.Hide();
             pb_blur_screen.Hide();
-            btn_menu.Show();
+            pb_menu.Show();
             pnl_main.AutoScroll = true;
+            this.pb_wallpaper.Focus();
         }
 
         private void btn_close_menu_Click_1(object sender, EventArgs e)
         {
             container_menu.Hide();
             pb_blur_screen.Hide();
-            btn_menu.Show();
+            pb_menu.Show();
             pnl_main.AutoScroll = true;
         }
 
@@ -108,7 +120,28 @@ namespace Chhipa_Motors.GUI
 
         private void btn_menu_acc_Click(object sender, EventArgs e)
         {
-            LoadContent(new AccountPage());
+            LoadContent(new UserInfo());
         }
+        private void manufacturerCard_Click(object sender, EventArgs e)
+        {
+            string manufacturer = ((Control)sender).Tag.ToString();
+            TestForm manufacturerForm = new TestForm(manufacturer);
+            manufacturerForm.FormClosed += (s, args) => this.Show();
+            this.Hide();
+            manufacturerForm.ShowDialog();
+        }
+
+        //private void pb_menu_btn_MouseEnter(object sender, EventArgs e)
+        //{
+        //    btn_close_menu.BorderColor = Color.White;
+        //    btn_close_menu.BorderWidth = 2;
+
+        //}
+
+        //private void pb_menu_btn_MouseLeave(object sender, EventArgs e)
+        //{
+        //    btn_close_menu.BorderColor = Color.Transparent; 
+        //    btn_close_menu.BorderWidth = 0;
+        //}
     }
 }

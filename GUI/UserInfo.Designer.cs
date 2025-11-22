@@ -49,10 +49,10 @@
             lbl_welcome.Font = new Font("Modern No. 20", 47.9999924F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_welcome.IsAnimating = true;
             lbl_welcome.IsPaused = false;
-            lbl_welcome.Location = new Point(183, 66);
+            lbl_welcome.Location = new Point(92, 114);
             lbl_welcome.Name = "lbl_welcome";
             lbl_welcome.PauseDuration = 0;
-            lbl_welcome.ShimmerColor = Color.Cyan;
+            lbl_welcome.ShimmerColor = Color.Purple;
             lbl_welcome.ShimmerOpacity = 1F;
             lbl_welcome.ShimmerSpeed = 50;
             lbl_welcome.ShimmerWidth = 0.2F;
@@ -69,10 +69,10 @@
             lbl_user.Font = new Font("Modern No. 20", 47.9999924F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_user.IsAnimating = true;
             lbl_user.IsPaused = false;
-            lbl_user.Location = new Point(447, 66);
+            lbl_user.Location = new Point(356, 114);
             lbl_user.Name = "lbl_user";
             lbl_user.PauseDuration = 0;
-            lbl_user.ShimmerColor = Color.Cyan;
+            lbl_user.ShimmerColor = Color.Purple;
             lbl_user.ShimmerOpacity = 1F;
             lbl_user.ShimmerSpeed = 50;
             lbl_user.ShimmerWidth = 0.2F;
@@ -129,7 +129,7 @@
             btn_up_name.IsReadOnly = false;
             btn_up_name.IsToggleButton = false;
             btn_up_name.IsToggled = false;
-            btn_up_name.Location = new Point(76, 205);
+            btn_up_name.Location = new Point(12, 243);
             btn_up_name.LongPressDurationMS = 1000;
             btn_up_name.Name = "btn_up_name";
             btn_up_name.NormalFontStyle = FontStyle.Regular;
@@ -205,7 +205,7 @@
             btn_up_phone.IsReadOnly = false;
             btn_up_phone.IsToggleButton = false;
             btn_up_phone.IsToggled = false;
-            btn_up_phone.Location = new Point(76, 354);
+            btn_up_phone.Location = new Point(12, 392);
             btn_up_phone.LongPressDurationMS = 1000;
             btn_up_phone.Name = "btn_up_phone";
             btn_up_phone.NormalFontStyle = FontStyle.Regular;
@@ -281,7 +281,7 @@
             btn_up_email.IsReadOnly = false;
             btn_up_email.IsToggleButton = false;
             btn_up_email.IsToggled = false;
-            btn_up_email.Location = new Point(76, 281);
+            btn_up_email.Location = new Point(12, 319);
             btn_up_email.LongPressDurationMS = 1000;
             btn_up_email.Name = "btn_up_email";
             btn_up_email.NormalFontStyle = FontStyle.Regular;
@@ -352,7 +352,7 @@
             container_update_info.HoverBorderSize = 2;
             container_update_info.HoverShadowDepth = -1;
             container_update_info.IsReadonly = false;
-            container_update_info.Location = new Point(373, 193);
+            container_update_info.Location = new Point(249, 231);
             container_update_info.Name = "container_update_info";
             container_update_info.RippleColor = Color.FromArgb(50, 255, 255, 255);
             container_update_info.RippleDuration = 750;
@@ -366,7 +366,7 @@
             container_update_info.ShimmerSpeed = 5F;
             container_update_info.ShimmerWidth = 50F;
             container_update_info.ShowBorder = true;
-            container_update_info.Size = new Size(409, 211);
+            container_update_info.Size = new Size(409, 227);
             container_update_info.TabIndex = 6;
             container_update_info.TopLeftRadius = 20;
             container_update_info.TopRightRadius = 20;
@@ -419,7 +419,7 @@
             btn_confirm.IsReadOnly = false;
             btn_confirm.IsToggleButton = false;
             btn_confirm.IsToggled = false;
-            btn_confirm.Location = new Point(255, 147);
+            btn_confirm.Location = new Point(255, 161);
             btn_confirm.LongPressDurationMS = 1000;
             btn_confirm.Name = "btn_confirm";
             btn_confirm.NormalFontStyle = FontStyle.Regular;

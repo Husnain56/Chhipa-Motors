@@ -16,6 +16,7 @@
   <ItemGroup>
     <Folder Include="BL\" />
     <Folder Include="DL\" />
+    <Folder Include="GUI\HR\Pages\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 

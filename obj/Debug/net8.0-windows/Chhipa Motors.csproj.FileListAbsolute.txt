@@ -41,3 +41,10 @@ D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Mot
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Car_Cards.UserControl_Nissan.resources
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Car_Cards.UserControl_Porsche.resources
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Car_Cards.TestForm.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Admin_Panel.AdminDashboard.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\HRManagementSystem.Form1.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Admin_Panel.UserControl_Account.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Admin_Panel.UserControl_BookedCars.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Admin_Panel.UserControl_CreateAdmin.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Admin_Panel.UserControl_SalesRecord.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Admin_Panel.UserControl_Users.resources

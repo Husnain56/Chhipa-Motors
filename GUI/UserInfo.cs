@@ -21,20 +21,20 @@ namespace Chhipa_Motors.GUI
         private void btn_up_name_Click(object sender, EventArgs e)
         {
             container_update_info.Show();
-            txt_input.PlaceholderText += "Name";
+            txt_input.PlaceholderText = "Enter new Name";
         }
 
         private void btn_up_email_Click(object sender, EventArgs e)
         {
             container_update_info.Show();
-            txt_input.PlaceholderText += "Email";
+            txt_input.PlaceholderText = "Enter new Email";
         }
 
         private void btn_up_phone_Click(object sender, EventArgs e)
         {
             container_update_info.Show();
-            txt_input.PlaceholderText += "Phone Number";
-        }
+            txt_input.PlaceholderText = "Enter new Phone Number";
+        }  
 
         private void btn_confirm_Click(object sender, EventArgs e)
         {
