@@ -10,13 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.0-preview2.25289.6" />
     <PackageReference Include="Siticone.NetCore.UI" Version="2025.10.21" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="BL\" />
-    <Folder Include="DL\" />
     <Folder Include="GUI\HR\Pages\" />
+    <Folder Include="NewFolder\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 

@@ -50,6 +50,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[7.0.0-preview2.25289.6, )"
+            },
             "Siticone.NetCore.UI": {
               "target": "Package",
               "version": "[2025.10.21, )"
