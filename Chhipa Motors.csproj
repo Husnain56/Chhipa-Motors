@@ -10,15 +10,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="GUI\HR\**" />
+    <EmbeddedResource Remove="GUI\HR\**" />
+    <None Remove="GUI\HR\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ChhipaMotors.mdf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.0-preview2.25289.6" />
     <PackageReference Include="Siticone.NetCore.UI" Version="2025.10.21" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BL\" />
-    <Folder Include="GUI\HR\Pages\" />
-    <Folder Include="NewFolder\" />
     <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ChhipaMotors.mdf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +47,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ChhipaMotors_log.ldf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

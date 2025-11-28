@@ -1,0 +1,216 @@
+﻿using Chhipa_Motors.GUI.Admin_Panel;
+using Microsoft.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Chhipa_Motors.DTO;
+
+namespace Chhipa_Motors.DL
+{
+    public class AdminDL
+    {
+        private DBConnection _dbCon;
+        public AdminDL()
+        {
+            _dbCon = new DBConnection();
+        }
+
+        public int CreateAdmin(UserDTO userDTO)
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "INSERT INTO Users (Username, Password, Role) VALUES (@Username, @Password, @Role)";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@Username", userDTO.Username);
+                com.Parameters.AddWithValue("@Password", userDTO.Password);
+                com.Parameters.AddWithValue("@Role", userDTO.Role);
+                int rowAffected = com.ExecuteNonQuery();
+                return rowAffected;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while creating the admin.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        
+        public DataTable GetAdmins()
+        {
+            try { 
+                _dbCon.Con.Open();
+                string query = "SELECT UserID,Username,Role FROM Users WHERE Role = 'Admin'";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                SqlDataReader reader = com.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving admins.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+            
+        }
+
+        public DataTable GetUsers()
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "SELECT UserID,Username,Role FROM Users WHERE Role = 'User' AND UserID NOT IN (SELECT UserID FROM Customers);";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                SqlDataReader reader = com.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving users.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+
+        public DataTable GetCustomers()
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "SELECT U.UserID, U.Username, C.FullName, C.Email, C.PhoneNumber, C.Address FROM Users U JOIN Customers C ON U.UserID = C.CustomerID WHERE U.Role = 'User';";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                SqlDataReader reader = com.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving customers.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public int DeleteUser(UserDTO userDTO)
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "DELETE FROM Users WHERE UserID = @UserID AND UserID NOT IN (SELECT CustomerID FROM Customers)";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@UserID", userDTO.Id);
+                int rowAffected = com.ExecuteNonQuery();
+                return rowAffected;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while deleting the user.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public DataTable GetAllCars()
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "SELECT CarID, CarName, Manufacturer, ModelYear, Price, Stock, Active as Status FROM Cars";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                SqlDataReader reader = com.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving cars.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public int updateCarPrice(CarDTO carDTO)
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "UPDATE Cars SET Price = @Price WHERE CarID = @CarID";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@Price", carDTO.Price);
+                com.Parameters.AddWithValue("@CarID", carDTO.CarID);
+
+                int rowAffected = com.ExecuteNonQuery();
+                return rowAffected;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while updating the car price.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public int updateCarStock(CarDTO carDTO)
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "UPDATE Cars SET Stock = @Stock WHERE CarID = @CarID";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@Stock", carDTO.Stock);
+                com.Parameters.AddWithValue("@CarID", carDTO.CarID);
+                int rowAffected = com.ExecuteNonQuery();
+                return rowAffected;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while updating the car stock.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public int changeCarStatus(CarDTO carDTO)
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "UPDATE Cars SET Active = @Status WHERE CarID = @CarID";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@Status", carDTO.Status);
+                com.Parameters.AddWithValue("@CarID", carDTO.CarID);
+                int rowAffected = com.ExecuteNonQuery();
+                return rowAffected;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while changing the car status.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+    }
+}

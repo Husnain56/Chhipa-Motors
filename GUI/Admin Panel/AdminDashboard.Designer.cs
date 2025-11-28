@@ -176,22 +176,21 @@
             // pnl_dynamic
             // 
             pnl_dynamic.BackColor = SystemColors.ActiveCaptionText;
-            pnl_dynamic.ContentBackColor = Color.FromArgb(0, 0, 64);
+            pnl_dynamic.ContentBackColor = Color.Indigo;
             pnl_dynamic.ContentPadding = new Padding(0);
             pnl_dynamic.DefaultTitleFont = new Font("Segoe UI", 10F, FontStyle.Bold);
-            pnl_dynamic.Dock = DockStyle.Fill;
             pnl_dynamic.EmptyContentMessageColor = Color.Black;
             pnl_dynamic.EmptyContentMessageFont = new Font("Segoe UI", 12F);
             pnl_dynamic.Font = new Font("Segoe UI", 8F);
-            pnl_dynamic.Location = new Point(0, 0);
+            pnl_dynamic.Location = new Point(235, 0);
             pnl_dynamic.Name = "pnl_dynamic";
-            pnl_dynamic.Size = new Size(1350, 747);
+            pnl_dynamic.Size = new Size(1115, 747);
             pnl_dynamic.TabIndex = 4;
             pnl_dynamic.TargetNavbar = siticoneNavbar1;
-            pnl_dynamic.TitleBackColor = Color.FromArgb(0, 0, 64);
+            pnl_dynamic.TitleBackColor = Color.Azure;
             pnl_dynamic.TitleForeColor = Color.FromArgb(50, 50, 50);
             pnl_dynamic.TitlePadding = new Padding(20, 0, 20, 0);
-            pnl_dynamic.TitleSeparatorColor = Color.FromArgb(0, 0, 64);
+            pnl_dynamic.TitleSeparatorColor = Color.White;
             // 
             // siticoneLeftSidebar1
             // 

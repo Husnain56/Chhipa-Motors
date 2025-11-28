@@ -21,6 +21,7 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             pnl_dynamic.ContentBackColor = Color.FromArgb(8, 6, 16);
             pnl_dynamic.TitleSeparatorColor = Color.FromArgb(8, 6, 16);
             pnl_dynamic.TitleBackColor = Color.FromArgb(8, 6, 16);
+            pnl_dynamic.Dock = DockStyle.None;
         }
         private void pnl_AfterNavigate(object sender, SiticoneContentPanel.NavigationEventArgs e)
         {
