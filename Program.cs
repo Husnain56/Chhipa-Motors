@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Chhipa_Motors.GUI;
 using Chhipa_Motors.GUI.Admin_Panel;
+using Chhipa_Motors.GUI.LoginGUI;
 
 namespace Chhipa_Motors
 {
@@ -21,7 +22,7 @@ namespace Chhipa_Motors
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminDashboard());
+            Application.Run(new LoginForm());
         }
     }
 }
