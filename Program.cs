@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Chhipa_Motors.GUI;
 using Chhipa_Motors.GUI.Admin_Panel;
 using Chhipa_Motors.GUI.LoginGUI;
+using Chhipa_Motors.GUI.Menu_Pages;
 
 namespace Chhipa_Motors
 {
@@ -22,7 +23,7 @@ namespace Chhipa_Motors
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new MainForm());
         }
     }
 }

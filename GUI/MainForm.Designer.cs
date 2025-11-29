@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             SiticoneNetCoreUI.NavBarItem navBarItem1 = new SiticoneNetCoreUI.NavBarItem();
             SiticoneNetCoreUI.NavBarItem navBarItem2 = new SiticoneNetCoreUI.NavBarItem();
             SiticoneNetCoreUI.NavBarItem navBarItem3 = new SiticoneNetCoreUI.NavBarItem();
@@ -36,9 +35,9 @@
             SiticoneNetCoreUI.TitleSection titleSection1 = new SiticoneNetCoreUI.TitleSection();
             SiticoneNetCoreUI.TitleSection titleSection2 = new SiticoneNetCoreUI.TitleSection();
             SiticoneNetCoreUI.TitleSection titleSection3 = new SiticoneNetCoreUI.TitleSection();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             mySiticoneLicenseSettings1 = new SiticoneNetCoreUI.MySiticoneLicenseSettings();
             pnl_main = new SiticoneNetCoreUI.SiticoneContentPanel();
-            pb_blur_screen = new SiticoneNetCoreUI.SiticonePictureBox();
             container_menu = new SiticoneNetCoreUI.SiticoneSplitContainer();
             navbar_menu = new SiticoneNetCoreUI.SiticoneNavbar();
             pnl_dynamic_menu = new SiticoneNetCoreUI.SiticoneContentPanel();
@@ -64,7 +63,6 @@
             pnl_main.BackColor = Color.Black;
             pnl_main.ContentBackColor = Color.Black;
             pnl_main.ContentPadding = new Padding(0);
-            pnl_main.Controls.Add(pb_blur_screen);
             pnl_main.Controls.Add(container_menu);
             pnl_main.Controls.Add(pb_nissan_mf);
             pnl_main.Controls.Add(pb_lambo_mf);
@@ -89,49 +87,6 @@
             pnl_main.TitleForeColor = Color.Black;
             pnl_main.TitlePadding = new Padding(20, 0, 20, 0);
             pnl_main.TitleSeparatorColor = Color.Black;
-            // 
-            // pb_blur_screen
-            // 
-            pb_blur_screen.BackColor = Color.FromArgb(30, 30, 30);
-            pb_blur_screen.BorderColor = Color.FromArgb(40, 40, 40);
-            pb_blur_screen.BorderWidth = 1;
-            pb_blur_screen.Brightness = 1F;
-            pb_blur_screen.Contrast = 1F;
-            pb_blur_screen.CornerRadius = 10;
-            pb_blur_screen.DraggingSpeed = 3.15F;
-            pb_blur_screen.EnableAsyncLoading = false;
-            pb_blur_screen.EnableCaching = false;
-            pb_blur_screen.EnableDragDrop = false;
-            pb_blur_screen.EnableExtendedImageSources = false;
-            pb_blur_screen.EnableFilters = false;
-            pb_blur_screen.EnableFlipping = false;
-            pb_blur_screen.EnableGlow = false;
-            pb_blur_screen.EnableHighDpiSupport = false;
-            pb_blur_screen.EnableMouseInteraction = false;
-            pb_blur_screen.EnablePlaceholder = false;
-            pb_blur_screen.EnableRotation = false;
-            pb_blur_screen.EnableShadow = true;
-            pb_blur_screen.EnableSlideshow = false;
-            pb_blur_screen.FlipHorizontal = false;
-            pb_blur_screen.FlipVertical = false;
-            pb_blur_screen.Grayscale = false;
-            pb_blur_screen.Image = (Image)resources.GetObject("pb_blur_screen.Image");
-            pb_blur_screen.ImageOpacity = 1F;
-            pb_blur_screen.Images = (List<Image>)resources.GetObject("pb_blur_screen.Images");
-            pb_blur_screen.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            pb_blur_screen.IsCircular = false;
-            pb_blur_screen.Location = new Point(1087, 0);
-            pb_blur_screen.MaintainAspectRatio = true;
-            pb_blur_screen.Name = "pb_blur_screen";
-            pb_blur_screen.PlaceholderImage = null;
-            pb_blur_screen.RotationAngle = 0F;
-            pb_blur_screen.Saturation = 1F;
-            pb_blur_screen.ShowBorder = true;
-            pb_blur_screen.Size = new Size(263, 716);
-            pb_blur_screen.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            pb_blur_screen.TabIndex = 28;
-            pb_blur_screen.Text = "siticonePictureBox1";
-            pb_blur_screen.Click += pb_blur_screen_Click;
             // 
             // container_menu
             // 
@@ -167,6 +122,7 @@
             container_menu.Panel1.AccessibleName = "pnl_options";
             container_menu.Panel1.BackColor = Color.Black;
             container_menu.Panel1.Controls.Add(navbar_menu);
+            container_menu.Panel1MinSize = 15;
             container_menu.Panel1Title = "Panel 1";
             // 
             // container_menu.Panel2
@@ -175,9 +131,10 @@
             container_menu.Panel2.AutoScroll = true;
             container_menu.Panel2.BackColor = Color.Black;
             container_menu.Panel2.Controls.Add(pnl_dynamic_menu);
+            container_menu.Panel2MinSize = 35;
             container_menu.Panel2Title = "Panel 2";
             container_menu.ShowPanelHeaders = false;
-            container_menu.Size = new Size(1089, 716);
+            container_menu.Size = new Size(1338, 716);
             container_menu.SnapDistance = 20;
             container_menu.SnapPositions = new float[]
     {
@@ -186,8 +143,8 @@
     0.75F
     };
             container_menu.SplitterCursor = Cursors.VSplit;
-            container_menu.SplitterDistance = 362;
-            container_menu.SplitterHighlightColor = Color.Black;
+            container_menu.SplitterDistance = 250;
+            container_menu.SplitterHighlightColor = Color.FromArgb(0, 122, 204);
             container_menu.SplitterMoveable = true;
             container_menu.SplitterMoveLeftKey = Keys.Left;
             container_menu.SplitterMoveRightKey = Keys.Right;
@@ -278,7 +235,7 @@
             navbar_menu.ShowHeaderTitle = true;
             navbar_menu.ShowTitleSeparator = true;
             navbar_menu.SidebarBackColor = Color.Transparent;
-            navbar_menu.Size = new Size(360, 716);
+            navbar_menu.Size = new Size(254, 716);
             navbar_menu.TabIndex = 4;
             navbar_menu.Text = "siticoneNavbar1";
             titleSection1.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
@@ -322,7 +279,7 @@
             pnl_dynamic_menu.Font = new Font("Segoe UI", 8F);
             pnl_dynamic_menu.Location = new Point(0, 0);
             pnl_dynamic_menu.Name = "pnl_dynamic_menu";
-            pnl_dynamic_menu.Size = new Size(726, 716);
+            pnl_dynamic_menu.Size = new Size(1087, 716);
             pnl_dynamic_menu.TabIndex = 1;
             pnl_dynamic_menu.TargetNavbar = navbar_menu;
             pnl_dynamic_menu.TitleBackColor = Color.Black;
@@ -743,7 +700,6 @@
         private SiticoneNetCoreUI.SiticonePictureBox pb_MacLaren_mf;
         private SiticoneNetCoreUI.SiticonePictureBox pb_porsche_mf;
         private SiticoneNetCoreUI.SiticonePictureBox pb_porsche_logo;
-        private SiticoneNetCoreUI.SiticonePictureBox pb_blur_screen;
         private SiticoneNetCoreUI.SiticoneShimmerLabel lbl_msg;
         private SiticoneNetCoreUI.SiticonePictureBox pb_menu;
         private SiticoneNetCoreUI.SiticoneSplitContainer container_menu;

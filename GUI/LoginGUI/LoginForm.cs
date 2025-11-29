@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Chhipa_Motors.BL;
+using Chhipa_Motors.DTO;
+using Chhipa_Motors.GUI.Car_Cards;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using Chhipa_Motors.GUI.Admin_Panel;
 
 namespace Chhipa_Motors.GUI.LoginGUI
 {
@@ -22,10 +26,15 @@ namespace Chhipa_Motors.GUI.LoginGUI
         private Label lblUserType;
         private LinkLabel lnkCreateAccount;
 
+        private UserDTO _userDTO;
+        private LoginBL _loginBL;
+
         public LoginForm()
         {
             InitializeComponent();
             InitializeButton();
+            _userDTO = new UserDTO();
+            _loginBL = new LoginBL();
         }
         private void InitializeButton()
         {
@@ -219,7 +228,6 @@ namespace Chhipa_Motors.GUI.LoginGUI
 
         private void LeftPanel_Paint(object sender, PaintEventArgs e)
         {
-            // Gradient background
             using (LinearGradientBrush brush = new LinearGradientBrush(
                 leftPanel.ClientRectangle,
                 Color.FromArgb(102, 126, 234),
@@ -232,8 +240,8 @@ namespace Chhipa_Motors.GUI.LoginGUI
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -241,39 +249,43 @@ namespace Chhipa_Motors.GUI.LoginGUI
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // TODO: Add your authentication logic here
-            // Example:
-            // UserDAL userDAL = new UserDAL();
-            // User user = userDAL.ValidateLogin(username, password);
-
+            _userDTO.Username = username;
+            _userDTO.Password = password;
+            
             if (rbAdmin.Checked)
             {
-                // TODO: Validate admin credentials
-                // if (user != null && user.Role == "Admin")
-                // {
-                MessageBox.Show("Admin login successful!", "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _userDTO.Role = rbAdmin.Checked ? "Admin" : "User";
+                if (_loginBL.VerifyUser(_userDTO))
+                {
+                    AdminDashboard dashboard = new AdminDashboard();
+                    dashboard.FormClosed += (s, args) => this.Show();
+                    this.Hide();
+                    dashboard.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password", "Login Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                // Open Admin Panel
-                // AdminPanel adminPanel = new AdminPanel();
-                // adminPanel.Show();
-                // this.Hide();
-                // }
             }
             else
             {
-                // TODO: Validate user credentials
-                // if (user != null)
-                // {
-                MessageBox.Show("User login successful!", "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Open Home Screen
-                // HomeScreen homeScreen = new HomeScreen();
-                // homeScreen.Show();
-                // this.Hide();
-                // }
+                _userDTO.Role = rbAdmin.Checked ? "Admin" : "User";
+                if (_loginBL.VerifyUser(_userDTO))
+                {
+                    MainForm mainForm = new MainForm();
+                    mainForm.FormClosed += (s, args) => this.Show();
+                    this.Hide();
+                    mainForm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password", "Login Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
         }
 
@@ -301,7 +313,7 @@ namespace Chhipa_Motors.GUI.LoginGUI
         {
             base.WndProc(ref m);
 
-            if (m.Msg == 0xF) // WM_PAINT
+            if (m.Msg == 0xF)
             {
                 using (Graphics g = Graphics.FromHwnd(Handle))
                 {
@@ -349,197 +361,6 @@ namespace Chhipa_Motors.GUI.LoginGUI
             path.CloseFigure();
 
             graphics.FillPath(brush, path);
-        }
-    }
-
-    public class RegisterDialog : Form
-    {
-        private Label lblTitle;
-        private Label lblUsername;
-        private Label lblPassword;
-        private Label lblConfirmPassword;
-        private TextBox txtUsername;
-        private TextBox txtPassword;
-        private TextBox txtConfirmPassword;
-        private Button btnRegister;
-        private Button btnCancel;
-
-        public string Username => txtUsername.Text.Trim();
-        public string Password => txtPassword.Text.Trim();
-
-        public RegisterDialog()
-        {
-            InitializeComponents();
-        }
-
-        private void InitializeComponents()
-        {
-            // Form settings
-            this.Text = "Create New Account";
-            this.Size = new Size(450, 450);
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.BackColor = Color.White;
-
-            lblTitle = new Label
-            {
-                Text = "Create Account",
-                Font = new Font("Segoe UI", 20, FontStyle.Bold),
-                ForeColor = Color.FromArgb(102, 126, 234),
-                Location = new Point(30, 30),
-                AutoSize = true
-            };
-
-            lblUsername = new Label
-            {
-                Text = "Username",
-                Font = new Font("Segoe UI", 11, FontStyle.Bold),
-                ForeColor = Color.FromArgb(51, 51, 51),
-                Location = new Point(30, 100),
-                AutoSize = true
-            };
-
-            txtUsername = new TextBox
-            {
-                Font = new Font("Segoe UI", 12),
-                Location = new Point(30, 130),
-                Size = new Size(380, 35),
-                BackColor = Color.FromArgb(245, 245, 245),
-                BorderStyle = BorderStyle.FixedSingle
-            };
-
-            lblPassword = new Label
-            {
-                Text = "Password",
-                Font = new Font("Segoe UI", 11, FontStyle.Bold),
-                ForeColor = Color.FromArgb(51, 51, 51),
-                Location = new Point(30, 185),
-                AutoSize = true
-            };
-
-            txtPassword = new TextBox
-            {
-                Font = new Font("Segoe UI", 12),
-                Location = new Point(30, 215),
-                Size = new Size(380, 35),
-                BackColor = Color.FromArgb(245, 245, 245),
-                BorderStyle = BorderStyle.FixedSingle,
-                PasswordChar = '●'
-            };
-
-            lblConfirmPassword = new Label
-            {
-                Text = "Confirm Password",
-                Font = new Font("Segoe UI", 11, FontStyle.Bold),
-                ForeColor = Color.FromArgb(51, 51, 51),
-                Location = new Point(30, 270),
-                AutoSize = true
-            };
-
-            txtConfirmPassword = new TextBox
-            {
-                Font = new Font("Segoe UI", 12),
-                Location = new Point(30, 300),
-                Size = new Size(380, 35),
-                BackColor = Color.FromArgb(245, 245, 245),
-                BorderStyle = BorderStyle.FixedSingle,
-                PasswordChar = '●'
-            };
-
-            btnRegister = new GradientButton
-            {
-                Text = "CREATE ACCOUNT",
-                Font = new Font("Segoe UI", 11, FontStyle.Bold),
-                ForeColor = Color.White,
-                Location = new Point(30, 360),
-                Size = new Size(180, 40),
-                FlatStyle = FlatStyle.Flat,
-                Cursor = Cursors.Hand
-            };
-            btnRegister.FlatAppearance.BorderSize = 0;
-            btnRegister.Click += BtnRegister_Click;
-
-            btnCancel = new Button
-            {
-                Text = "CANCEL",
-                Font = new Font("Segoe UI", 11, FontStyle.Bold),
-                ForeColor = Color.Gray,
-                Location = new Point(230, 360),
-                Size = new Size(180, 40),
-                FlatStyle = FlatStyle.Flat,
-                Cursor = Cursors.Hand,
-                BackColor = Color.FromArgb(240, 240, 240)
-            };
-            btnCancel.FlatAppearance.BorderSize = 0;
-            btnCancel.Click += (s, e) => this.DialogResult = DialogResult.Cancel;
-
-            this.Controls.AddRange(new Control[] {
-            lblTitle, lblUsername, txtUsername,
-            lblPassword, txtPassword,
-            lblConfirmPassword, txtConfirmPassword,
-            btnRegister, btnCancel
-        });
-        }
-
-        private void BtnRegister_Click(object sender, EventArgs e)
-        {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
-            string confirmPassword = txtConfirmPassword.Text.Trim();
-
-            if (string.IsNullOrEmpty(username))
-            {
-                MessageBox.Show("Please enter a username", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUsername.Focus();
-                return;
-            }
-
-            if (username.Length < 3)
-            {
-                MessageBox.Show("Username must be at least 3 characters", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUsername.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Please enter a password", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPassword.Focus();
-                return;
-            }
-
-            if (password.Length < 6)
-            {
-                MessageBox.Show("Password must be at least 6 characters", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPassword.Focus();
-                return;
-            }
-
-            if (password != confirmPassword)
-            {
-                MessageBox.Show("Passwords do not match", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtConfirmPassword.Focus();
-                return;
-            }
-
-            // TODO: Add your user registration logic here
-            // Example:
-            // UserDAL userDAL = new UserDAL();
-            // bool success = userDAL.RegisterUser(username, password, "User");
-            // if (success)
-            // {
-            //     this.DialogResult = DialogResult.OK;
-            // }
-
-            // For now, just close with OK
-            this.DialogResult = DialogResult.OK;
         }
     }
 }

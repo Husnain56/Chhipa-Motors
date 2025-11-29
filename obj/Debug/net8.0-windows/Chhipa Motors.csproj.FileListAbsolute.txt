@@ -96,3 +96,7 @@ D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\runtimes\w
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Admin_Panel.UserControl_ViewCars.resources
 D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.LoginGUI.LoginForm.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.LoginGUI.RegisterDialog.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Menu_Pages.CustomerBookings.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Menu_Pages.PurchasedCars.resources
+D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\obj\Debug\net8.0-windows\Chhipa_Motors.GUI.Booking_Form.BookingForm.resources

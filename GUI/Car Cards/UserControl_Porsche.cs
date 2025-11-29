@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Chhipa_Motors.GUI.Booking_Form;
+using Chhipa_Motors.DTO;
 
 namespace Chhipa_Motors.GUI.Car_Cards
 {
@@ -70,6 +72,12 @@ namespace Chhipa_Motors.GUI.Car_Cards
                     }
                 }
             }
+        }
+
+        private void btn_book_taycanturbo_Click(object sender, EventArgs e)
+        {
+            BookingForm form = new BookingForm(new CarDTO(), pb_taycan.Image, "3");
+            form.ShowDialog();
         }
     }
 }

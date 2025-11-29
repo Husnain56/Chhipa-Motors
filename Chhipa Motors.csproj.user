@@ -25,6 +25,9 @@
     <Compile Update="GUI\Admin Panel\UserControl_ViewCars.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="GUI\Booking Form\BookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\Car Cards\TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,10 +55,19 @@
     <Compile Update="GUI\LoginGUI\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\LoginGUI\RegisterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Manufacturers_menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\Menu Pages\CustomerBookings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\Menu Pages\PurchasedCars.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="GUI\UserInfo.cs">

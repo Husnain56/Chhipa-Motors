@@ -34,6 +34,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             pb_porsche = new SiticonePictureBox();
             lbl_avail = new SiticoneLabel();
             siticoneContainer1 = new SiticoneContainer();
+            lbl_p_taycanGT = new SiticoneLabel();
             btn_book_taycanturbo = new SiticoneButtonAdvanced();
             lbl_taycangt = new SiticoneLabel();
             siticoneLabel8 = new SiticoneLabel();
@@ -49,6 +50,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             lbl_taycan_turbo_gt = new SiticoneShimmerLabel();
             pb_taycan = new SiticonePictureBox();
             siticoneContainer2 = new SiticoneContainer();
+            lbl_p_911Carerra4S = new SiticoneLabel();
             btn_book_carrera4S = new SiticoneButtonAdvanced();
             siticoneLabel9 = new SiticoneLabel();
             siticoneLabel10 = new SiticoneLabel();
@@ -64,6 +66,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             lbl_carerra_4S = new SiticoneShimmerLabel();
             pb_carrera_4S = new SiticonePictureBox();
             siticoneContainer3 = new SiticoneContainer();
+            lbl_p_panamera = new SiticoneLabel();
             btn_book_panamera = new SiticoneButtonAdvanced();
             siticoneLabel17 = new SiticoneLabel();
             siticoneLabel18 = new SiticoneLabel();
@@ -79,6 +82,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneShimmerLabel3 = new SiticoneShimmerLabel();
             pb_panamera = new SiticonePictureBox();
             siticoneContainer4 = new SiticoneContainer();
+            lbl_p_panamera4s = new SiticoneLabel();
             btn_book_panamera4S = new SiticoneButtonAdvanced();
             siticoneLabel25 = new SiticoneLabel();
             siticoneLabel26 = new SiticoneLabel();
@@ -94,6 +98,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneShimmerLabel4 = new SiticoneShimmerLabel();
             pb_panamera_4S = new SiticonePictureBox();
             siticoneContainer5 = new SiticoneContainer();
+            lbl_p_Macan4 = new SiticoneLabel();
             btn_book_macan4 = new SiticoneButtonAdvanced();
             siticoneLabel33 = new SiticoneLabel();
             siticoneLabel34 = new SiticoneLabel();
@@ -109,6 +114,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneShimmerLabel5 = new SiticoneShimmerLabel();
             pb_macan4 = new SiticonePictureBox();
             siticoneContainer6 = new SiticoneContainer();
+            lbl_p_718Cayman = new SiticoneLabel();
             btn_book_718Cayman = new SiticoneButtonAdvanced();
             siticoneLabel41 = new SiticoneLabel();
             siticoneLabel42 = new SiticoneLabel();
@@ -123,12 +129,6 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneButton18 = new SiticoneButton();
             siticoneShimmerLabel6 = new SiticoneShimmerLabel();
             pb_718_cayman = new SiticonePictureBox();
-            lbl_p_taycanGT = new SiticoneLabel();
-            lbl_p_911Carerra4S = new SiticoneLabel();
-            lbl_p_panamera = new SiticoneLabel();
-            lbl_p_panamera4s = new SiticoneLabel();
-            lbl_p_Macan4 = new SiticoneLabel();
-            lbl_p_718Cayman = new SiticoneLabel();
             siticoneContainer1.SuspendLayout();
             siticoneContainer2.SuspendLayout();
             siticoneContainer3.SuspendLayout();
@@ -265,6 +265,16 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer1.TopLeftRadius = 20;
             siticoneContainer1.TopRightRadius = 20;
             // 
+            // lbl_p_taycanGT
+            // 
+            lbl_p_taycanGT.BackColor = Color.Transparent;
+            lbl_p_taycanGT.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_taycanGT.Location = new Point(288, 710);
+            lbl_p_taycanGT.Name = "lbl_p_taycanGT";
+            lbl_p_taycanGT.Size = new Size(194, 29);
+            lbl_p_taycanGT.TabIndex = 18;
+            lbl_p_taycanGT.Text = "66,000,000";
+            // 
             // btn_book_taycanturbo
             // 
             btn_book_taycanturbo.BackColor = Color.Transparent;
@@ -329,6 +339,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             btn_book_taycanturbo.TextShadowColor = Color.FromArgb(100, 0, 0, 0);
             btn_book_taycanturbo.TextShadowOffsetX = 1;
             btn_book_taycanturbo.TextShadowOffsetY = 1;
+            btn_book_taycanturbo.Click += btn_book_taycanturbo_Click;
             // 
             // lbl_taycangt
             // 
@@ -776,6 +787,16 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer2.TabIndex = 15;
             siticoneContainer2.TopLeftRadius = 20;
             siticoneContainer2.TopRightRadius = 20;
+            // 
+            // lbl_p_911Carerra4S
+            // 
+            lbl_p_911Carerra4S.BackColor = Color.Transparent;
+            lbl_p_911Carerra4S.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_911Carerra4S.Location = new Point(288, 710);
+            lbl_p_911Carerra4S.Name = "lbl_p_911Carerra4S";
+            lbl_p_911Carerra4S.Size = new Size(194, 29);
+            lbl_p_911Carerra4S.TabIndex = 19;
+            lbl_p_911Carerra4S.Text = "45,000,000";
             // 
             // btn_book_carrera4S
             // 
@@ -1289,6 +1310,16 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer3.TopLeftRadius = 20;
             siticoneContainer3.TopRightRadius = 20;
             // 
+            // lbl_p_panamera
+            // 
+            lbl_p_panamera.BackColor = Color.Transparent;
+            lbl_p_panamera.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_panamera.Location = new Point(288, 710);
+            lbl_p_panamera.Name = "lbl_p_panamera";
+            lbl_p_panamera.Size = new Size(194, 29);
+            lbl_p_panamera.TabIndex = 19;
+            lbl_p_panamera.Text = "66,000,000";
+            // 
             // btn_book_panamera
             // 
             btn_book_panamera.BackColor = Color.Transparent;
@@ -1800,6 +1831,16 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer4.TabIndex = 16;
             siticoneContainer4.TopLeftRadius = 20;
             siticoneContainer4.TopRightRadius = 20;
+            // 
+            // lbl_p_panamera4s
+            // 
+            lbl_p_panamera4s.BackColor = Color.Transparent;
+            lbl_p_panamera4s.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_panamera4s.Location = new Point(285, 710);
+            lbl_p_panamera4s.Name = "lbl_p_panamera4s";
+            lbl_p_panamera4s.Size = new Size(194, 29);
+            lbl_p_panamera4s.TabIndex = 20;
+            lbl_p_panamera4s.Text = "90,000,000";
             // 
             // btn_book_panamera4S
             // 
@@ -2313,6 +2354,16 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer5.TopLeftRadius = 20;
             siticoneContainer5.TopRightRadius = 20;
             // 
+            // lbl_p_Macan4
+            // 
+            lbl_p_Macan4.BackColor = Color.Transparent;
+            lbl_p_Macan4.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_Macan4.Location = new Point(288, 710);
+            lbl_p_Macan4.Name = "lbl_p_Macan4";
+            lbl_p_Macan4.Size = new Size(243, 29);
+            lbl_p_Macan4.TabIndex = 15;
+            lbl_p_Macan4.Text = "10,000,000";
+            // 
             // btn_book_macan4
             // 
             btn_book_macan4.BackColor = Color.Transparent;
@@ -2825,6 +2876,16 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer6.TopLeftRadius = 20;
             siticoneContainer6.TopRightRadius = 20;
             // 
+            // lbl_p_718Cayman
+            // 
+            lbl_p_718Cayman.BackColor = Color.Transparent;
+            lbl_p_718Cayman.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_718Cayman.Location = new Point(288, 710);
+            lbl_p_718Cayman.Name = "lbl_p_718Cayman";
+            lbl_p_718Cayman.Size = new Size(244, 29);
+            lbl_p_718Cayman.TabIndex = 18;
+            lbl_p_718Cayman.Text = "40,000,000";
+            // 
             // btn_book_718Cayman
             // 
             btn_book_718Cayman.BackColor = Color.Transparent;
@@ -3262,66 +3323,6 @@ namespace Chhipa_Motors.GUI.Car_Cards
             pb_718_cayman.TabIndex = 0;
             pb_718_cayman.Text = "siticonePictureBox6";
             // 
-            // lbl_p_taycanGT
-            // 
-            lbl_p_taycanGT.BackColor = Color.Transparent;
-            lbl_p_taycanGT.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_taycanGT.Location = new Point(288, 710);
-            lbl_p_taycanGT.Name = "lbl_p_taycanGT";
-            lbl_p_taycanGT.Size = new Size(194, 29);
-            lbl_p_taycanGT.TabIndex = 18;
-            lbl_p_taycanGT.Text = "66,000,000";
-            // 
-            // lbl_p_911Carerra4S
-            // 
-            lbl_p_911Carerra4S.BackColor = Color.Transparent;
-            lbl_p_911Carerra4S.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_911Carerra4S.Location = new Point(288, 710);
-            lbl_p_911Carerra4S.Name = "lbl_p_911Carerra4S";
-            lbl_p_911Carerra4S.Size = new Size(194, 29);
-            lbl_p_911Carerra4S.TabIndex = 19;
-            lbl_p_911Carerra4S.Text = "45,000,000";
-            // 
-            // lbl_p_panamera
-            // 
-            lbl_p_panamera.BackColor = Color.Transparent;
-            lbl_p_panamera.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_panamera.Location = new Point(288, 710);
-            lbl_p_panamera.Name = "lbl_p_panamera";
-            lbl_p_panamera.Size = new Size(194, 29);
-            lbl_p_panamera.TabIndex = 19;
-            lbl_p_panamera.Text = "66,000,000";
-            // 
-            // lbl_p_panamera4s
-            // 
-            lbl_p_panamera4s.BackColor = Color.Transparent;
-            lbl_p_panamera4s.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_panamera4s.Location = new Point(285, 710);
-            lbl_p_panamera4s.Name = "lbl_p_panamera4s";
-            lbl_p_panamera4s.Size = new Size(194, 29);
-            lbl_p_panamera4s.TabIndex = 20;
-            lbl_p_panamera4s.Text = "90,000,000";
-            // 
-            // lbl_p_Macan4
-            // 
-            lbl_p_Macan4.BackColor = Color.Transparent;
-            lbl_p_Macan4.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_Macan4.Location = new Point(288, 710);
-            lbl_p_Macan4.Name = "lbl_p_Macan4";
-            lbl_p_Macan4.Size = new Size(243, 29);
-            lbl_p_Macan4.TabIndex = 15;
-            lbl_p_Macan4.Text = "10,000,000";
-            // 
-            // lbl_p_718Cayman
-            // 
-            lbl_p_718Cayman.BackColor = Color.Transparent;
-            lbl_p_718Cayman.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_718Cayman.Location = new Point(288, 710);
-            lbl_p_718Cayman.Name = "lbl_p_718Cayman";
-            lbl_p_718Cayman.Size = new Size(244, 29);
-            lbl_p_718Cayman.TabIndex = 18;
-            lbl_p_718Cayman.Text = "40,000,000";
-            // 
             // UserControl_Porsche
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3337,7 +3338,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             Controls.Add(lbl_avail);
             Controls.Add(pb_porsche);
             Name = "UserControl_Porsche";
-            Size = new Size(1366, 786);
+            Size = new Size(1349, 786);
             Load += UserControl_Porsche_Load;
             siticoneContainer1.ResumeLayout(false);
             siticoneContainer2.ResumeLayout(false);

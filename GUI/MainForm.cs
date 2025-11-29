@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Chhipa_Motors.GUI.Menu_Pages;
+
 namespace Chhipa_Motors.GUI
 {
     public partial class MainForm : Form
@@ -34,24 +36,23 @@ namespace Chhipa_Motors.GUI
             lbl_msg.BringToFront();
             pb_menu.BringToFront();
             container_menu.BringToFront();
-            pb_blur_screen.BringToFront();
 
             container_menu.Hide();
-            pb_blur_screen.Hide();
 
             pb_Acc.Parent = pb_wallpaper;
             lbl_msg.Parent = pnl_main;
             pb_menu.Parent = pb_wallpaper;
             container_menu.Parent = pb_wallpaper;
-            pb_blur_screen.Parent = pnl_main;
+
+            container_menu.SplitterDistance = 40;
 
         }
 
         private void LoadContent(UserControl page)
         {
-            page.Dock = DockStyle.Fill;
-            container_menu.Panel2.Controls.Clear();
-            container_menu.Panel2.Controls.Add(page);
+        //page.Dock = DockStyle.Fill;
+            pnl_dynamic_menu.Controls.Clear();
+            pnl_dynamic_menu.Controls.Add(page);
         }
 
         private void pb_mf_MouseEnter(object sender, EventArgs e)
@@ -70,37 +71,37 @@ namespace Chhipa_Motors.GUI
         private void pnl_AfterNavigate(object sender, SiticoneContentPanel.NavigationEventArgs e)
         {
             pnl_dynamic_menu.AddContentToView("Manufacturers", new Manufacturers_menu());
-            pnl_dynamic_menu.AddContentToView("Purchases", new UserControl_Users());
-            pnl_dynamic_menu.AddContentToView("Bookings", new UserControl_CreateAdmin());
-            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo());
+            pnl_dynamic_menu.AddContentToView("Purchases", new PurchasedCars("3"));
+            pnl_dynamic_menu.AddContentToView("Bookings", new CustomerBookings("3"));
+            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo("3"));
         }
         private void btn_menu_Click(object sender, EventArgs e)
         {
             container_menu.Show();
-            pb_blur_screen.Show();
             pb_menu.Hide();
             pnl_main.AutoScroll = false;
             pnl_dynamic_menu.AfterNavigate += pnl_AfterNavigate;
             navbar_menu.SelectedItem = navbar_menu.Items[0];
             pnl_dynamic_menu.AddContentToView("Manufacturers", new Manufacturers_menu());
+            pb_Acc.Hide();
         }
 
         private void pb_acc_Click(object sender, EventArgs e)
         {
+            pb_Acc.Hide();
             container_menu.Show();
-            pb_blur_screen.Show();
             pb_menu.Hide();
             pnl_main.AutoScroll = false;
             pnl_dynamic_menu.AfterNavigate += pnl_AfterNavigate;
-            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo());
+            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo("3"));
             navbar_menu.SelectedItem = navbar_menu.Items[3];
         }
 
         private void pb_blur_screen_Click(object sender, EventArgs e)
         {
             container_menu.Hide();
-            pb_blur_screen.Hide();
             pb_menu.Show();
+            pb_Acc.Show();
             pnl_main.AutoScroll = true;
             this.pb_wallpaper.Focus();
         }
@@ -108,8 +109,8 @@ namespace Chhipa_Motors.GUI
         private void btn_close_menu_Click_1(object sender, EventArgs e)
         {
             container_menu.Hide();
-            pb_blur_screen.Hide();
             pb_menu.Show();
+            pb_Acc.Show();
             pnl_main.AutoScroll = true;
         }
 
@@ -120,7 +121,7 @@ namespace Chhipa_Motors.GUI
 
         private void btn_menu_acc_Click(object sender, EventArgs e)
         {
-            LoadContent(new UserInfo());
+            LoadContent(new UserInfo("3"));
         }
         private void manufacturerCard_Click(object sender, EventArgs e)
         {

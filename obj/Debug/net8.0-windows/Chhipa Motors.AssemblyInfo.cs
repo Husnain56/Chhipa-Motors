@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Chhipa Motors")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+956c84edd6d3eb111184ed155dc77c414ed52e56")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e9e60d50bb58d2bbd8d9968d1310bc230c1539b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Chhipa Motors")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Chhipa Motors")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
