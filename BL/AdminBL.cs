@@ -54,5 +54,13 @@ namespace Chhipa_Motors.BL
         {
             return _adminDL.changeCarStatus(_carDTO);
         }
+        public DataTable GetBookedCars()
+        {
+            return _adminDL.getBookedCars();
+        }
+        public int updateBookingStatus(BookingDTO _bookingDTO)
+        {
+            return _adminDL.updateBookingStatus(_bookingDTO);
+        }
     }
 }

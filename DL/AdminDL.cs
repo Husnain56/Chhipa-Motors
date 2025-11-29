@@ -212,5 +212,48 @@ namespace Chhipa_Motors.DL
                 _dbCon.Con.Close();
             }
         }
+        public DataTable getBookedCars()
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "Select * from Bookings";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                SqlDataReader reader = com.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving booked cars.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public int updateBookingStatus(BookingDTO bookDto)
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "UPDATE Bookings SET Status = @Status, AdminNote = @AdminNote WHERE BookingId = @BookingId";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@Status", bookDto.Status);
+                com.Parameters.AddWithValue("@AdminNote", bookDto.AdminNote);
+                com.Parameters.AddWithValue("@BookingId", bookDto.BookingID);
+                int rowAffected = com.ExecuteNonQuery();
+                return rowAffected;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while updating the booking status.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
     }
 }
