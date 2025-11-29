@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Configuration;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Chhipa_Motors.DL
 {
@@ -14,7 +15,6 @@ namespace Chhipa_Motors.DL
 
             // Option 2: If you want to hardcode (not recommended)
             string conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Chhipa Motors\Chhipa Motors\Chhipa Motors\ChhipaMotors.mdf;Integrated Security=True";
-
             con = new SqlConnection(conString);
         }
 

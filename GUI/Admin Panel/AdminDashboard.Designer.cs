@@ -30,7 +30,6 @@
         {
             SiticoneNetCoreUI.NavBarItem navBarItem1 = new SiticoneNetCoreUI.NavBarItem();
             SiticoneNetCoreUI.NavBarItem navBarItem2 = new SiticoneNetCoreUI.NavBarItem();
-            SiticoneNetCoreUI.NavBarItem navBarItem3 = new SiticoneNetCoreUI.NavBarItem();
             SiticoneNetCoreUI.NavBarItem navBarItem4 = new SiticoneNetCoreUI.NavBarItem();
             SiticoneNetCoreUI.NavBarItem navBarItem5 = new SiticoneNetCoreUI.NavBarItem();
             SiticoneNetCoreUI.NavBarItem navBarItem6 = new SiticoneNetCoreUI.NavBarItem();
@@ -87,14 +86,6 @@
             navBarItem2.SelectedBorderColor = Color.Empty;
             navBarItem2.SelectedForeColor = Color.FromArgb(120, 73, 239);
             navBarItem2.Text = "View Users";
-            navBarItem3.BackColor = Color.Empty;
-            navBarItem3.BorderColor = Color.Empty;
-            navBarItem3.ForeColor = Color.White;
-            navBarItem3.PressBackColor = Color.Empty;
-            navBarItem3.SelectedBackColor = Color.Empty;
-            navBarItem3.SelectedBorderColor = Color.Empty;
-            navBarItem3.SelectedForeColor = Color.FromArgb(120, 73, 239);
-            navBarItem3.Text = "Account";
             navBarItem4.BackColor = Color.Empty;
             navBarItem4.BorderColor = Color.Empty;
             navBarItem4.ForeColor = Color.White;
@@ -121,7 +112,6 @@
             navBarItem6.Text = "View Sales Record";
             siticoneNavbar1.Items.Add(navBarItem1);
             siticoneNavbar1.Items.Add(navBarItem2);
-            siticoneNavbar1.Items.Add(navBarItem3);
             siticoneNavbar1.Items.Add(navBarItem4);
             siticoneNavbar1.Items.Add(navBarItem5);
             siticoneNavbar1.Items.Add(navBarItem6);
@@ -152,13 +142,13 @@
             titleSection2.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
             titleSection2.ForeColor = Color.FromArgb(192, 192, 255);
             titleSection2.MarginTop = 30;
-            titleSection2.Position = 3;
+            titleSection2.Position = 2;
             titleSection2.SeparatorColor = Color.FromArgb(37, 37, 49);
             titleSection2.Text = "Cars";
             titleSection3.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
             titleSection3.ForeColor = Color.FromArgb(192, 192, 255);
             titleSection3.MarginTop = 30;
-            titleSection3.Position = 5;
+            titleSection3.Position = 4;
             titleSection3.SeparatorColor = Color.FromArgb(37, 37, 49);
             titleSection3.Text = "Sales";
             siticoneNavbar1.TitleSections.Add(titleSection1);

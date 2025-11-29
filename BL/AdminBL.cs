@@ -60,7 +60,29 @@ namespace Chhipa_Motors.BL
         }
         public int updateBookingStatus(BookingDTO _bookingDTO)
         {
-            return _adminDL.updateBookingStatus(_bookingDTO);
+            int rows_affected = _adminDL.updateBookingStatus(_bookingDTO);
+
+            if(rows_affected>0 && _bookingDTO.Status == "Processing")
+            {
+                rows_affected += _adminDL.decrementCarStock(_bookingDTO);
+                rows_affected += _adminDL.insertSalesRecord(_bookingDTO);
+            }
+
+
+            return rows_affected;
+        }
+        public DataTable getSalesRecord(int filter)
+        {   
+            if(filter==0)
+            return _adminDL.getAllTimeSales();
+            else if(filter==1)
+                return _adminDL.getDailySales();
+            else if (filter == 7)
+                return _adminDL.getWeeklySales();
+            else if (filter == 30)
+                return _adminDL.getMonthlySales();
+
+            return null;
         }
     }
 }

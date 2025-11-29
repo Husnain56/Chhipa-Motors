@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Chhipa_Motors.DTO;
+using System.Reflection.Metadata;
 
 namespace Chhipa_Motors.DL
 {
@@ -41,10 +42,11 @@ namespace Chhipa_Motors.DL
                 _dbCon.Con.Close();
             }
         }
-        
+
         public DataTable GetAdmins()
         {
-            try { 
+            try
+            {
                 _dbCon.Con.Open();
                 string query = "SELECT UserID,Username,Role FROM Users WHERE Role = 'Admin'";
                 SqlCommand com = new SqlCommand(query, _dbCon.Con);
@@ -61,7 +63,7 @@ namespace Chhipa_Motors.DL
             {
                 _dbCon.Con.Close();
             }
-            
+
         }
 
         public DataTable GetUsers()
@@ -244,11 +246,162 @@ namespace Chhipa_Motors.DL
                 com.Parameters.AddWithValue("@AdminNote", bookDto.AdminNote);
                 com.Parameters.AddWithValue("@BookingId", bookDto.BookingID);
                 int rowAffected = com.ExecuteNonQuery();
+
+                if (rowAffected > 0 && bookDto.Status == "Processing")
+                {
+                    query = "UPDATE Cars SET Stock = Stock - 1 WHERE CarID = (SELECT CarID FROM Bookings WHERE BookingID = @BookingId)";
+                    com = new SqlCommand(query, _dbCon.Con);
+                    com.Parameters.AddWithValue("@BookingId", bookDto.BookingID);
+                    rowAffected += com.ExecuteNonQuery();
+
+                    query = "INSERT INTO SALES (CarID, UserID, SaleDate, Amount) VALUES ((SELECT CarID FROM Bookings WHERE BookingID = @BookingId), " +
+                            "(SELECT UserID FROM Bookings WHERE BookingID = @BookingId), " +
+                            "GETDATE(), " +
+                            "(SELECT Price FROM Cars WHERE CarID = (SELECT CarID FROM Bookings WHERE BookingID = @BookingId)))";
+                    com = new SqlCommand(query, _dbCon.Con);
+                    com.Parameters.AddWithValue("@BookingId", bookDto.BookingID);
+                    rowAffected += com.ExecuteNonQuery();
+                }
+
                 return rowAffected;
             }
             catch (Exception ex)
             {
                 throw new Exception("An error occurred while updating the booking status.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public int decrementCarStock(BookingDTO b_dto)
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "UPDATE Cars SET Stock = Stock - 1 WHERE CarID = @CarID";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@CarID", b_dto.CarID);
+                int rowAffected = com.ExecuteNonQuery();
+                return rowAffected;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while decrementing the car stock.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public int insertSalesRecord(BookingDTO b_dto)
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "INSERT INTO SALES (CarID, UserID, SaleDate, Amount) VALUES (@CarID, @UserID, @SaleDate, (Select Price FROM Cars where Cars.CarID = @CarID))";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@CarID", b_dto.CarID);
+                com.Parameters.AddWithValue("@UserID", b_dto.UserID);
+                com.Parameters.AddWithValue("@SaleDate", DateTime.Now);
+                int rowAffected = com.ExecuteNonQuery();
+                return rowAffected;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while inserting the sales record.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public DataTable getDailySales()
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "SELECT Sales.SaleID, Sales.UserID, Users.Username, Sales.CarID, Cars.Manufacturer, Cars.CarName, Sales.SaleDate, Sales.TotalAmount FROM Sales " +
+                    "INNER JOIN Users ON Sales.UserID = Users.UserID " +
+                    "INNER JOIN Cars ON Sales.CarID = Cars.CarID WHERE CAST(Sales.SaleDate AS DATE) = CAST(DATEADD(DAY, -1, GETDATE()) AS DATE) ORDER BY Sales.SaleDate DESC;";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                SqlDataReader reader = com.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving daily sales.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public DataTable getWeeklySales()
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "SELECT Sales.SaleID, Sales.UserID, Users.Username, Sales.CarID, Cars.Manufacturer, Cars.CarName, Sales.SaleDate, Sales.TotalAmount FROM Sales " +
+                    "INNER JOIN Users ON Sales.UserID = Users.UserID " +
+                    "INNER JOIN Cars ON Sales.CarID = Cars.CarID WHERE Sales.SaleDate >= DATEADD(DAY, -7, GETDATE()) ORDER BY Sales.SaleDate DESC;";
+
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                SqlDataReader reader = com.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving weekly sales.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public DataTable getMonthlySales()
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "SELECT Sales.SaleID, Sales.UserID, Users.Username, Sales.CarID, Cars.Manufacturer, Cars.CarName, Sales.SaleDate, Sales.TotalAmount FROM Sales " +
+                    "INNER JOIN Users ON Sales.UserID = Users.UserID " +
+                    "INNER JOIN Cars ON Sales.CarID = Cars.CarID WHERE Sales.SaleDate >= DATEADD(MONTH, -1, GETDATE()) ORDER BY Sales.SaleDate DESC;";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                SqlDataReader reader = com.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving Monthly sales.", ex);
+            }
+            finally
+            {
+                _dbCon.Con.Close();
+            }
+        }
+        public DataTable getAllTimeSales()
+        {
+            try
+            {
+                _dbCon.Con.Open();
+                string query = "SELECT Sales.SaleID, Sales.UserID, Users.Username, Sales.CarID, Cars.Manufacturer, Cars.CarName, Sales.SaleDate, Sales.TotalAmount FROM Sales " +
+                    "INNER JOIN Users ON Sales.UserID = Users.UserID INNER JOIN Cars ON Sales.CarID = Cars.CarID ORDER BY Sales.SaleDate DESC;";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                SqlDataReader reader = com.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving all-time sales.", ex);
             }
             finally
             {
