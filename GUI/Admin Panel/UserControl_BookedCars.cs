@@ -248,7 +248,8 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
                 if (dgvBookings.Columns.Contains("CarID"))
                 {
-                    dgvBookings.Columns["CarID"].Visible = false;
+                    dgvBookings.Columns["CarID"].HeaderText = "CarID";
+                    dgvBookings.Columns["CarID"].Width = 130;
                 }
 
                 if (dgvBookings.Columns.Contains("Manufacturer"))
@@ -365,6 +366,7 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             var row = dgvBookings.SelectedRows[0];
             int bookingId = Convert.ToInt32(row.Cells["BookingID"].Value);
             string currentStatus = row.Cells["Status"].Value.ToString();
+            
 
             _bookingContext = new BookingContext(currentStatus)
             {

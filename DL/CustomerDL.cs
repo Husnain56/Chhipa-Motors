@@ -68,5 +68,28 @@ namespace Chhipa_Motors.DL
                 _dbCon.CloseConnection();
             }
         }
+        public int cancelBooking(BookingDTO bookDTO)
+        {
+            try
+            {
+                _dbCon.OpenConnection();
+                string query = "UPDATE Bookings SET Status = @Status,AdminNote = @AdminNote, UpdatedAt = @UpdatedAt WHERE BookingID = @BookingID;";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@Status", bookDTO.Status);
+                com.Parameters.AddWithValue("@AdminNote", bookDTO.AdminNote);
+                com.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
+                com.Parameters.AddWithValue("@BookingID", bookDTO.BookingID);
+                int result = com.ExecuteNonQuery();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _dbCon.CloseConnection();
+            }
+        }
     }
 }

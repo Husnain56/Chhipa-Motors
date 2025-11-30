@@ -26,5 +26,10 @@ namespace Chhipa_Motors.BL
         {
             return _customerDL.FetchPurchasedCars(userDTO);
         }
+        public int cancelBooking(BookingDTO bookDTO)
+        {
+            return _customerDL.cancelBooking(bookDTO);
+        }
+
     }
 }

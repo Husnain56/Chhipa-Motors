@@ -71,9 +71,9 @@ namespace Chhipa_Motors.GUI
         private void pnl_AfterNavigate(object sender, SiticoneContentPanel.NavigationEventArgs e)
         {
             pnl_dynamic_menu.AddContentToView("Manufacturers", new Manufacturers_menu());
-            pnl_dynamic_menu.AddContentToView("Purchases", new PurchasedCars("3"));
-            pnl_dynamic_menu.AddContentToView("Bookings", new CustomerBookings("3"));
-            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo("3"));
+            pnl_dynamic_menu.AddContentToView("Purchases", new PurchasedCars("13"));
+            pnl_dynamic_menu.AddContentToView("Bookings", new CustomerBookings("23"));
+            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo("13"));
         }
         private void btn_menu_Click(object sender, EventArgs e)
         {

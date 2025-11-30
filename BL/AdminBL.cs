@@ -62,9 +62,12 @@ namespace Chhipa_Motors.BL
         {
             int rows_affected = _adminDL.updateBookingStatus(_bookingDTO);
 
-            if(rows_affected>0 && _bookingDTO.Status == "Processing")
+            if(rows_affected>0 && _bookingDTO.Status == "Shipping")
             {
                 rows_affected += _adminDL.decrementCarStock(_bookingDTO);
+                
+            }else if(rows_affected>0 && _bookingDTO.Status == "Delivered")
+            {
                 rows_affected += _adminDL.insertSalesRecord(_bookingDTO);
             }
 

@@ -243,25 +243,10 @@ namespace Chhipa_Motors.DL
                 string query = "UPDATE Bookings SET Status = @Status, AdminNote = @AdminNote WHERE BookingId = @BookingId";
                 SqlCommand com = new SqlCommand(query, _dbCon.Con);
                 com.Parameters.AddWithValue("@Status", bookDto.Status);
-                com.Parameters.AddWithValue("@AdminNote", bookDto.AdminNote);
+                com.Parameters.AddWithValue("@AdminNote", bookDto.AdminNote ?? (object)DBNull.Value); // Handle null AdminNote
                 com.Parameters.AddWithValue("@BookingId", bookDto.BookingID);
+
                 int rowAffected = com.ExecuteNonQuery();
-
-                if (rowAffected > 0 && bookDto.Status == "Processing")
-                {
-                    query = "UPDATE Cars SET Stock = Stock - 1 WHERE CarID = (SELECT CarID FROM Bookings WHERE BookingID = @BookingId)";
-                    com = new SqlCommand(query, _dbCon.Con);
-                    com.Parameters.AddWithValue("@BookingId", bookDto.BookingID);
-                    rowAffected += com.ExecuteNonQuery();
-
-                    query = "INSERT INTO SALES (CarID, UserID, SaleDate, Amount) VALUES ((SELECT CarID FROM Bookings WHERE BookingID = @BookingId), " +
-                            "(SELECT UserID FROM Bookings WHERE BookingID = @BookingId), " +
-                            "GETDATE(), " +
-                            "(SELECT Price FROM Cars WHERE CarID = (SELECT CarID FROM Bookings WHERE BookingID = @BookingId)))";
-                    com = new SqlCommand(query, _dbCon.Con);
-                    com.Parameters.AddWithValue("@BookingId", bookDto.BookingID);
-                    rowAffected += com.ExecuteNonQuery();
-                }
 
                 return rowAffected;
             }
@@ -279,9 +264,9 @@ namespace Chhipa_Motors.DL
             try
             {
                 _dbCon.Con.Open();
-                string query = "UPDATE Cars SET Stock = Stock - 1 WHERE CarID = @CarID";
+                string query = "UPDATE Cars SET Stock = Stock - 1 WHERE CarID = (Select CarID from Bookings WHERE BookingID = @BookingId)";
                 SqlCommand com = new SqlCommand(query, _dbCon.Con);
-                com.Parameters.AddWithValue("@CarID", b_dto.CarID);
+                com.Parameters.AddWithValue("@BookingId", b_dto.BookingID);
                 int rowAffected = com.ExecuteNonQuery();
                 return rowAffected;
             }
@@ -299,11 +284,21 @@ namespace Chhipa_Motors.DL
             try
             {
                 _dbCon.Con.Open();
-                string query = "INSERT INTO SALES (CarID, UserID, SaleDate, Amount) VALUES (@CarID, @UserID, @SaleDate, (Select Price FROM Cars where Cars.CarID = @CarID))";
+
+                // Get both CarID and UserID from Bookings table
+                string query = @"INSERT INTO Sales (CarID, UserID, SaleDate, TotalAmount) 
+                SELECT 
+                    b.CarID, 
+                    b.UserID, 
+                    GETDATE(), 
+                    c.Price
+                FROM Bookings b
+                INNER JOIN Cars c ON b.CarID = c.CarID
+                WHERE b.BookingID = @BookingId";
+
                 SqlCommand com = new SqlCommand(query, _dbCon.Con);
-                com.Parameters.AddWithValue("@CarID", b_dto.CarID);
-                com.Parameters.AddWithValue("@UserID", b_dto.UserID);
-                com.Parameters.AddWithValue("@SaleDate", DateTime.Now);
+                com.Parameters.AddWithValue("@BookingId", b_dto.BookingID);
+
                 int rowAffected = com.ExecuteNonQuery();
                 return rowAffected;
             }

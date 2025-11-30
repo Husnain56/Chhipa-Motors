@@ -38,10 +38,7 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             // Form settings
             this.Text = "My Bookings - Chhipa Motors";
             this.Size = new Size(1100, 740);
-           // this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(245, 247, 250);
-          //  this.FormBorderStyle = FormBorderStyle.FixedSingle;
-          //  this.MaximizeBox = false;
 
             // Header Panel with gradient
             headerPanel = new Panel
@@ -167,7 +164,7 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             btnRefresh.MouseLeave += (s, e) => btnRefresh.BackColor = Color.White;
 
             // Cancel Booking Button
-            btnCancelBooking = new GradientButton
+            btnCancelBooking = new GradientButtonC
             {
                 Text = "✕ CANCEL BOOKING",
                 Font = new Font("Segoe UI", 12, FontStyle.Bold),
@@ -214,10 +211,14 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
         private void Dgb_bookings_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            // Customize columns after data binding
+            // Customize columns based on the query structure:
+            // BookingID, CarID, CarName, Manufacturer, BookingDate, Status, UpdatedAt, AdminNote
+
             if (dgb_bookings.Columns.Count > 0)
             {
-                // Hide CarID if exists
+                // First, configure all columns without setting DisplayIndex
+
+                // Hide CarID column
                 if (dgb_bookings.Columns.Contains("CarID"))
                 {
                     dgb_bookings.Columns["CarID"].Visible = false;
@@ -225,14 +226,8 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
                 if (dgb_bookings.Columns.Contains("BookingID"))
                 {
-                    dgb_bookings.Columns["BookingID"].HeaderText = "Booking #";
+                    dgb_bookings.Columns["BookingID"].HeaderText = "Booking ID";
                     dgb_bookings.Columns["BookingID"].Width = 100;
-                }
-
-                if (dgb_bookings.Columns.Contains("Manufacturer"))
-                {
-                    dgb_bookings.Columns["Manufacturer"].HeaderText = "Manufacturer";
-                    dgb_bookings.Columns["Manufacturer"].Width = 130;
                 }
 
                 if (dgb_bookings.Columns.Contains("CarName"))
@@ -241,31 +236,62 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                     dgb_bookings.Columns["CarName"].Width = 180;
                 }
 
+                if (dgb_bookings.Columns.Contains("Manufacturer"))
+                {
+                    dgb_bookings.Columns["Manufacturer"].HeaderText = "Manufacturer";
+                    dgb_bookings.Columns["Manufacturer"].Width = 130;
+                }
+
                 if (dgb_bookings.Columns.Contains("BookingDate"))
                 {
                     dgb_bookings.Columns["BookingDate"].HeaderText = "Booking Date";
-                    dgb_bookings.Columns["BookingDate"].DefaultCellStyle.Format = "MMM dd, yyyy";
-                    dgb_bookings.Columns["BookingDate"].Width = 130;
+                    dgb_bookings.Columns["BookingDate"].DefaultCellStyle.Format = "MMM dd, yyyy hh:mm tt";
+                    dgb_bookings.Columns["BookingDate"].Width = 160;
                 }
 
                 if (dgb_bookings.Columns.Contains("Status"))
                 {
                     dgb_bookings.Columns["Status"].HeaderText = "Status";
-                    dgb_bookings.Columns["Status"].Width = 120;
+                    dgb_bookings.Columns["Status"].Width = 110;
                 }
 
                 if (dgb_bookings.Columns.Contains("UpdatedAt"))
                 {
                     dgb_bookings.Columns["UpdatedAt"].HeaderText = "Last Updated";
-                    dgb_bookings.Columns["UpdatedAt"].DefaultCellStyle.Format = "MMM dd, yyyy";
-                    dgb_bookings.Columns["UpdatedAt"].Width = 130;
+                    dgb_bookings.Columns["UpdatedAt"].DefaultCellStyle.Format = "MMM dd, yyyy hh:mm tt";
+                    dgb_bookings.Columns["UpdatedAt"].Width = 160;
                 }
 
                 if (dgb_bookings.Columns.Contains("AdminNote"))
                 {
                     dgb_bookings.Columns["AdminNote"].HeaderText = "Notes";
-                    dgb_bookings.Columns["AdminNote"].Width = 200;
+                    dgb_bookings.Columns["AdminNote"].Width = 180;
                 }
+
+                // Now set the display order - do this AFTER all other properties are set
+                // The order should be: BookingID, CarName, Manufacturer, BookingDate, Status, UpdatedAt, AdminNote
+                int displayOrder = 0;
+
+                if (dgb_bookings.Columns.Contains("BookingID"))
+                    dgb_bookings.Columns["BookingID"].DisplayIndex = displayOrder++;
+
+                if (dgb_bookings.Columns.Contains("CarName"))
+                    dgb_bookings.Columns["CarName"].DisplayIndex = displayOrder++;
+
+                if (dgb_bookings.Columns.Contains("Manufacturer"))
+                    dgb_bookings.Columns["Manufacturer"].DisplayIndex = displayOrder++;
+
+                if (dgb_bookings.Columns.Contains("BookingDate"))
+                    dgb_bookings.Columns["BookingDate"].DisplayIndex = displayOrder++;
+
+                if (dgb_bookings.Columns.Contains("Status"))
+                    dgb_bookings.Columns["Status"].DisplayIndex = displayOrder++;
+
+                if (dgb_bookings.Columns.Contains("UpdatedAt"))
+                    dgb_bookings.Columns["UpdatedAt"].DisplayIndex = displayOrder++;
+
+                if (dgb_bookings.Columns.Contains("AdminNote"))
+                    dgb_bookings.Columns["AdminNote"].DisplayIndex = displayOrder++;
             }
         }
 
@@ -275,7 +301,7 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             {
                 string status = e.Value.ToString();
 
-                // Color code the status
+                // Color code the status based on your schema statuses
                 switch (status)
                 {
                     case "Pending":
@@ -283,18 +309,12 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                         e.CellStyle.ForeColor = Color.FromArgb(176, 111, 0);
                         e.CellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                         break;
-                    case "Processing":
+                    case "Confirmed":
                         e.CellStyle.BackColor = Color.FromArgb(227, 242, 253);
                         e.CellStyle.ForeColor = Color.FromArgb(1, 87, 155);
                         e.CellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                         break;
-                    case "Shipping":
-                    case "Shipped":
-                        e.CellStyle.BackColor = Color.FromArgb(232, 234, 246);
-                        e.CellStyle.ForeColor = Color.FromArgb(69, 90, 100);
-                        e.CellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                        break;
-                    case "Delivered":
+                    case "Completed":
                         e.CellStyle.BackColor = Color.FromArgb(220, 237, 200);
                         e.CellStyle.ForeColor = Color.FromArgb(51, 105, 30);
                         e.CellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
@@ -302,6 +322,12 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                     case "Cancelled":
                         e.CellStyle.BackColor = Color.FromArgb(255, 235, 238);
                         e.CellStyle.ForeColor = Color.FromArgb(198, 40, 40);
+                        e.CellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                        break;
+                    default:
+                        // For any other status
+                        e.CellStyle.BackColor = Color.FromArgb(240, 240, 240);
+                        e.CellStyle.ForeColor = Color.FromArgb(100, 100, 100);
                         e.CellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                         break;
                 }
@@ -319,7 +345,7 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                     string status = row.Cells["Status"].Value.ToString();
 
                     // Enable cancel button only if status is Pending
-                    btnCancelBooking.Enabled = (status == "Pending");
+                    btnCancelBooking.Enabled = (status == "Shipping");
                 }
                 else
                 {
@@ -343,6 +369,7 @@ namespace Chhipa_Motors.GUI.Menu_Pages
         {
             if (dgb_bookings.SelectedRows.Count == 0) return;
 
+
             var result = MessageBox.Show(
                 "Are you sure you want to cancel this booking?",
                 "Confirm Cancellation",
@@ -357,24 +384,24 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
                 try
                 {
-                    // TODO: Add your cancellation logic here
-                    // BookingDTO bookingDTO = new BookingDTO
-                    // {
-                    //     BookingID = bookingId,
-                    //     Status = "Cancelled",
-                    //     AdminNote = "Cancelled by customer"
-                    // };
-                    // 
-                    // if (_customerBL.CancelBooking(bookingDTO) > 0)
-                    // {
-                    //     MessageBox.Show("Booking cancelled successfully!", "Success",
-                    //         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //     LoadBookings();
-                    // }
+                    BookingDTO bookingDTO = new BookingDTO
+                    {
+                        BookingID = bookingId,
+                        Status = "Cancelled",
+                        AdminNote = "Cancelled by customer"
+                    };
 
-                    MessageBox.Show("Booking cancelled successfully!", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadBookings();
+                    if (_customerBL.cancelBooking(bookingDTO) > 0)
+                    {
+                        MessageBox.Show("Booking cancelled successfully!", "Success",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadBookings();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Booking cancellation failed!", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 catch (Exception ex)
                 {

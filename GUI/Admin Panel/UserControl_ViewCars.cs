@@ -466,7 +466,7 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 return;
             }
 
-            string currentStatus = dgv_cars.CurrentRow.Cells["Active"].Value.ToString();
+            string currentStatus = dgv_cars.CurrentRow.Cells["Status"].Value.ToString();
             string carName = dgv_cars.CurrentRow.Cells["CarName"].Value.ToString();
             _carDTO.CarID = dgv_cars.CurrentRow.Cells["CarID"].Value.ToString();
 
@@ -520,7 +520,7 @@ namespace Chhipa_Motors.GUI.Admin_Panel
         {
             if (dgv_cars.CurrentRow == null) return;
 
-            string currentStatus = dgv_cars.CurrentRow.Cells["Active"].Value.ToString();
+            string currentStatus = dgv_cars.CurrentRow.Cells["Status"].Value.ToString();
 
             if (currentStatus == "False")
             {

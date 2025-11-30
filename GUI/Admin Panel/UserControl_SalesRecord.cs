@@ -23,14 +23,99 @@ namespace Chhipa_Motors.GUI.Admin_Panel
         private Label lblTotalSales;
         private Label lblTotalRevenue;
         private Label lblAverageOrder;
+        private Button btnRefresh;
 
         public UserControl_SalesRecord()
         {
             InitializeComponent();
             _adminBL = new AdminBL();
-
+            this.AutoScroll = true;
             InitializeCustomComponents();
+            InitializeRefreshButton();
             LoadSalesRecord(0);
+        }
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Show loading cursor
+                this.Cursor = Cursors.WaitCursor;
+                btnRefresh.Enabled = false;
+                btnRefresh.Text = "⏳ Loading...";
+
+                // Determine which filter is active and reload
+                int filter = 0;
+                if (radioButton_Today.Checked)
+                    filter = 1;
+                else if (radioButton_7.Checked)
+                    filter = 7;
+                else if (radioButton_30.Checked)
+                    filter = 30;
+                else if (radioButton_All.Checked)
+                    filter = 0;
+
+                LoadSalesRecord(filter);
+
+                // Optional: Show success message briefly
+                btnRefresh.Text = "✓ Refreshed";
+                System.Threading.Tasks.Task.Delay(1000).ContinueWith(_ =>
+                {
+                    if (btnRefresh.InvokeRequired)
+                    {
+                        btnRefresh.Invoke(new Action(() =>
+                        {
+                            btnRefresh.Text = "🔄 Refresh";
+                            btnRefresh.Enabled = true;
+                        }));
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error refreshing sales: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnRefresh.Text = "🔄 Refresh";
+                btnRefresh.Enabled = true;
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+        private void InitializeRefreshButton()
+        {
+            btnRefresh = new Button
+            {
+                Text = "🔄 Refresh",
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                ForeColor = Color.White,
+                BackColor = Color.FromArgb(102, 126, 234),
+                Size = new Size(120, 40),
+                Location = new Point(this.Width - 180, 25),
+                FlatStyle = FlatStyle.Flat,
+                Cursor = Cursors.Hand,
+                Anchor = AnchorStyles.Top | AnchorStyles.Right
+            };
+
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatAppearance.MouseOverBackColor = Color.FromArgb(118, 75, 162);
+            btnRefresh.FlatAppearance.MouseDownBackColor = Color.FromArgb(90, 103, 216);
+
+            btnRefresh.Click += BtnRefresh_Click;
+
+            // Add shadow effect on paint
+            btnRefresh.Paint += (s, e) =>
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+                using (GraphicsPath path = GetRoundedRectPath(
+                    new Rectangle(0, 0, btnRefresh.Width - 1, btnRefresh.Height - 1), 8))
+                {
+                    btnRefresh.Region = new Region(path);
+                }
+            };
+
+            headerPanel.Controls.Add(btnRefresh);
         }
 
         private void InitializeCustomComponents()
