@@ -39,11 +39,9 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
         private void InitializeCustomComponents()
         {
-            // Form settings
             this.Size = new Size(1100, 740);
             this.BackColor = Color.FromArgb(245, 247, 250);
 
-            // Header Panel with gradient
             headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -52,7 +50,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             };
             headerPanel.Paint += HeaderPanel_Paint;
 
-            // Title
             lblTitle = new Label
             {
                 Text = "My Purchased Vehicles",
@@ -62,7 +59,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 Location = new Point(40, 25)
             };
 
-            // Subtitle
             lblSubtitle = new Label
             {
                 Text = "View and manage all your purchased vehicles",
@@ -74,7 +70,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
             headerPanel.Controls.AddRange(new Control[] { lblTitle, lblSubtitle });
 
-            // Stats Panel
             Panel statsPanel = new Panel
             {
                 Location = new Point(40, 140),
@@ -94,7 +89,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
             statsPanel.Controls.Add(lblTotalPurchases);
 
-            // DataGridView Container Panel
             Panel dgvContainer = new Panel
             {
                 Location = new Point(40, 210),
@@ -104,7 +98,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             };
             dgvContainer.Paint += DgvContainer_Paint;
 
-            // DataGridView
             dgv_PurchasedCars = new DataGridView
             {
                 Dock = DockStyle.Fill,
@@ -124,7 +117,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 Font = new Font("Segoe UI", 10)
             };
 
-            // Style the header
             dgv_PurchasedCars.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.FromArgb(102, 126, 234),
@@ -134,7 +126,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 Padding = new Padding(10, 0, 0, 0)
             };
 
-            // Style the cells
             dgv_PurchasedCars.DefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.White,
@@ -145,7 +136,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 Font = new Font("Segoe UI", 10)
             };
 
-            // Alternating row colors
             dgv_PurchasedCars.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.FromArgb(248, 249, 252),
@@ -161,7 +151,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
             dgvContainer.Controls.Add(dgv_PurchasedCars);
 
-            // Bottom Panel
             bottomPanel = new Panel
             {
                 Location = new Point(40, 630),
@@ -169,7 +158,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 BackColor = Color.Transparent
             };
 
-            // Refresh Button
             btnRefresh = new Button
             {
                 Text = "🔄 REFRESH",
@@ -187,7 +175,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             btnRefresh.MouseEnter += (s, e) => btnRefresh.BackColor = Color.FromArgb(240, 243, 250);
             btnRefresh.MouseLeave += (s, e) => btnRefresh.BackColor = Color.White;
 
-            // View Details Button
             btnViewDetails = new GradientButton
             {
                 Text = "📋 VIEW DETAILS",
@@ -204,7 +191,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
             bottomPanel.Controls.AddRange(new Control[] { btnRefresh, btnViewDetails });
 
-            // Add all controls to form
             this.Controls.AddRange(new Control[] { headerPanel, statsPanel, dgvContainer, bottomPanel });
         }
 
@@ -225,7 +211,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             Panel panel = sender as Panel;
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // Draw rounded rectangle
             using (GraphicsPath path = GetRoundedRectPath(new Rectangle(0, 0, panel.Width - 1, panel.Height - 1), 8))
             {
                 using (SolidBrush brush = new SolidBrush(panel.BackColor))
@@ -245,13 +230,11 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             Panel panel = sender as Panel;
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // Draw shadow
             using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(10, 0, 0, 0)))
             {
                 e.Graphics.FillRectangle(shadowBrush, 2, 2, panel.Width - 2, panel.Height - 2);
             }
 
-            // Draw rounded rectangle
             using (GraphicsPath path = GetRoundedRectPath(new Rectangle(0, 0, panel.Width - 1, panel.Height - 1), 8))
             {
                 using (SolidBrush brush = new SolidBrush(panel.BackColor))
@@ -299,10 +282,8 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
         private void Dgv_PurchasedCars_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            // Customize columns after data binding
             if (dgv_PurchasedCars.Columns.Count > 0)
             {
-                // Hide IDs
                 if (dgv_PurchasedCars.Columns.Contains("CarID"))
                 {
                     dgv_PurchasedCars.Columns["CarID"].Visible = false;
@@ -346,14 +327,11 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
         private void Dgv_PurchasedCars_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Format TotalAmount with proper styling
             if (dgv_PurchasedCars.Columns[e.ColumnIndex].Name == "TotalAmount" && e.Value != null)
             {
                 e.CellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                 e.CellStyle.ForeColor = Color.FromArgb(51, 105, 30);
             }
-
-            // Highlight recent purchases (within last 30 days)
             if (dgv_PurchasedCars.Columns[e.ColumnIndex].Name == "SaleDate" && e.Value != null)
             {
                 if (DateTime.TryParse(e.Value.ToString(), out DateTime saleDate))
@@ -362,7 +340,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
                     if (timeSincePurchase.TotalDays <= 30)
                     {
-                        // Recent purchase - highlight in light green
                         e.CellStyle.BackColor = Color.FromArgb(220, 237, 200);
                         e.CellStyle.ForeColor = Color.FromArgb(51, 105, 30);
                         e.CellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
@@ -389,7 +366,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
             var row = dgv_PurchasedCars.SelectedRows[0];
 
-            // Build details message
             string details = "Vehicle Purchase Details\n\n";
 
             foreach (DataGridViewCell cell in row.Cells)
@@ -405,13 +381,9 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             MessageBox.Show(details, "Purchase Details",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // TODO: Open a detailed view form/dialog
-            // PurchaseDetailsForm detailsForm = new PurchaseDetailsForm(purchaseId);
-            // detailsForm.ShowDialog();
         }
     }
 
-    // Custom Gradient Button
     public class GradientButton : Button
     {
         protected override void OnPaint(PaintEventArgs e)
@@ -437,8 +409,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
         }
     }
-
-    // Extension method for rounded rectangles
     public static class GraphicsExtensions
     {
         public static void FillRoundedRectangle(this Graphics graphics, Brush brush,

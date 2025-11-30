@@ -28,8 +28,6 @@ namespace Chhipa_Motors.GUI.Car_Cards
             LoadPorschePricesDirect();
             HandleButtonEvents();
             _userDTO = dto;
-            MessageBox.Show("Welcome, " + _userDTO.Id + "!", "Login Successful",
-               MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void HandleButtonEvents()
         {;
@@ -170,11 +168,9 @@ namespace Chhipa_Motors.GUI.Car_Cards
             {
                 if (ctrl is SiticoneContainer container)
                 {
-                    // Add events to the container itself
                     container.MouseEnter += HoverEnter;
                     container.MouseLeave += HoverLeave;
 
-                    // Add events to all children inside container
                     foreach (Control child in container.Controls)
                     {
                         child.MouseEnter += HoverEnter;
@@ -190,7 +186,6 @@ namespace Chhipa_Motors.GUI.Car_Cards
             {
                 var porscheCars = _carBL.GetCarsByManufacturer("Porsche");
 
-                // Use SiticoneLabel and SiticoneButtonAdvanced
                 var carLookup = new Dictionary<string, (SiticoneLabel priceLabel, SiticoneButtonAdvanced bookButton)>
         {
             { "Taycan Turbo GT", (lbl_p_TaycanTurboGT, btn_book_TaycanTurbo) },
@@ -207,18 +202,18 @@ namespace Chhipa_Motors.GUI.Car_Cards
                     {
                         var (priceLabel, bookButton) = carLookup[car.CarName];
 
-                        // Update price label
+        
                         decimal price = decimal.Parse(car.Price);
                         priceLabel.Text = $"{price:N0}";
                         priceLabel.Tag = car.CarID;
 
-                        // Update book button
+                
                         bookButton.Tag = car.CarID;
 
-                        // Parse stock
+                
                         int stock = int.Parse(car.Stock);
 
-                        // Parse active status
+                
                         bool isActive = false;
                         if (!string.IsNullOrEmpty(car.Status))
                         {
@@ -226,13 +221,11 @@ namespace Chhipa_Motors.GUI.Car_Cards
                             isActive = status == "active" || status == "1" || status == "true";
                         }
 
-                        // Enable button only if stock > 0 AND car is active
                         bool shouldEnable = (stock > 0 && isActive);
 
                         bookButton.Enabled = shouldEnable;
                         bookButton.Cursor = shouldEnable ? Cursors.Hand : Cursors.No;
 
-                        // Change button text based on availability
                         if (shouldEnable)
                         {
                             bookButton.Text = "Book Vehicle";

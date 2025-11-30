@@ -35,12 +35,10 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
         private void InitializeCustomComponents()
         {
-            // Form settings
             this.Text = "My Bookings - Chhipa Motors";
             this.Size = new Size(1100, 740);
             this.BackColor = Color.FromArgb(245, 247, 250);
 
-            // Header Panel with gradient
             headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -49,7 +47,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             };
             headerPanel.Paint += HeaderPanel_Paint;
 
-            // Title
             lblTitle = new Label
             {
                 Text = "Your Bookings",
@@ -59,7 +56,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 Location = new Point(40, 25)
             };
 
-            // Subtitle
             lblSubtitle = new Label
             {
                 Text = "Manage and track all your car bookings",
@@ -71,7 +67,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
             headerPanel.Controls.AddRange(new Control[] { lblTitle, lblSubtitle });
 
-            // DataGridView Container Panel (for shadow effect)
             Panel dgvContainer = new Panel
             {
                 Location = new Point(40, 160),
@@ -80,7 +75,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 Padding = new Padding(15)
             };
 
-            // DataGridView
             dgb_bookings = new DataGridView
             {
                 Dock = DockStyle.Fill,
@@ -100,7 +94,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 Font = new Font("Segoe UI", 10)
             };
 
-            // Style the header
             dgb_bookings.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.FromArgb(102, 126, 234),
@@ -110,7 +103,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 Padding = new Padding(10, 0, 0, 0)
             };
 
-            // Style the cells
             dgb_bookings.DefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.White,
@@ -121,7 +113,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 Font = new Font("Segoe UI", 10)
             };
 
-            // Alternating row colors
             dgb_bookings.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.FromArgb(248, 249, 252),
@@ -137,7 +128,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
             dgvContainer.Controls.Add(dgb_bookings);
 
-            // Bottom Panel
             bottomPanel = new Panel
             {
                 Location = new Point(40, 630),
@@ -145,7 +135,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 BackColor = Color.Transparent
             };
 
-            // Refresh Button
             btnRefresh = new Button
             {
                 Text = "🔄 REFRESH",
@@ -163,7 +152,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             btnRefresh.MouseEnter += (s, e) => btnRefresh.BackColor = Color.FromArgb(240, 243, 250);
             btnRefresh.MouseLeave += (s, e) => btnRefresh.BackColor = Color.White;
 
-            // Cancel Booking Button
             btnCancelBooking = new GradientButtonC
             {
                 Text = "✕ CANCEL BOOKING",
@@ -180,7 +168,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
             bottomPanel.Controls.AddRange(new Control[] { btnRefresh, btnCancelBooking });
 
-            // Add all controls to form
             this.Controls.AddRange(new Control[] { headerPanel, dgvContainer, bottomPanel });
         }
 
@@ -211,14 +198,9 @@ namespace Chhipa_Motors.GUI.Menu_Pages
 
         private void Dgb_bookings_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            // Customize columns based on the query structure:
-            // BookingID, CarID, CarName, Manufacturer, BookingDate, Status, UpdatedAt, AdminNote
 
             if (dgb_bookings.Columns.Count > 0)
             {
-                // First, configure all columns without setting DisplayIndex
-
-                // Hide CarID column
                 if (dgb_bookings.Columns.Contains("CarID"))
                 {
                     dgb_bookings.Columns["CarID"].Visible = false;
@@ -268,8 +250,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                     dgb_bookings.Columns["AdminNote"].Width = 180;
                 }
 
-                // Now set the display order - do this AFTER all other properties are set
-                // The order should be: BookingID, CarName, Manufacturer, BookingDate, Status, UpdatedAt, AdminNote
                 int displayOrder = 0;
 
                 if (dgb_bookings.Columns.Contains("BookingID"))
@@ -301,7 +281,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             {
                 string status = e.Value.ToString();
 
-                // Color code the status based on your schema statuses
                 switch (status)
                 {
                     case "Pending":
@@ -325,7 +304,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                         e.CellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                         break;
                     default:
-                        // For any other status
                         e.CellStyle.BackColor = Color.FromArgb(240, 240, 240);
                         e.CellStyle.ForeColor = Color.FromArgb(100, 100, 100);
                         e.CellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
@@ -343,8 +321,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 if (row.Cells["Status"].Value != null)
                 {
                     string status = row.Cells["Status"].Value.ToString();
-
-                    // Enable cancel button only if status is Pending
                     btnCancelBooking.Enabled = (status == "Pending");
                 }
                 else
@@ -411,8 +387,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
             }
         }
     }
-
-    // Custom Gradient Button
     public class GradientButtonC : Button
     {
         protected override void OnPaint(PaintEventArgs e)
@@ -439,7 +413,6 @@ namespace Chhipa_Motors.GUI.Menu_Pages
         }
     }
 
-    // Extension method for rounded rectangles
     public static class GraphicsExtensionsC
     {
         public static void FillRoundedRectangle(this Graphics graphics, Brush brush,

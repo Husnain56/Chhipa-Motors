@@ -243,13 +243,8 @@ namespace Chhipa_Motors.GUI
 
             if (!string.IsNullOrEmpty(manufacturer))
             {
-                // TODO: Navigate to cars page filtered by manufacturer
                 MessageBox.Show($"Loading {manufacturer} models...", "Manufacturer Selected",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Example: Open filtered cars page
-                // CarsPage carsPage = new CarsPage(manufacturer);
-                // NavigateToPage(carsPage);
             }
         }
     }

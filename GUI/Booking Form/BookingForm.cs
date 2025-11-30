@@ -45,8 +45,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
             InitializeComponents();
             InitializeCustomComponents(carImage);
             LoadCarDetails();
-            MessageBox.Show("Welcome, " + _userDTO.Id + "!", "Login Successful",
-               MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void InitializeComponents()
@@ -62,7 +60,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
 
         private void InitializeCustomComponents(Image carImage)
         {
-            // Header Panel with gradient
             headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -71,7 +68,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
             };
             headerPanel.Paint += HeaderPanel_Paint;
 
-            // Title
             lblTitle = new Label
             {
                 Text = "Complete Your Booking",
@@ -81,7 +77,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 Location = new Point(40, 20)
             };
 
-            // Subtitle
             lblSubtitle = new Label
             {
                 Text = "Fill in your details to reserve this vehicle",
@@ -93,7 +88,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
 
             headerPanel.Controls.AddRange(new Control[] { lblTitle, lblSubtitle });
 
-            // Car Details Panel
             carDetailsPanel = new Panel
             {
                 Location = new Point(40, 130),
@@ -103,7 +97,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
             };
             carDetailsPanel.Paint += CardPanel_Paint;
 
-            // Car Image PictureBox
             pb_carImage = new PictureBox
             {
                 Location = new Point(30, 30),
@@ -118,7 +111,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                     Color.FromArgb(220, 220, 220), ButtonBorderStyle.Solid);
             };
 
-            // Car Name Label
             lblCarName = new Label
             {
                 Text = "Loading...",
@@ -129,7 +121,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 MaximumSize = new Size(380, 0)
             };
 
-            // Manufacturer Label
             lblManufacturer = new Label
             {
                 Text = "Manufacturer",
@@ -139,7 +130,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 Location = new Point(590, 100)
             };
 
-            // Price Label
             lblPrice = new Label
             {
                 Text = "$0",
@@ -149,7 +139,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 Location = new Point(590, 150)
             };
 
-            // Price Description
             Label lblPriceDesc = new Label
             {
                 Text = "Total Price",
@@ -163,7 +152,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 pb_carImage, lblCarName, lblManufacturer, lblPrice, lblPriceDesc
             });
 
-            // Customer Details Panel
             customerDetailsPanel = new Panel
             {
                 Location = new Point(40, 470),
@@ -173,7 +161,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
             };
             customerDetailsPanel.Paint += CardPanel_Paint;
 
-            // Panel Title
             Label lblCustomerTitle = new Label
             {
                 Text = "Your Information",
@@ -183,7 +170,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 Location = new Point(30, 20)
             };
 
-            // Full Name
             Label lblFullName = new Label
             {
                 Text = "Full Name *",
@@ -201,7 +187,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 BorderStyle = BorderStyle.FixedSingle
             };
 
-            // Email
             Label lblEmail = new Label
             {
                 Text = "Email Address *",
@@ -219,7 +204,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 BorderStyle = BorderStyle.FixedSingle
             };
 
-            // Phone Number
             Label lblPhone = new Label
             {
                 Text = "Phone Number *",
@@ -237,7 +221,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 BorderStyle = BorderStyle.FixedSingle
             };
 
-            // Address
             Label lblAddress = new Label
             {
                 Text = "Address *",
@@ -255,7 +238,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 BorderStyle = BorderStyle.FixedSingle
             };
 
-            // City
             Label lblCity = new Label
             {
                 Text = "City *",
@@ -278,7 +260,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 lblPhone, txt_phone, lblAddress, txt_address, lblCity, txt_city
             });
 
-            // Action Buttons Panel
             Panel buttonsPanel = new Panel
             {
                 Location = new Point(40, 710),
@@ -286,7 +267,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 BackColor = Color.Transparent
             };
 
-            // Cancel Button
             btn_cancel = new Button
             {
                 Text = "✕ CANCEL",
@@ -304,14 +284,13 @@ namespace Chhipa_Motors.GUI.Booking_Form
             btn_cancel.MouseEnter += (s, e) => btn_cancel.BackColor = Color.FromArgb(255, 245, 245);
             btn_cancel.MouseLeave += (s, e) => btn_cancel.BackColor = Color.White;
 
-            // Confirm Booking Button
             btn_confirm = new GradientButton
             {
                 Text = "✓ CONFIRM BOOKING",
-                Font = new Font("Segoe UI", 13, FontStyle.Bold),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 ForeColor = Color.White,
-                Location = new Point(830, 0),
-                Size = new Size(180, 50),
+                Location = new Point(800, 0),
+                Size = new Size(220, 50),
                 FlatStyle = FlatStyle.Flat,
                 Cursor = Cursors.Hand
             };
@@ -320,7 +299,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
 
             buttonsPanel.Controls.AddRange(new Control[] { btn_cancel, btn_confirm });
 
-            // Add all controls to form
             this.Controls.AddRange(new Control[] {
                 headerPanel, carDetailsPanel, customerDetailsPanel, buttonsPanel
             });
@@ -343,13 +321,11 @@ namespace Chhipa_Motors.GUI.Booking_Form
             Panel panel = sender as Panel;
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // Draw shadow
             using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(10, 0, 0, 0)))
             {
                 e.Graphics.FillRectangle(shadowBrush, 2, 2, panel.Width - 2, panel.Height - 2);
             }
 
-            // Draw rounded rectangle
             using (GraphicsPath path = GetRoundedRectPath(new Rectangle(0, 0, panel.Width - 1, panel.Height - 1), 12))
             {
                 using (SolidBrush brush = new SolidBrush(panel.BackColor))
@@ -381,7 +357,7 @@ namespace Chhipa_Motors.GUI.Booking_Form
             {
                 lblCarName.Text = _carProduct.CarName;
                 lblManufacturer.Text = _carProduct.Manufacturer;
-                lblPrice.Text = $"{_carProduct.Price:N0}";
+                lblPrice.Text = $"${_carProduct.Price:N0}";
             }
             catch (Exception ex)
             {
@@ -407,7 +383,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
 
         private void Btn_confirm_Click(object sender, EventArgs e)
         {
-            // Validate all fields
             if (string.IsNullOrWhiteSpace(txt_fullName.Text) ||
                 string.IsNullOrWhiteSpace(txt_email.Text) ||
                 string.IsNullOrWhiteSpace(txt_phone.Text) ||
@@ -419,7 +394,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 return;
             }
 
-            // Validate email format
             if (!IsValidEmail(txt_email.Text))
             {
                 MessageBox.Show("Please enter a valid email address.", "Validation Error",
@@ -427,7 +401,6 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 return;
             }
 
-            // Validate phone number
             if (!IsValidPhone(txt_phone.Text))
             {
                 MessageBox.Show("Please enter a valid phone number.", "Validation Error",
@@ -461,7 +434,7 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 BookingDTO bookingDTO = new BookingDTO
                 {
                     UserID = _userDTO.Id,
-                    CarID = _carProduct.CarID.ToString(),  // ✓ Use _carProduct instead
+                    CarID = _carProduct.CarID.ToString(),  
                     Status = "Pending"
                 };
 
@@ -469,8 +442,8 @@ namespace Chhipa_Motors.GUI.Booking_Form
                 if (bookingResult > 0)
                 {
                     MessageBox.Show($"Booking confirmed successfully!\n\n" +
-                        $"Vehicle: {_carProduct.CarName}\n" +        // ✓ Use _carProduct
-                        $"Price: ${_carProduct.Price:N0}\n\n" +      // ✓ Use _carProduct
+                        $"Vehicle: {_carProduct.CarName}\n" +      
+                        $"Price: $${_carProduct.Price:N0}\n\n" +     
                         $"We will contact you shortly at {txt_phone.Text}",
                         "Booking Confirmed",
                         MessageBoxButtons.OK,

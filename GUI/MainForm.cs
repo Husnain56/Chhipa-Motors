@@ -24,8 +24,36 @@ namespace Chhipa_Motors.GUI
             setStates();
             _userDTO = new UserDTO();
             _userDTO.Id = ID;
-            MessageBox.Show("Welcome, " + _userDTO.Id + "!", "Login Successful",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            InitializeMenuCloseButton();
+        }
+        private void InitializeMenuCloseButton()
+        {
+            Button btnCloseMenu = new Button();
+            btnCloseMenu.Name = "btn_close_menu";
+            btnCloseMenu.Size = new Size(35, 35);
+            btnCloseMenu.Location = new Point(220, 10);
+            btnCloseMenu.Text = "✕";
+            btnCloseMenu.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+            btnCloseMenu.ForeColor = Color.White;
+            btnCloseMenu.BackColor = Color.Transparent;
+            btnCloseMenu.FlatStyle = FlatStyle.Flat;
+            btnCloseMenu.FlatAppearance.BorderSize = 0;
+            btnCloseMenu.Cursor = Cursors.Hand;
+            btnCloseMenu.TabStop = false;
+            btnCloseMenu.MouseEnter += (s, e) => {
+                btnCloseMenu.BackColor = Color.FromArgb(50, 255, 255, 255); 
+                btnCloseMenu.FlatAppearance.BorderColor = Color.White;
+                btnCloseMenu.FlatAppearance.BorderSize = 1;
+            };
+
+            btnCloseMenu.MouseLeave += (s, e) => {
+                btnCloseMenu.BackColor = Color.Transparent;
+                btnCloseMenu.FlatAppearance.BorderSize = 0;
+            };
+
+            btnCloseMenu.Click += btn_close_menu_Click_1;
+            container_menu.Panel1.Controls.Add(btnCloseMenu);
+            btnCloseMenu.BringToFront();
         }
         public void setStates()
         {
@@ -114,6 +142,7 @@ namespace Chhipa_Motors.GUI
             pb_menu.Show();
             pb_Acc.Show();
             pnl_main.AutoScroll = true;
+            pb_wallpaper.Focus();
         }
 
         private void btn_menu_manufacturer_list_Click(object sender, EventArgs e)

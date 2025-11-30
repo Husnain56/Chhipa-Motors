@@ -33,17 +33,12 @@ namespace Chhipa_Motors.Factory
         {
             public abstract CarProduct CreateCar(string carName, Image carImage);
 
-            // Template method to ensure consistent car creation
             public CarProduct GetCarWithImage(string carName, Image carImage)
             {
                 return CreateCar(carName, carImage);
             }
         }
     
-
-    // ========================
-    // 3. Porsche Creator
-    // ========================
 
         public class PorscheCreator : CarCreator
         {
@@ -89,10 +84,6 @@ namespace Chhipa_Motors.Factory
             }
         }
  
-
-    // ========================
-    // 4. Nissan Creator
-    // ========================
         public class NissanCreator : CarCreator
         {
             private CarBL _carBL;
@@ -137,10 +128,6 @@ namespace Chhipa_Motors.Factory
             }
         }
     
-
-    // ========================
-    // 5. Lamborghini Creator
-    // ========================
         public class LamborghiniCreator : CarCreator
         {
             private CarBL _carBL;
@@ -184,10 +171,6 @@ namespace Chhipa_Motors.Factory
                 return s == "active" || s == "1" || s == "true";
             }
         }
-    
-    // ========================
-    // 6. McLaren Creator
-    // ========================
 
         public class McLarenCreator : CarCreator
         {
