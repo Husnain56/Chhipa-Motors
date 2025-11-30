@@ -250,7 +250,7 @@
             // 
             lbl_p_GTS.BackColor = Color.Transparent;
             lbl_p_GTS.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_GTS.Location = new Point(288, 710);
+            lbl_p_GTS.Location = new Point(257, 710);
             lbl_p_GTS.Name = "lbl_p_GTS";
             lbl_p_GTS.Size = new Size(194, 29);
             lbl_p_GTS.TabIndex = 18;
@@ -329,7 +329,7 @@
             lbl_taycangt.Name = "lbl_taycangt";
             lbl_taycangt.Size = new Size(243, 29);
             lbl_taycangt.TabIndex = 13;
-            lbl_taycangt.Text = "Estimated Price: PKR";
+            lbl_taycangt.Text = "Estimated Price: $";
             // 
             // siticoneLabel8
             // 
@@ -772,7 +772,7 @@
             // 
             lbl_p_750S.BackColor = Color.Transparent;
             lbl_p_750S.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_750S.Location = new Point(288, 710);
+            lbl_p_750S.Location = new Point(252, 710);
             lbl_p_750S.Name = "lbl_p_750S";
             lbl_p_750S.Size = new Size(194, 29);
             lbl_p_750S.TabIndex = 18;
@@ -851,7 +851,7 @@
             siticoneLabel9.Name = "siticoneLabel9";
             siticoneLabel9.Size = new Size(243, 29);
             siticoneLabel9.TabIndex = 13;
-            siticoneLabel9.Text = "Estimated Price: PKR";
+            siticoneLabel9.Text = "Estimated Price: $";
             // 
             // siticoneLabel10
             // 
@@ -1294,7 +1294,7 @@
             // 
             lbl_p_765LT_Spider.BackColor = Color.Transparent;
             lbl_p_765LT_Spider.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_765LT_Spider.Location = new Point(288, 710);
+            lbl_p_765LT_Spider.Location = new Point(257, 710);
             lbl_p_765LT_Spider.Name = "lbl_p_765LT_Spider";
             lbl_p_765LT_Spider.Size = new Size(194, 29);
             lbl_p_765LT_Spider.TabIndex = 18;
@@ -1373,7 +1373,7 @@
             siticoneLabel17.Name = "siticoneLabel17";
             siticoneLabel17.Size = new Size(243, 29);
             siticoneLabel17.TabIndex = 13;
-            siticoneLabel17.Text = "Estimated Price: PKR";
+            siticoneLabel17.Text = "Estimated Price: $";
             // 
             // siticoneLabel18
             // 
@@ -1816,7 +1816,7 @@
             // 
             lbl_p_ArturaSpider.BackColor = Color.Transparent;
             lbl_p_ArturaSpider.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_ArturaSpider.Location = new Point(288, 710);
+            lbl_p_ArturaSpider.Location = new Point(252, 710);
             lbl_p_ArturaSpider.Name = "lbl_p_ArturaSpider";
             lbl_p_ArturaSpider.Size = new Size(194, 29);
             lbl_p_ArturaSpider.TabIndex = 18;
@@ -1895,7 +1895,7 @@
             siticoneLabel26.Name = "siticoneLabel26";
             siticoneLabel26.Size = new Size(243, 29);
             siticoneLabel26.TabIndex = 13;
-            siticoneLabel26.Text = "Estimated Price: PKR";
+            siticoneLabel26.Text = "Estimated Price: $";
             // 
             // siticoneLabel27
             // 
@@ -2338,7 +2338,7 @@
             // 
             lbl_p_750S_Spider.BackColor = Color.Transparent;
             lbl_p_750S_Spider.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_750S_Spider.Location = new Point(288, 710);
+            lbl_p_750S_Spider.Location = new Point(257, 710);
             lbl_p_750S_Spider.Name = "lbl_p_750S_Spider";
             lbl_p_750S_Spider.Size = new Size(194, 29);
             lbl_p_750S_Spider.TabIndex = 18;
@@ -2417,7 +2417,7 @@
             siticoneLabel25.Name = "siticoneLabel25";
             siticoneLabel25.Size = new Size(243, 29);
             siticoneLabel25.TabIndex = 13;
-            siticoneLabel25.Text = "Estimated Price: PKR";
+            siticoneLabel25.Text = "Estimated Price: $";
             // 
             // siticoneLabel34
             // 
@@ -2795,7 +2795,7 @@
             Controls.Add(lbl_avail);
             Controls.Add(pb_porsche);
             Name = "UserControl_McLaren";
-            Size = new Size(1332, 786);
+            Size = new Size(1315, 786);
             Load += UserControl_McLaren_Load;
             siticoneContainer1.ResumeLayout(false);
             siticoneContainer2.ResumeLayout(false);

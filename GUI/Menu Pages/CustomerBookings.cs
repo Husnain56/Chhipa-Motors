@@ -345,7 +345,7 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                     string status = row.Cells["Status"].Value.ToString();
 
                     // Enable cancel button only if status is Pending
-                    btnCancelBooking.Enabled = (status == "Shipping");
+                    btnCancelBooking.Enabled = (status == "Pending");
                 }
                 else
                 {

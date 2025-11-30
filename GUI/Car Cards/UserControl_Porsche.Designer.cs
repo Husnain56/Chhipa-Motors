@@ -34,8 +34,8 @@ namespace Chhipa_Motors.GUI.Car_Cards
             pb_porsche = new SiticonePictureBox();
             lbl_avail = new SiticoneLabel();
             siticoneContainer1 = new SiticoneContainer();
-            lbl_p_taycanGT = new SiticoneLabel();
-            btn_book_taycanturbo = new SiticoneButtonAdvanced();
+            lbl_p_TaycanTurboGT = new SiticoneLabel();
+            btn_book_TaycanTurbo = new SiticoneButtonAdvanced();
             lbl_taycangt = new SiticoneLabel();
             siticoneLabel8 = new SiticoneLabel();
             siticoneLabel6 = new SiticoneLabel();
@@ -50,7 +50,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             lbl_taycan_turbo_gt = new SiticoneShimmerLabel();
             pb_taycan = new SiticonePictureBox();
             siticoneContainer2 = new SiticoneContainer();
-            lbl_p_911Carerra4S = new SiticoneLabel();
+            lbl_p_911Carrera4S = new SiticoneLabel();
             btn_book_carrera4S = new SiticoneButtonAdvanced();
             siticoneLabel9 = new SiticoneLabel();
             siticoneLabel10 = new SiticoneLabel();
@@ -63,10 +63,10 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneButton4 = new SiticoneButton();
             siticoneButton5 = new SiticoneButton();
             siticoneButton6 = new SiticoneButton();
-            lbl_carerra_4S = new SiticoneShimmerLabel();
+            lbl_Carrera_4S = new SiticoneShimmerLabel();
             pb_carrera_4S = new SiticonePictureBox();
             siticoneContainer3 = new SiticoneContainer();
-            lbl_p_panamera = new SiticoneLabel();
+            lbl_p_Panamera = new SiticoneLabel();
             btn_book_panamera = new SiticoneButtonAdvanced();
             siticoneLabel17 = new SiticoneLabel();
             siticoneLabel18 = new SiticoneLabel();
@@ -82,7 +82,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneShimmerLabel3 = new SiticoneShimmerLabel();
             pb_panamera = new SiticonePictureBox();
             siticoneContainer4 = new SiticoneContainer();
-            lbl_p_panamera4s = new SiticoneLabel();
+            lbl_p_Panamera4SEHybrid = new SiticoneLabel();
             btn_book_panamera4S = new SiticoneButtonAdvanced();
             siticoneLabel25 = new SiticoneLabel();
             siticoneLabel26 = new SiticoneLabel();
@@ -98,7 +98,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneShimmerLabel4 = new SiticoneShimmerLabel();
             pb_panamera_4S = new SiticonePictureBox();
             siticoneContainer5 = new SiticoneContainer();
-            lbl_p_Macan4 = new SiticoneLabel();
+            lbl_p_Macan4Electric = new SiticoneLabel();
             btn_book_macan4 = new SiticoneButtonAdvanced();
             siticoneLabel33 = new SiticoneLabel();
             siticoneLabel34 = new SiticoneLabel();
@@ -114,7 +114,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneShimmerLabel5 = new SiticoneShimmerLabel();
             pb_macan4 = new SiticonePictureBox();
             siticoneContainer6 = new SiticoneContainer();
-            lbl_p_718Cayman = new SiticoneLabel();
+            lbl_p_718CaymanGT4RS = new SiticoneLabel();
             btn_book_718Cayman = new SiticoneButtonAdvanced();
             siticoneLabel41 = new SiticoneLabel();
             siticoneLabel42 = new SiticoneLabel();
@@ -214,8 +214,8 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer1.ClickScaleEffect = 0.98F;
             siticoneContainer1.ContentGenerator = null;
             siticoneContainer1.ContextMenu = null;
-            siticoneContainer1.Controls.Add(lbl_p_taycanGT);
-            siticoneContainer1.Controls.Add(btn_book_taycanturbo);
+            siticoneContainer1.Controls.Add(lbl_p_TaycanTurboGT);
+            siticoneContainer1.Controls.Add(btn_book_TaycanTurbo);
             siticoneContainer1.Controls.Add(lbl_taycangt);
             siticoneContainer1.Controls.Add(siticoneLabel8);
             siticoneContainer1.Controls.Add(siticoneLabel6);
@@ -265,81 +265,81 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer1.TopLeftRadius = 20;
             siticoneContainer1.TopRightRadius = 20;
             // 
-            // lbl_p_taycanGT
+            // lbl_p_TaycanTurboGT
             // 
-            lbl_p_taycanGT.BackColor = Color.Transparent;
-            lbl_p_taycanGT.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_taycanGT.Location = new Point(288, 710);
-            lbl_p_taycanGT.Name = "lbl_p_taycanGT";
-            lbl_p_taycanGT.Size = new Size(194, 29);
-            lbl_p_taycanGT.TabIndex = 18;
-            lbl_p_taycanGT.Text = "66,000,000";
+            lbl_p_TaycanTurboGT.BackColor = Color.Transparent;
+            lbl_p_TaycanTurboGT.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_TaycanTurboGT.Location = new Point(253, 710);
+            lbl_p_TaycanTurboGT.Name = "lbl_p_TaycanTurboGT";
+            lbl_p_TaycanTurboGT.Size = new Size(194, 29);
+            lbl_p_TaycanTurboGT.TabIndex = 18;
+            lbl_p_TaycanTurboGT.Text = "66,000,000";
             // 
-            // btn_book_taycanturbo
+            // btn_book_TaycanTurbo
             // 
-            btn_book_taycanturbo.BackColor = Color.Transparent;
-            btn_book_taycanturbo.BadgeBackColor = Color.Red;
-            btn_book_taycanturbo.BadgeForeColor = Color.White;
-            btn_book_taycanturbo.BadgeRadius = 8;
-            btn_book_taycanturbo.BadgeRightMargin = 10;
-            btn_book_taycanturbo.BadgeValue = 0;
-            btn_book_taycanturbo.BorderColor = Color.FromArgb(150, 255, 255, 255);
-            btn_book_taycanturbo.BorderColorEnd = Color.Gray;
-            btn_book_taycanturbo.BorderColorStart = Color.White;
-            btn_book_taycanturbo.BorderRadiusBottomLeft = 35;
-            btn_book_taycanturbo.BorderRadiusBottomRight = 35;
-            btn_book_taycanturbo.BorderRadiusTopLeft = 35;
-            btn_book_taycanturbo.BorderRadiusTopRight = 35;
-            btn_book_taycanturbo.BorderThickness = 1;
-            btn_book_taycanturbo.ButtonColorEnd = Color.Silver;
-            btn_book_taycanturbo.ButtonColorStart = Color.Silver;
-            btn_book_taycanturbo.ButtonImage = null;
-            btn_book_taycanturbo.CanBeep = false;
-            btn_book_taycanturbo.CanShake = false;
-            btn_book_taycanturbo.ClickSoundPath = null;
-            btn_book_taycanturbo.DisabledOverlayOpacity = 0.5F;
-            btn_book_taycanturbo.EnableBorderGradient = false;
-            btn_book_taycanturbo.EnableClickSound = false;
-            btn_book_taycanturbo.EnableFocusBorder = false;
-            btn_book_taycanturbo.EnableHoverSound = false;
-            btn_book_taycanturbo.EnablePressScale = false;
-            btn_book_taycanturbo.EnableTextShadow = false;
-            btn_book_taycanturbo.FocusBorderColor = Color.FromArgb(100, 150, 255);
-            btn_book_taycanturbo.FocusBorderThickness = 2;
-            btn_book_taycanturbo.Font = new Font("Modern No. 20", 17.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_book_taycanturbo.ForeColor = Color.Black;
-            btn_book_taycanturbo.HoverColor = Color.FromArgb(20, 0, 0, 0);
-            btn_book_taycanturbo.HoverSoundPath = null;
-            btn_book_taycanturbo.HoverTransitionSpeed = 0.08F;
-            btn_book_taycanturbo.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_book_taycanturbo.ImageLeftMargin = 5;
-            btn_book_taycanturbo.ImageRightMargin = 8;
-            btn_book_taycanturbo.ImageSize = 24;
-            btn_book_taycanturbo.IsReadOnly = false;
-            btn_book_taycanturbo.Location = new Point(52, 769);
-            btn_book_taycanturbo.MakeRadial = false;
-            btn_book_taycanturbo.Name = "btn_book_taycanturbo";
-            btn_book_taycanturbo.PressAnimationSpeed = 0.2F;
-            btn_book_taycanturbo.PressDepth = 1;
-            btn_book_taycanturbo.RippleColor = Color.FromArgb(60, 255, 255, 255);
-            btn_book_taycanturbo.RippleExpandSpeedFactor = 0.05F;
-            btn_book_taycanturbo.RippleFadeSpeedFactor = 0.03F;
-            btn_book_taycanturbo.ShadowBlurFactor = 0.85F;
-            btn_book_taycanturbo.ShadowColor = Color.FromArgb(70, 0, 0, 0);
-            btn_book_taycanturbo.ShadowOffsetX = 3;
-            btn_book_taycanturbo.ShadowOffsetY = 3;
-            btn_book_taycanturbo.Size = new Size(230, 60);
-            btn_book_taycanturbo.TabIndex = 14;
-            btn_book_taycanturbo.Text = "Book Vehicle";
-            btn_book_taycanturbo.TextAlign = ContentAlignment.MiddleCenter;
-            btn_book_taycanturbo.TextPaddingBottom = 0;
-            btn_book_taycanturbo.TextPaddingLeft = 0;
-            btn_book_taycanturbo.TextPaddingRight = 0;
-            btn_book_taycanturbo.TextPaddingTop = 0;
-            btn_book_taycanturbo.TextShadowColor = Color.FromArgb(100, 0, 0, 0);
-            btn_book_taycanturbo.TextShadowOffsetX = 1;
-            btn_book_taycanturbo.TextShadowOffsetY = 1;
-            btn_book_taycanturbo.Click += btn_book_taycanturbo_Click;
+            btn_book_TaycanTurbo.BackColor = Color.Transparent;
+            btn_book_TaycanTurbo.BadgeBackColor = Color.Red;
+            btn_book_TaycanTurbo.BadgeForeColor = Color.White;
+            btn_book_TaycanTurbo.BadgeRadius = 8;
+            btn_book_TaycanTurbo.BadgeRightMargin = 10;
+            btn_book_TaycanTurbo.BadgeValue = 0;
+            btn_book_TaycanTurbo.BorderColor = Color.FromArgb(150, 255, 255, 255);
+            btn_book_TaycanTurbo.BorderColorEnd = Color.Gray;
+            btn_book_TaycanTurbo.BorderColorStart = Color.White;
+            btn_book_TaycanTurbo.BorderRadiusBottomLeft = 35;
+            btn_book_TaycanTurbo.BorderRadiusBottomRight = 35;
+            btn_book_TaycanTurbo.BorderRadiusTopLeft = 35;
+            btn_book_TaycanTurbo.BorderRadiusTopRight = 35;
+            btn_book_TaycanTurbo.BorderThickness = 1;
+            btn_book_TaycanTurbo.ButtonColorEnd = Color.Silver;
+            btn_book_TaycanTurbo.ButtonColorStart = Color.Silver;
+            btn_book_TaycanTurbo.ButtonImage = null;
+            btn_book_TaycanTurbo.CanBeep = false;
+            btn_book_TaycanTurbo.CanShake = false;
+            btn_book_TaycanTurbo.ClickSoundPath = null;
+            btn_book_TaycanTurbo.DisabledOverlayOpacity = 0.5F;
+            btn_book_TaycanTurbo.EnableBorderGradient = false;
+            btn_book_TaycanTurbo.EnableClickSound = false;
+            btn_book_TaycanTurbo.EnableFocusBorder = false;
+            btn_book_TaycanTurbo.EnableHoverSound = false;
+            btn_book_TaycanTurbo.EnablePressScale = false;
+            btn_book_TaycanTurbo.EnableTextShadow = false;
+            btn_book_TaycanTurbo.FocusBorderColor = Color.FromArgb(100, 150, 255);
+            btn_book_TaycanTurbo.FocusBorderThickness = 2;
+            btn_book_TaycanTurbo.Font = new Font("Modern No. 20", 17.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_book_TaycanTurbo.ForeColor = Color.Black;
+            btn_book_TaycanTurbo.HoverColor = Color.FromArgb(20, 0, 0, 0);
+            btn_book_TaycanTurbo.HoverSoundPath = null;
+            btn_book_TaycanTurbo.HoverTransitionSpeed = 0.08F;
+            btn_book_TaycanTurbo.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_book_TaycanTurbo.ImageLeftMargin = 5;
+            btn_book_TaycanTurbo.ImageRightMargin = 8;
+            btn_book_TaycanTurbo.ImageSize = 24;
+            btn_book_TaycanTurbo.IsReadOnly = false;
+            btn_book_TaycanTurbo.Location = new Point(52, 769);
+            btn_book_TaycanTurbo.MakeRadial = false;
+            btn_book_TaycanTurbo.Name = "btn_book_TaycanTurbo";
+            btn_book_TaycanTurbo.PressAnimationSpeed = 0.2F;
+            btn_book_TaycanTurbo.PressDepth = 1;
+            btn_book_TaycanTurbo.RippleColor = Color.FromArgb(60, 255, 255, 255);
+            btn_book_TaycanTurbo.RippleExpandSpeedFactor = 0.05F;
+            btn_book_TaycanTurbo.RippleFadeSpeedFactor = 0.03F;
+            btn_book_TaycanTurbo.ShadowBlurFactor = 0.85F;
+            btn_book_TaycanTurbo.ShadowColor = Color.FromArgb(70, 0, 0, 0);
+            btn_book_TaycanTurbo.ShadowOffsetX = 3;
+            btn_book_TaycanTurbo.ShadowOffsetY = 3;
+            btn_book_TaycanTurbo.Size = new Size(230, 60);
+            btn_book_TaycanTurbo.TabIndex = 14;
+            btn_book_TaycanTurbo.Text = "Book Vehicle";
+            btn_book_TaycanTurbo.TextAlign = ContentAlignment.MiddleCenter;
+            btn_book_TaycanTurbo.TextPaddingBottom = 0;
+            btn_book_TaycanTurbo.TextPaddingLeft = 0;
+            btn_book_TaycanTurbo.TextPaddingRight = 0;
+            btn_book_TaycanTurbo.TextPaddingTop = 0;
+            btn_book_TaycanTurbo.TextShadowColor = Color.FromArgb(100, 0, 0, 0);
+            btn_book_TaycanTurbo.TextShadowOffsetX = 1;
+            btn_book_TaycanTurbo.TextShadowOffsetY = 1;
+            btn_book_TaycanTurbo.Click += btn_book_taycanturbo_Click;
             // 
             // lbl_taycangt
             // 
@@ -349,7 +349,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             lbl_taycangt.Name = "lbl_taycangt";
             lbl_taycangt.Size = new Size(243, 29);
             lbl_taycangt.TabIndex = 13;
-            lbl_taycangt.Text = "Estimated Price: PKR";
+            lbl_taycangt.Text = "Estimated Price: $";
             // 
             // siticoneLabel8
             // 
@@ -737,7 +737,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer2.ClickScaleEffect = 0.98F;
             siticoneContainer2.ContentGenerator = null;
             siticoneContainer2.ContextMenu = null;
-            siticoneContainer2.Controls.Add(lbl_p_911Carerra4S);
+            siticoneContainer2.Controls.Add(lbl_p_911Carrera4S);
             siticoneContainer2.Controls.Add(btn_book_carrera4S);
             siticoneContainer2.Controls.Add(siticoneLabel9);
             siticoneContainer2.Controls.Add(siticoneLabel10);
@@ -750,7 +750,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer2.Controls.Add(siticoneButton4);
             siticoneContainer2.Controls.Add(siticoneButton5);
             siticoneContainer2.Controls.Add(siticoneButton6);
-            siticoneContainer2.Controls.Add(lbl_carerra_4S);
+            siticoneContainer2.Controls.Add(lbl_Carrera_4S);
             siticoneContainer2.Controls.Add(pb_carrera_4S);
             siticoneContainer2.CustomDashPattern = null;
             siticoneContainer2.DataSource = null;
@@ -788,15 +788,15 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer2.TopLeftRadius = 20;
             siticoneContainer2.TopRightRadius = 20;
             // 
-            // lbl_p_911Carerra4S
+            // lbl_p_911Carrera4S
             // 
-            lbl_p_911Carerra4S.BackColor = Color.Transparent;
-            lbl_p_911Carerra4S.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_911Carerra4S.Location = new Point(288, 710);
-            lbl_p_911Carerra4S.Name = "lbl_p_911Carerra4S";
-            lbl_p_911Carerra4S.Size = new Size(194, 29);
-            lbl_p_911Carerra4S.TabIndex = 19;
-            lbl_p_911Carerra4S.Text = "45,000,000";
+            lbl_p_911Carrera4S.BackColor = Color.Transparent;
+            lbl_p_911Carrera4S.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_911Carrera4S.Location = new Point(253, 710);
+            lbl_p_911Carrera4S.Name = "lbl_p_911Carrera4S";
+            lbl_p_911Carrera4S.Size = new Size(194, 29);
+            lbl_p_911Carrera4S.TabIndex = 19;
+            lbl_p_911Carrera4S.Text = "45,000,000";
             // 
             // btn_book_carrera4S
             // 
@@ -871,7 +871,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneLabel9.Name = "siticoneLabel9";
             siticoneLabel9.Size = new Size(244, 29);
             siticoneLabel9.TabIndex = 13;
-            siticoneLabel9.Text = "Estimated Price: PKR";
+            siticoneLabel9.Text = "Estimated Price: $";
             // 
             // siticoneLabel10
             // 
@@ -1172,26 +1172,26 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneButton6.UseAdvancedRendering = true;
             siticoneButton6.UseParticles = false;
             // 
-            // lbl_carerra_4S
+            // lbl_Carrera_4S
             // 
-            lbl_carerra_4S.AutoReverse = false;
-            lbl_carerra_4S.BackColor = Color.Black;
-            lbl_carerra_4S.BaseColor = Color.White;
-            lbl_carerra_4S.Direction = ShimmerDirection.LeftToRight;
-            lbl_carerra_4S.Font = new Font("Modern No. 20", 27.7499962F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_carerra_4S.IsAnimating = true;
-            lbl_carerra_4S.IsPaused = false;
-            lbl_carerra_4S.Location = new Point(17, 263);
-            lbl_carerra_4S.Name = "lbl_carerra_4S";
-            lbl_carerra_4S.PauseDuration = 0;
-            lbl_carerra_4S.ShimmerColor = Color.Gainsboro;
-            lbl_carerra_4S.ShimmerOpacity = 1F;
-            lbl_carerra_4S.ShimmerSpeed = 50;
-            lbl_carerra_4S.ShimmerWidth = 0.2F;
-            lbl_carerra_4S.Size = new Size(302, 50);
-            lbl_carerra_4S.TabIndex = 1;
-            lbl_carerra_4S.Text = "911 Carrera 4S";
-            lbl_carerra_4S.ToolTipText = "";
+            lbl_Carrera_4S.AutoReverse = false;
+            lbl_Carrera_4S.BackColor = Color.Black;
+            lbl_Carrera_4S.BaseColor = Color.White;
+            lbl_Carrera_4S.Direction = ShimmerDirection.LeftToRight;
+            lbl_Carrera_4S.Font = new Font("Modern No. 20", 27.7499962F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_Carrera_4S.IsAnimating = true;
+            lbl_Carrera_4S.IsPaused = false;
+            lbl_Carrera_4S.Location = new Point(17, 263);
+            lbl_Carrera_4S.Name = "lbl_Carrera_4S";
+            lbl_Carrera_4S.PauseDuration = 0;
+            lbl_Carrera_4S.ShimmerColor = Color.Gainsboro;
+            lbl_Carrera_4S.ShimmerOpacity = 1F;
+            lbl_Carrera_4S.ShimmerSpeed = 50;
+            lbl_Carrera_4S.ShimmerWidth = 0.2F;
+            lbl_Carrera_4S.Size = new Size(302, 50);
+            lbl_Carrera_4S.TabIndex = 1;
+            lbl_Carrera_4S.Text = "911 Carrera 4S";
+            lbl_Carrera_4S.ToolTipText = "";
             // 
             // pb_carrera_4S
             // 
@@ -1259,7 +1259,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer3.ClickScaleEffect = 0.98F;
             siticoneContainer3.ContentGenerator = null;
             siticoneContainer3.ContextMenu = null;
-            siticoneContainer3.Controls.Add(lbl_p_panamera);
+            siticoneContainer3.Controls.Add(lbl_p_Panamera);
             siticoneContainer3.Controls.Add(btn_book_panamera);
             siticoneContainer3.Controls.Add(siticoneLabel17);
             siticoneContainer3.Controls.Add(siticoneLabel18);
@@ -1310,15 +1310,15 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer3.TopLeftRadius = 20;
             siticoneContainer3.TopRightRadius = 20;
             // 
-            // lbl_p_panamera
+            // lbl_p_Panamera
             // 
-            lbl_p_panamera.BackColor = Color.Transparent;
-            lbl_p_panamera.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_panamera.Location = new Point(288, 710);
-            lbl_p_panamera.Name = "lbl_p_panamera";
-            lbl_p_panamera.Size = new Size(194, 29);
-            lbl_p_panamera.TabIndex = 19;
-            lbl_p_panamera.Text = "66,000,000";
+            lbl_p_Panamera.BackColor = Color.Transparent;
+            lbl_p_Panamera.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_Panamera.Location = new Point(253, 710);
+            lbl_p_Panamera.Name = "lbl_p_Panamera";
+            lbl_p_Panamera.Size = new Size(194, 29);
+            lbl_p_Panamera.TabIndex = 19;
+            lbl_p_Panamera.Text = "66,000,000";
             // 
             // btn_book_panamera
             // 
@@ -1393,7 +1393,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneLabel17.Name = "siticoneLabel17";
             siticoneLabel17.Size = new Size(243, 29);
             siticoneLabel17.TabIndex = 13;
-            siticoneLabel17.Text = "Estimated Price: PKR";
+            siticoneLabel17.Text = "Estimated Price: $";
             // 
             // siticoneLabel18
             // 
@@ -1781,7 +1781,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer4.ClickScaleEffect = 0.98F;
             siticoneContainer4.ContentGenerator = null;
             siticoneContainer4.ContextMenu = null;
-            siticoneContainer4.Controls.Add(lbl_p_panamera4s);
+            siticoneContainer4.Controls.Add(lbl_p_Panamera4SEHybrid);
             siticoneContainer4.Controls.Add(btn_book_panamera4S);
             siticoneContainer4.Controls.Add(siticoneLabel25);
             siticoneContainer4.Controls.Add(siticoneLabel26);
@@ -1832,15 +1832,15 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer4.TopLeftRadius = 20;
             siticoneContainer4.TopRightRadius = 20;
             // 
-            // lbl_p_panamera4s
+            // lbl_p_Panamera4SEHybrid
             // 
-            lbl_p_panamera4s.BackColor = Color.Transparent;
-            lbl_p_panamera4s.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_panamera4s.Location = new Point(285, 710);
-            lbl_p_panamera4s.Name = "lbl_p_panamera4s";
-            lbl_p_panamera4s.Size = new Size(194, 29);
-            lbl_p_panamera4s.TabIndex = 20;
-            lbl_p_panamera4s.Text = "90,000,000";
+            lbl_p_Panamera4SEHybrid.BackColor = Color.Transparent;
+            lbl_p_Panamera4SEHybrid.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_Panamera4SEHybrid.Location = new Point(250, 710);
+            lbl_p_Panamera4SEHybrid.Name = "lbl_p_Panamera4SEHybrid";
+            lbl_p_Panamera4SEHybrid.Size = new Size(194, 29);
+            lbl_p_Panamera4SEHybrid.TabIndex = 20;
+            lbl_p_Panamera4SEHybrid.Text = "90,000,000";
             // 
             // btn_book_panamera4S
             // 
@@ -1913,9 +1913,9 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneLabel25.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             siticoneLabel25.Location = new Point(52, 710);
             siticoneLabel25.Name = "siticoneLabel25";
-            siticoneLabel25.Size = new Size(252, 29);
+            siticoneLabel25.Size = new Size(218, 29);
             siticoneLabel25.TabIndex = 13;
-            siticoneLabel25.Text = "Estimated Price: PKR";
+            siticoneLabel25.Text = "Estimated Price: $";
             // 
             // siticoneLabel26
             // 
@@ -2303,7 +2303,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer5.ClickScaleEffect = 0.98F;
             siticoneContainer5.ContentGenerator = null;
             siticoneContainer5.ContextMenu = null;
-            siticoneContainer5.Controls.Add(lbl_p_Macan4);
+            siticoneContainer5.Controls.Add(lbl_p_Macan4Electric);
             siticoneContainer5.Controls.Add(btn_book_macan4);
             siticoneContainer5.Controls.Add(siticoneLabel33);
             siticoneContainer5.Controls.Add(siticoneLabel34);
@@ -2354,15 +2354,15 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer5.TopLeftRadius = 20;
             siticoneContainer5.TopRightRadius = 20;
             // 
-            // lbl_p_Macan4
+            // lbl_p_Macan4Electric
             // 
-            lbl_p_Macan4.BackColor = Color.Transparent;
-            lbl_p_Macan4.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_Macan4.Location = new Point(288, 710);
-            lbl_p_Macan4.Name = "lbl_p_Macan4";
-            lbl_p_Macan4.Size = new Size(243, 29);
-            lbl_p_Macan4.TabIndex = 15;
-            lbl_p_Macan4.Text = "10,000,000";
+            lbl_p_Macan4Electric.BackColor = Color.Transparent;
+            lbl_p_Macan4Electric.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_Macan4Electric.Location = new Point(243, 710);
+            lbl_p_Macan4Electric.Name = "lbl_p_Macan4Electric";
+            lbl_p_Macan4Electric.Size = new Size(243, 29);
+            lbl_p_Macan4Electric.TabIndex = 15;
+            lbl_p_Macan4Electric.Text = "10,000,000";
             // 
             // btn_book_macan4
             // 
@@ -2437,7 +2437,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneLabel33.Name = "siticoneLabel33";
             siticoneLabel33.Size = new Size(243, 29);
             siticoneLabel33.TabIndex = 13;
-            siticoneLabel33.Text = "Estimated Price: PKR";
+            siticoneLabel33.Text = "Estimated Price:$";
             // 
             // siticoneLabel34
             // 
@@ -2825,7 +2825,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer6.ClickScaleEffect = 0.98F;
             siticoneContainer6.ContentGenerator = null;
             siticoneContainer6.ContextMenu = null;
-            siticoneContainer6.Controls.Add(lbl_p_718Cayman);
+            siticoneContainer6.Controls.Add(lbl_p_718CaymanGT4RS);
             siticoneContainer6.Controls.Add(btn_book_718Cayman);
             siticoneContainer6.Controls.Add(siticoneLabel41);
             siticoneContainer6.Controls.Add(siticoneLabel42);
@@ -2876,15 +2876,15 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneContainer6.TopLeftRadius = 20;
             siticoneContainer6.TopRightRadius = 20;
             // 
-            // lbl_p_718Cayman
+            // lbl_p_718CaymanGT4RS
             // 
-            lbl_p_718Cayman.BackColor = Color.Transparent;
-            lbl_p_718Cayman.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_718Cayman.Location = new Point(288, 710);
-            lbl_p_718Cayman.Name = "lbl_p_718Cayman";
-            lbl_p_718Cayman.Size = new Size(244, 29);
-            lbl_p_718Cayman.TabIndex = 18;
-            lbl_p_718Cayman.Text = "40,000,000";
+            lbl_p_718CaymanGT4RS.BackColor = Color.Transparent;
+            lbl_p_718CaymanGT4RS.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_p_718CaymanGT4RS.Location = new Point(254, 710);
+            lbl_p_718CaymanGT4RS.Name = "lbl_p_718CaymanGT4RS";
+            lbl_p_718CaymanGT4RS.Size = new Size(244, 29);
+            lbl_p_718CaymanGT4RS.TabIndex = 18;
+            lbl_p_718CaymanGT4RS.Text = "40,000,000";
             // 
             // btn_book_718Cayman
             // 
@@ -2959,7 +2959,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             siticoneLabel41.Name = "siticoneLabel41";
             siticoneLabel41.Size = new Size(244, 29);
             siticoneLabel41.TabIndex = 13;
-            siticoneLabel41.Text = "Estimated Price: PKR";
+            siticoneLabel41.Text = "Estimated Price: $";
             // 
             // siticoneLabel42
             // 
@@ -3338,7 +3338,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             Controls.Add(lbl_avail);
             Controls.Add(pb_porsche);
             Name = "UserControl_Porsche";
-            Size = new Size(1349, 786);
+            Size = new Size(1264, 769);
             Load += UserControl_Porsche_Load;
             siticoneContainer1.ResumeLayout(false);
             siticoneContainer2.ResumeLayout(false);
@@ -3354,7 +3354,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
         private SiticoneNetCoreUI.SiticonePictureBox pb_porsche;
         private SiticoneNetCoreUI.SiticoneLabel lbl_avail;
         private SiticoneNetCoreUI.SiticoneContainer siticoneContainer1;
-        private SiticoneNetCoreUI.SiticoneButtonAdvanced btn_book_taycanturbo;
+        private SiticoneNetCoreUI.SiticoneButtonAdvanced btn_book_TaycanTurbo;
         private SiticoneNetCoreUI.SiticoneLabel lbl_taycangt;
         private SiticoneNetCoreUI.SiticoneLabel siticoneLabel8;
         private SiticoneNetCoreUI.SiticoneLabel siticoneLabel6;
@@ -3381,7 +3381,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
         private SiticoneNetCoreUI.SiticoneButton siticoneButton4;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton5;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton6;
-        private SiticoneNetCoreUI.SiticoneShimmerLabel lbl_carerra_4S;
+        private SiticoneNetCoreUI.SiticoneShimmerLabel lbl_Carrera_4S;
         private SiticoneNetCoreUI.SiticonePictureBox pb_carrera_4S;
         private SiticoneNetCoreUI.SiticoneContainer siticoneContainer3;
         private SiticoneNetCoreUI.SiticoneButtonAdvanced btn_book_panamera;
@@ -3443,11 +3443,11 @@ namespace Chhipa_Motors.GUI.Car_Cards
         private SiticoneNetCoreUI.SiticoneButton siticoneButton18;
         private SiticoneNetCoreUI.SiticoneShimmerLabel siticoneShimmerLabel6;
         private SiticoneNetCoreUI.SiticonePictureBox pb_718_cayman;
-        private SiticoneLabel lbl_p_taycanGT;
-        private SiticoneLabel lbl_p_911Carerra4S;
-        private SiticoneLabel lbl_p_panamera;
-        private SiticoneLabel lbl_p_panamera4s;
-        private SiticoneLabel lbl_p_Macan4;
-        private SiticoneLabel lbl_p_718Cayman;
+        private SiticoneLabel lbl_p_TaycanTurboGT;
+        private SiticoneLabel lbl_p_911Carrera4S;
+        private SiticoneLabel lbl_p_Panamera;
+        private SiticoneLabel lbl_p_Panamera4SEHybrid;
+        private SiticoneLabel lbl_p_Macan4Electric;
+        private SiticoneLabel lbl_p_718CaymanGT4RS;
     }
 }

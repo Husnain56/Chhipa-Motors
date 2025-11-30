@@ -233,7 +233,7 @@
             // 
             lbl_p_GTR.BackColor = Color.Transparent;
             lbl_p_GTR.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_GTR.Location = new Point(288, 710);
+            lbl_p_GTR.Location = new Point(251, 710);
             lbl_p_GTR.Name = "lbl_p_GTR";
             lbl_p_GTR.Size = new Size(194, 29);
             lbl_p_GTR.TabIndex = 18;
@@ -312,7 +312,7 @@
             lbl_taycangt.Name = "lbl_taycangt";
             lbl_taycangt.Size = new Size(243, 29);
             lbl_taycangt.TabIndex = 13;
-            lbl_taycangt.Text = "Estimated Price: PKR";
+            lbl_taycangt.Text = "Estimated Price: $";
             // 
             // siticoneLabel8
             // 
@@ -755,7 +755,7 @@
             // 
             lbl_p_Z.BackColor = Color.Transparent;
             lbl_p_Z.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_Z.Location = new Point(288, 710);
+            lbl_p_Z.Location = new Point(254, 710);
             lbl_p_Z.Name = "lbl_p_Z";
             lbl_p_Z.Size = new Size(194, 29);
             lbl_p_Z.TabIndex = 18;
@@ -834,7 +834,7 @@
             siticoneLabel9.Name = "siticoneLabel9";
             siticoneLabel9.Size = new Size(243, 29);
             siticoneLabel9.TabIndex = 13;
-            siticoneLabel9.Text = "Estimated Price: PKR";
+            siticoneLabel9.Text = "Estimated Price: $";
             // 
             // siticoneLabel10
             // 
@@ -1277,7 +1277,7 @@
             // 
             lbl_p_leaf.BackColor = Color.Transparent;
             lbl_p_leaf.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_leaf.Location = new Point(288, 710);
+            lbl_p_leaf.Location = new Point(251, 710);
             lbl_p_leaf.Name = "lbl_p_leaf";
             lbl_p_leaf.Size = new Size(194, 29);
             lbl_p_leaf.TabIndex = 18;
@@ -1356,7 +1356,7 @@
             siticoneLabel17.Name = "siticoneLabel17";
             siticoneLabel17.Size = new Size(243, 29);
             siticoneLabel17.TabIndex = 13;
-            siticoneLabel17.Text = "Estimated Price: PKR";
+            siticoneLabel17.Text = "Estimated Price: $";
             // 
             // siticoneLabel18
             // 
@@ -1799,7 +1799,7 @@
             // 
             lbl_p_FrontierPro4X.BackColor = Color.Transparent;
             lbl_p_FrontierPro4X.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_p_FrontierPro4X.Location = new Point(288, 710);
+            lbl_p_FrontierPro4X.Location = new Point(254, 710);
             lbl_p_FrontierPro4X.Name = "lbl_p_FrontierPro4X";
             lbl_p_FrontierPro4X.Size = new Size(194, 29);
             lbl_p_FrontierPro4X.TabIndex = 18;
@@ -1878,7 +1878,7 @@
             siticoneLabel25.Name = "siticoneLabel25";
             siticoneLabel25.Size = new Size(243, 29);
             siticoneLabel25.TabIndex = 13;
-            siticoneLabel25.Text = "Estimated Price: PKR";
+            siticoneLabel25.Text = "Estimated Price: $";
             // 
             // siticoneLabel26
             // 
@@ -2255,7 +2255,7 @@
             Controls.Add(lbl_avail);
             Controls.Add(pb_porsche);
             Name = "UserControl_Nissan";
-            Size = new Size(1349, 786);
+            Size = new Size(1332, 786);
             Load += UserControl_Nissan_Load;
             siticoneContainer1.ResumeLayout(false);
             siticoneContainer2.ResumeLayout(false);
