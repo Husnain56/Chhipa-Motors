@@ -22,8 +22,8 @@ namespace Chhipa_Motors.GUI.Car_Cards
         {
             InitializeComponent();
             this.ControlBox = false;
-            LoadManufacturerControl(manufacturer);
             _userDTO = dto;
+            LoadManufacturerControl(manufacturer); 
         }
 
         public void SetupBackButton()

@@ -28,6 +28,9 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             InitializeComponent();
             _adminBL = new AdminBL();
             _carDTO = new CarDTO();
+            this.Dock = DockStyle.Fill;
+            this.AutoSize = false;
+            this.AutoScaleMode = AutoScaleMode.None;
             this.AutoScroll = true;
 
             InitializeCustomComponents();
@@ -39,7 +42,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             this.BackColor = Color.FromArgb(245, 247, 250);
             this.Dock = DockStyle.Fill;
 
-            // Header Panel
             headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -48,7 +50,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             };
             headerPanel.Paint += HeaderPanel_Paint;
 
-            // Title
             lblTitle = new Label
             {
                 Text = "Manage Cars",
@@ -57,8 +58,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 AutoSize = true,
                 Location = new Point(40, 25)
             };
-
-            // Subtitle
             lblSubtitle = new Label
             {
                 Text = "Update pricing, stock levels, and availability status",
@@ -70,7 +69,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
             headerPanel.Controls.AddRange(new Control[] { lblTitle, lblSubtitle });
 
-            // DataGridView Container
             Panel dgvContainer = new Panel
             {
                 Location = new Point(40, 160),
@@ -80,7 +78,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
             };
 
-            // DataGridView
             dgv_cars = new DataGridView
             {
                 Dock = DockStyle.Fill,
@@ -100,7 +97,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Font = new Font("Segoe UI", 10)
             };
 
-            // Header style
             dgv_cars.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.FromArgb(102, 126, 234),
@@ -109,8 +105,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Alignment = DataGridViewContentAlignment.MiddleLeft,
                 Padding = new Padding(10, 0, 0, 0)
             };
-
-            // Cell style
             dgv_cars.DefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.White,
@@ -121,7 +115,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Font = new Font("Segoe UI", 10)
             };
 
-            // Alternating rows
             dgv_cars.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.FromArgb(248, 249, 252),
@@ -137,7 +130,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
             dgvContainer.Controls.Add(dgv_cars);
 
-            // Bottom Panel
             bottomPanel = new Panel
             {
                 Height = 90,
@@ -146,7 +138,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Padding = new Padding(40, 20, 40, 20)
             };
 
-            // Refresh Button
             btnRefresh = new Button
             {
                 Text = "🔄 REFRESH",
@@ -164,7 +155,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             btnRefresh.MouseEnter += (s, e) => btnRefresh.BackColor = Color.FromArgb(240, 243, 250);
             btnRefresh.MouseLeave += (s, e) => btnRefresh.BackColor = Color.White;
 
-            // Update Price Button
             btn_update_price = new GradientButton
             {
                 Text = "💰 UPDATE PRICE",
@@ -174,12 +164,11 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 FlatStyle = FlatStyle.Flat,
                 Cursor = Cursors.Hand
             };
-            btn_update_price.Location = new Point(this.Width - 590, 20);
+            btn_update_price.Location = new Point(this.Width - 590, 40);
             btn_update_price.Anchor = AnchorStyles.Right;
             btn_update_price.FlatAppearance.BorderSize = 0;
             btn_update_price.Click += btn_update_price_Click;
 
-            // Update Stock Button
             btn_update_stock = new GradientButton
             {
                 Text = "📦 UPDATE STOCK",
@@ -189,12 +178,11 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 FlatStyle = FlatStyle.Flat,
                 Cursor = Cursors.Hand
             };
-            btn_update_stock.Location = new Point(this.Width - 390, 20);
+            btn_update_stock.Location = new Point(this.Width - 390, 40);
             btn_update_stock.Anchor = AnchorStyles.Right;
             btn_update_stock.FlatAppearance.BorderSize = 0;
             btn_update_stock.Click += btn_update_stock_Click;
 
-            // Change Status Button
             btn_change_status = new StatusButton
             {
                 Text = "⏸ PAUSE AVAILABILITY",
@@ -204,7 +192,7 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 FlatStyle = FlatStyle.Flat,
                 Cursor = Cursors.Hand
             };
-            btn_change_status.Location = new Point(this.Width - 190, 20);
+            btn_change_status.Location = new Point(this.Width - 190, 40);
             btn_change_status.Anchor = AnchorStyles.Right;
             btn_change_status.FlatAppearance.BorderSize = 0;
             btn_change_status.Click += btn_change_status_Click;
@@ -213,12 +201,11 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 btnRefresh, btn_update_price, btn_update_stock, btn_change_status
             });
 
-            // Reposition buttons on resize
             this.Resize += (s, e) =>
             {
-                btn_update_price.Location = new Point(this.Width - 630, 20);
-                btn_update_stock.Location = new Point(this.Width - 430, 20);
-                btn_change_status.Location = new Point(this.Width - 230, 20);
+                btn_update_price.Location = new Point(this.Width - 630, 30);
+                btn_update_stock.Location = new Point(this.Width - 430, 30);
+                btn_change_status.Location = new Point(this.Width - 230, 30);
             };
 
             this.Controls.AddRange(new Control[] { headerPanel, dgvContainer, bottomPanel });
@@ -307,7 +294,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 }
             }
 
-            // Format stock with warning colors
             if (dgv_cars.Columns[e.ColumnIndex].Name == "Stock" && e.Value != null)
             {
                 if (int.TryParse(e.Value.ToString(), out int stock))
@@ -533,7 +519,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
         }
     }
 
-    // Status Button (Orange/Yellow for status changes)
     public class StatusButton : Button
     {
         protected override void OnPaint(PaintEventArgs e)

@@ -29,6 +29,9 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             _adminBL = new AdminBL();
             _bookDTO = new BookingDTO();
 
+            this.Dock = DockStyle.Fill;
+            this.AutoSize = false;
+            this.AutoScaleMode = AutoScaleMode.None;
             this.AutoScroll = true;
             InitializeCustomComponents();
             RefreshDataGridView();

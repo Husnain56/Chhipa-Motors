@@ -27,7 +27,9 @@ namespace Chhipa_Motors.GUI.Car_Cards
             _porscheFactory = new PorscheCreator();
             LoadPorschePricesDirect();
             HandleButtonEvents();
-            _userDTO = dto; 
+            _userDTO = dto;
+            MessageBox.Show("Welcome, " + _userDTO.Id + "!", "Login Successful",
+               MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void HandleButtonEvents()
         {;

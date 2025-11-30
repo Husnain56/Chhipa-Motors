@@ -29,6 +29,10 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             InitializeComponent();
             _userDTO = new UserDTO();
             _adminBL = new AdminBL();
+            this.Dock = DockStyle.Fill;
+            this.AutoSize = false;
+            this.AutoScaleMode = AutoScaleMode.None;
+            this.AutoScroll = true;
 
             InitializeCustomComponents();
         }

@@ -1,5 +1,6 @@
 ﻿using Chhipa_Motors.DTO;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Client;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -159,6 +160,92 @@ namespace Chhipa_Motors.DL
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                _dbCon.CloseConnection();
+            }
+            
+        }
+        public bool IsCustomer(string userId)
+        {
+            try
+            {
+                _dbCon.OpenConnection();
+                string query = "SELECT COUNT(*) FROM Customers WHERE CustomerID = @CustomerID";
+                SqlCommand cmd = new SqlCommand(query, _dbCon.Con);
+                cmd.Parameters.AddWithValue("@CustomerID", userId);
+
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+            finally
+            {
+                _dbCon.CloseConnection();
+            }
+        }
+
+        public CustomerDTO GetCustomerInfo(string userId)
+        {
+            CustomerDTO customer = null;
+            try
+            {
+                _dbCon.OpenConnection();
+                string query = "SELECT CustomerID, FullName, Email, PhoneNumber, Address, City FROM Customers WHERE CustomerID = @CustomerID";
+                SqlCommand cmd = new SqlCommand(query, _dbCon.Con);
+                cmd.Parameters.AddWithValue("@CustomerID", userId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    customer = new CustomerDTO
+                    {
+                        CustomerID = reader["CustomerID"].ToString(),
+                        FullName = reader["FullName"].ToString(),
+                        Email = reader["Email"].ToString(),
+                        PhoneNumber = reader["PhoneNumber"].ToString(),
+                        Address = reader["Address"].ToString(),
+                        City = reader["City"].ToString()
+                    };
+                }
+                reader.Close();
+            }
+            finally
+            {
+                _dbCon.CloseConnection();
+            }
+            return customer;
+        }
+
+        public int UpdateEmail(string userId, string newEmail)
+        {
+            try
+            {
+                _dbCon.OpenConnection();
+                string query = "UPDATE Customers SET Email = @Email WHERE CustomerID = @CustomerID";
+                SqlCommand cmd = new SqlCommand(query, _dbCon.Con);
+                cmd.Parameters.AddWithValue("@Email", newEmail);
+                cmd.Parameters.AddWithValue("@CustomerID", userId);
+
+                return cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                _dbCon.CloseConnection();
+            }
+        }
+
+        public int UpdatePhone(string userId, string newPhone)
+        {
+            try
+            {
+                _dbCon.OpenConnection();
+                string query = "UPDATE Customers SET PhoneNumber = @PhoneNumber WHERE CustomerID = @CustomerID";
+                SqlCommand cmd = new SqlCommand(query, _dbCon.Con);
+                cmd.Parameters.AddWithValue("@PhoneNumber", newPhone);
+                cmd.Parameters.AddWithValue("@CustomerID", userId);
+
+                return cmd.ExecuteNonQuery();
             }
             finally
             {

@@ -45,6 +45,8 @@ namespace Chhipa_Motors.GUI.Booking_Form
             InitializeComponents();
             InitializeCustomComponents(carImage);
             LoadCarDetails();
+            MessageBox.Show("Welcome, " + _userDTO.Id + "!", "Login Successful",
+               MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void InitializeComponents()

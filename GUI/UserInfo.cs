@@ -10,30 +10,38 @@ namespace Chhipa_Motors.GUI
 {
     public partial class UserInfo : UserControl
     {
-        private CustomerBL _CustomerBL;
+        private CustomerBL _customerBL;
+        private UserBL _userBL;
         private UserDTO _userDTO;
+        private bool _isCustomer;
+
         private Panel headerPanel;
         private Label lblTitle;
         private Label lblSubtitle;
         private Panel profilePanel;
         private Panel updatePanel;
+
         private Label lblCurrentName;
         private Label lblCurrentEmail;
         private Label lblCurrentPhone;
+
         private TextBox txt_input;
         private TextBox txt_pass;
+
         private Button btn_up_name;
         private Button btn_up_email;
         private Button btn_up_phone;
+        private Button btn_delete_account;
         private Button btn_confirm;
         private Button btn_cancel;
+
         private string currentUpdateField = "";
 
-        public UserInfo(string userId)
+        public UserInfo(UserDTO dto)
         {
-            _CustomerBL = new CustomerBL();
-            _userDTO = new UserDTO();
-            _userDTO.Id = userId;
+            _customerBL = new CustomerBL();
+            _userBL = new UserBL();
+            _userDTO = dto;
 
             this.Dock = DockStyle.Fill;
             this.AutoSize = false;
@@ -41,15 +49,27 @@ namespace Chhipa_Motors.GUI
             this.AutoScroll = true;
             this.BackColor = Color.FromArgb(245, 247, 250);
 
+            CheckIfCustomer();
             InitializeCustomComponents();
             LoadUserInfo();
+        }
+
+        private void CheckIfCustomer()
+        {
+            try
+            {
+                _isCustomer = _customerBL.IsCustomer(_userDTO.Id);
+            }
+            catch
+            {
+                _isCustomer = false;
+            }
         }
 
         private void InitializeCustomComponents()
         {
             this.Size = new Size(1100, 740);
 
-            // Header Panel with gradient
             headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -58,20 +78,18 @@ namespace Chhipa_Motors.GUI
             };
             headerPanel.Paint += HeaderPanel_Paint;
 
-            // Title
             lblTitle = new Label
             {
-                Text = "Account Information",
+                Text = _isCustomer ? "Customer Profile" : "Welcome User!",
                 Font = new Font("Segoe UI", 32, FontStyle.Bold),
                 ForeColor = Color.White,
                 AutoSize = true,
                 Location = new Point(40, 25)
             };
 
-            // Subtitle
             lblSubtitle = new Label
             {
-                Text = "View and update your personal information",
+                Text = _isCustomer ? "Manage your profile and contact information" : "Manage your account settings",
                 Font = new Font("Segoe UI", 12),
                 ForeColor = Color.White,
                 AutoSize = true,
@@ -80,47 +98,63 @@ namespace Chhipa_Motors.GUI
 
             headerPanel.Controls.AddRange(new Control[] { lblTitle, lblSubtitle });
 
-            // Profile Information Panel
             profilePanel = new Panel
             {
                 Location = new Point(40, 160),
-                Size = new Size(480, 380),
+                Size = _isCustomer ? new Size(480, 380) : new Size(480, 260),
                 BackColor = Color.White,
                 Padding = new Padding(30)
             };
             profilePanel.Paint += ProfilePanel_Paint;
 
-            // Profile Title
             Label lblProfileTitle = new Label
             {
-                Text = "Profile Details",
+                Text = _isCustomer ? "Profile Details" : "Account Details",
                 Font = new Font("Segoe UI", 18, FontStyle.Bold),
                 ForeColor = Color.FromArgb(51, 51, 51),
                 AutoSize = true,
                 Location = new Point(30, 20)
             };
-
-            // Username Section
-            CreateInfoSection("Username:", ref lblCurrentName, 80, profilePanel);
-            btn_up_name = CreateUpdateButton("Edit Username", 380, 78);
-            btn_up_name.Click += btn_up_name_Click;
-
-            // Email Section
-            CreateInfoSection("Email Address:", ref lblCurrentEmail, 170, profilePanel);
-            btn_up_email = CreateUpdateButton("Edit Email", 380, 168);
-            btn_up_email.Click += btn_up_email_Click;
-
-            // Phone Section
-            CreateInfoSection("Phone Number:", ref lblCurrentPhone, 260, profilePanel);
-            btn_up_phone = CreateUpdateButton("Edit Phone", 380, 258);
-            btn_up_phone.Click += btn_up_phone_Click;
-
             profilePanel.Controls.Add(lblProfileTitle);
-            profilePanel.Controls.AddRange(new Control[] {
-                btn_up_name, btn_up_email, btn_up_phone
-            });
 
-            // Update Information Panel
+            // Username Section (Always shown)
+            CreateInfoSection("Username:", ref lblCurrentName, 80, profilePanel);
+            btn_up_name = CreateUpdateButton("Edit", 380, 78);
+            btn_up_name.Click += (s, e) => ShowUpdatePanel("Username");
+            profilePanel.Controls.Add(btn_up_name);
+
+            if (_isCustomer)
+            {
+                CreateInfoSection("Email Address:", ref lblCurrentEmail, 170, profilePanel);
+                btn_up_email = CreateUpdateButton("Edit", 380, 168);
+                btn_up_email.Click += (s, e) => ShowUpdatePanel("Email");
+                profilePanel.Controls.Add(btn_up_email);
+
+                CreateInfoSection("Phone Number:", ref lblCurrentPhone, 260, profilePanel);
+                btn_up_phone = CreateUpdateButton("Edit", 380, 258);
+                btn_up_phone.Click += (s, e) => ShowUpdatePanel("Phone");
+                profilePanel.Controls.Add(btn_up_phone);
+            }
+            else
+            {
+                btn_delete_account = new Button
+                {
+                    Text = "🗑 Delete Account",
+                    Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                    ForeColor = Color.White,
+                    BackColor = Color.FromArgb(198, 40, 40),
+                    Location = new Point(30, 180),
+                    Size = new Size(200, 45),
+                    FlatStyle = FlatStyle.Flat,
+                    Cursor = Cursors.Hand
+                };
+                btn_delete_account.FlatAppearance.BorderSize = 0;
+                btn_delete_account.Click += btn_delete_account_Click;
+                btn_delete_account.MouseEnter += (s, e) => btn_delete_account.BackColor = Color.FromArgb(180, 30, 30);
+                btn_delete_account.MouseLeave += (s, e) => btn_delete_account.BackColor = Color.FromArgb(198, 40, 40);
+                profilePanel.Controls.Add(btn_delete_account);
+            }
+
             updatePanel = new Panel
             {
                 Location = new Point(560, 160),
@@ -131,7 +165,6 @@ namespace Chhipa_Motors.GUI
             };
             updatePanel.Paint += ProfilePanel_Paint;
 
-            // Update Title
             Label lblUpdateTitle = new Label
             {
                 Text = "Update Information",
@@ -141,7 +174,6 @@ namespace Chhipa_Motors.GUI
                 Location = new Point(30, 20)
             };
 
-            // New Value Label
             Label lblNewValue = new Label
             {
                 Text = "New Value:",
@@ -151,7 +183,6 @@ namespace Chhipa_Motors.GUI
                 Location = new Point(30, 80)
             };
 
-            // Input Textbox
             txt_input = new TextBox
             {
                 Location = new Point(30, 110),
@@ -160,7 +191,6 @@ namespace Chhipa_Motors.GUI
                 BorderStyle = BorderStyle.FixedSingle
             };
 
-            // Password Label
             Label lblPassword = new Label
             {
                 Text = "Confirm Password:",
@@ -170,7 +200,6 @@ namespace Chhipa_Motors.GUI
                 Location = new Point(30, 170)
             };
 
-            // Password Textbox
             txt_pass = new TextBox
             {
                 Location = new Point(30, 200),
@@ -180,7 +209,6 @@ namespace Chhipa_Motors.GUI
                 UseSystemPasswordChar = true
             };
 
-            // Info Label
             Label lblInfo = new Label
             {
                 Text = "Please enter your password to confirm changes",
@@ -190,7 +218,6 @@ namespace Chhipa_Motors.GUI
                 Location = new Point(30, 250)
             };
 
-            // Confirm Button
             btn_confirm = new GradientButton
             {
                 Text = "✓ CONFIRM UPDATE",
@@ -204,7 +231,6 @@ namespace Chhipa_Motors.GUI
             btn_confirm.FlatAppearance.BorderSize = 0;
             btn_confirm.Click += btn_confirm_Click;
 
-            // Cancel Button
             btn_cancel = new Button
             {
                 Text = "✕ CANCEL",
@@ -227,7 +253,6 @@ namespace Chhipa_Motors.GUI
                 lblInfo, btn_confirm, btn_cancel
             });
 
-            // Add all panels to form
             this.Controls.AddRange(new Control[] { headerPanel, profilePanel, updatePanel });
         }
 
@@ -273,7 +298,6 @@ namespace Chhipa_Motors.GUI
             btn.FlatAppearance.BorderSize = 1;
             btn.MouseEnter += (s, e) => btn.BackColor = Color.FromArgb(240, 243, 250);
             btn.MouseLeave += (s, e) => btn.BackColor = Color.White;
-
             return btn;
         }
 
@@ -294,20 +318,17 @@ namespace Chhipa_Motors.GUI
             Panel panel = sender as Panel;
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // Draw shadow
             using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(10, 0, 0, 0)))
             {
                 e.Graphics.FillRectangle(shadowBrush, 2, 2, panel.Width - 2, panel.Height - 2);
             }
 
-            // Draw rounded rectangle
             using (GraphicsPath path = GetRoundedRectPath(new Rectangle(0, 0, panel.Width - 1, panel.Height - 1), 8))
             {
                 using (SolidBrush brush = new SolidBrush(panel.BackColor))
                 {
                     e.Graphics.FillPath(brush, path);
                 }
-
                 using (Pen pen = new Pen(Color.FromArgb(220, 220, 220), 1))
                 {
                     e.Graphics.DrawPath(pen, path);
@@ -330,20 +351,21 @@ namespace Chhipa_Motors.GUI
         {
             try
             {
-                // TODO: Implement backend logic to load user information
-                // Example:
-                // UserDTO user = _userBL.GetUserById(_userDTO.Id);
-                // if (user != null)
-                // {
-                //     lblCurrentName.Text = user.Username;
-                //     lblCurrentEmail.Text = user.Email;
-                //     lblCurrentPhone.Text = user.PhoneNumber;
-                // }
+                var userInfo = _userBL.GetUserInfo(_userDTO.Id);
+                if (userInfo != null)
+                {
+                    lblCurrentName.Text = userInfo.Username;
 
-                // Temporary placeholder data
-                lblCurrentName.Text = "john_doe";
-                lblCurrentEmail.Text = "john.doe@example.com";
-                lblCurrentPhone.Text = "+92 300 1234567";
+                    if (_isCustomer)
+                    {
+                        var customerInfo = _customerBL.GetCustomerInfo(_userDTO.Id);
+                        if (customerInfo != null)
+                        {
+                            lblCurrentEmail.Text = customerInfo.Email;
+                            lblCurrentPhone.Text = customerInfo.PhoneNumber;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -352,32 +374,13 @@ namespace Chhipa_Motors.GUI
             }
         }
 
-        private void btn_up_name_Click(object sender, EventArgs e)
-        {
-            ShowUpdatePanel("Username");
-            txt_input.PlaceholderText = "Enter new Username";
-            currentUpdateField = "Username";
-        }
-
-        private void btn_up_email_Click(object sender, EventArgs e)
-        {
-            ShowUpdatePanel("Email");
-            txt_input.PlaceholderText = "Enter new Email";
-            currentUpdateField = "Email";
-        }
-
-        private void btn_up_phone_Click(object sender, EventArgs e)
-        {
-            ShowUpdatePanel("Phone");
-            txt_input.PlaceholderText = "Enter new Phone Number";
-            currentUpdateField = "Phone";
-        }
-
         private void ShowUpdatePanel(string fieldName)
         {
+            currentUpdateField = fieldName;
             updatePanel.Visible = true;
             txt_input.Text = "";
             txt_pass.Text = "";
+            txt_input.PlaceholderText = $"Enter new {fieldName.ToLower()}";
             txt_input.Focus();
         }
 
@@ -391,14 +394,28 @@ namespace Chhipa_Motors.GUI
 
         private void btn_confirm_Click(object sender, EventArgs e)
         {
-            // Validation
             if (string.IsNullOrWhiteSpace(txt_input.Text) || string.IsNullOrWhiteSpace(txt_pass.Text))
             {
                 MessageBox.Show("Please fill all the fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (currentUpdateField == "Username")
+            {
+                if (txt_input.Text.Length < 3 || txt_input.Text.Length > 20)
+                {
+                    MessageBox.Show("Username must be between 3 and 20 characters.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            // Additional validation based on field type
+                if (_userBL.UsernameExists(txt_input.Text))
+                {
+                    MessageBox.Show("This username is already taken. Please choose another one.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             if (currentUpdateField == "Email" && !IsValidEmail(txt_input.Text))
             {
                 MessageBox.Show("Please enter a valid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -413,49 +430,90 @@ namespace Chhipa_Motors.GUI
 
             try
             {
-                // TODO: Implement backend logic to verify password and update information
-                // Example:
-                // _userDTO.Password = txt_pass.Text;
-                // bool passwordValid = _userBL.VerifyPassword(_userDTO);
-                // 
-                // if (!passwordValid)
-                // {
-                //     MessageBox.Show("Incorrect password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //     return;
-                // }
-                //
-                // switch (currentUpdateField)
-                // {
-                //     case "Username":
-                //         _userDTO.Username = txt_input.Text;
-                //         break;
-                //     case "Email":
-                //         _userDTO.Email = txt_input.Text;
-                //         break;
-                //     case "Phone":
-                //         _userDTO.PhoneNumber = txt_input.Text;
-                //         break;
-                // }
-                //
-                // int result = _userBL.UpdateUserInfo(_userDTO);
-                // if (result > 0)
-                // {
-                //     MessageBox.Show($"{currentUpdateField} updated successfully!", "Success",
-                //         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //     LoadUserInfo();
-                //     btn_cancel_Click(null, null);
-                // }
+                _userDTO.Password = txt_pass.Text;
+                bool passwordValid = _userBL.VerifyPassword(_userDTO);
 
-                // Temporary success message
-                MessageBox.Show($"{currentUpdateField} updated successfully!", "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadUserInfo();
-                btn_cancel_Click(null, null);
+                if (!passwordValid)
+                {
+                    MessageBox.Show("Incorrect password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                int result = 0;
+                switch (currentUpdateField)
+                {
+                    case "Username":
+                        result = _userBL.UpdateUsername(_userDTO.Id, txt_input.Text);
+                        break;
+                    case "Email":
+                        result = _customerBL.UpdateEmail(_userDTO.Id, txt_input.Text);
+                        break;
+                    case "Phone":
+                        result = _customerBL.UpdatePhone(_userDTO.Id, txt_input.Text);
+                        break;
+                }
+
+                if (result > 0)
+                {
+                    MessageBox.Show($"{currentUpdateField} updated successfully!", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadUserInfo();
+                    btn_cancel_Click(null, null);
+                }
+                else
+                {
+                    MessageBox.Show($"Failed to update {currentUpdateField.ToLower()}.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error updating information: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_delete_account_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Are you sure you want to delete your account?\n\nThis action cannot be undone!",
+                "Delete Account",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                var confirmResult = MessageBox.Show(
+                    "Please confirm again. Your account will be permanently deleted.",
+                    "Final Confirmation",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirmResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        int deleteResult = _userBL.DeleteUser(_userDTO.Id);
+                        if (deleteResult > 0)
+                        {
+                            MessageBox.Show("Your account has been deleted successfully.", "Account Deleted",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Application.Exit();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to delete account. Please try again.", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error deleting account: {ex.Message}", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
@@ -474,30 +532,22 @@ namespace Chhipa_Motors.GUI
 
         private bool IsValidPhone(string phone)
         {
-            // Remove spaces and dashes
             string cleanPhone = phone.Replace(" ", "").Replace("-", "").Replace("+", "");
-            // Check if it contains only digits and is at least 10 characters
             return cleanPhone.All(char.IsDigit) && cleanPhone.Length >= 10;
         }
     }
 
-    // Custom Gradient Button (reuse from previous code)
     public class GradientButton : Button
     {
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            Color startColor = this.Enabled ?
-                Color.FromArgb(102, 126, 234) : Color.Gray;
-            Color endColor = this.Enabled ?
-                Color.FromArgb(118, 75, 162) : Color.DarkGray;
+            Color startColor = this.Enabled ? Color.FromArgb(102, 126, 234) : Color.Gray;
+            Color endColor = this.Enabled ? Color.FromArgb(118, 75, 162) : Color.DarkGray;
 
             using (LinearGradientBrush brush = new LinearGradientBrush(
-                this.ClientRectangle,
-                startColor,
-                endColor,
-                45f))
+                this.ClientRectangle, startColor, endColor, 45f))
             {
                 e.Graphics.FillRoundedRectangle(brush, 0, 0, Width, Height, 8);
             }
@@ -508,7 +558,6 @@ namespace Chhipa_Motors.GUI
         }
     }
 
-    // Extension method for rounded rectangles
     public static class GraphicsExtensions
     {
         public static void FillRoundedRectangle(this Graphics graphics, Brush brush,
@@ -520,7 +569,6 @@ namespace Chhipa_Motors.GUI
             path.AddArc(x + width - radius, y + height - radius, radius, radius, 0, 90);
             path.AddArc(x, y + height - radius, radius, radius, 90, 90);
             path.CloseFigure();
-
             graphics.FillPath(brush, path);
             path.Dispose();
         }

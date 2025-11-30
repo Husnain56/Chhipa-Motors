@@ -24,6 +24,8 @@ namespace Chhipa_Motors.GUI
             setStates();
             _userDTO = new UserDTO();
             _userDTO.Id = ID;
+            MessageBox.Show("Welcome, " + _userDTO.Id + "!", "Login Successful",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         public void setStates()
         {
@@ -73,7 +75,7 @@ namespace Chhipa_Motors.GUI
             pnl_dynamic_menu.AddContentToView("Manufacturers", new Manufacturers_menu());
             pnl_dynamic_menu.AddContentToView("Purchases", new PurchasedCars(_userDTO.Id));
             pnl_dynamic_menu.AddContentToView("Bookings", new CustomerBookings(_userDTO.Id));
-            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo(_userDTO.Id));
+            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo(_userDTO));
         }
         private void btn_menu_Click(object sender, EventArgs e)
         {
@@ -93,7 +95,7 @@ namespace Chhipa_Motors.GUI
             pb_menu.Hide();
             pnl_main.AutoScroll = false;
             pnl_dynamic_menu.AfterNavigate += pnl_AfterNavigate;
-            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo(_userDTO.Id));
+            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo(_userDTO));
             navbar_menu.SelectedItem = navbar_menu.Items[3];
         }
 
@@ -121,7 +123,7 @@ namespace Chhipa_Motors.GUI
 
         private void btn_menu_acc_Click(object sender, EventArgs e)
         {
-            LoadContent(new UserInfo(_userDTO.Id));
+            LoadContent(new UserInfo(_userDTO));
         }
         private void manufacturerCard_Click(object sender, EventArgs e)
         {

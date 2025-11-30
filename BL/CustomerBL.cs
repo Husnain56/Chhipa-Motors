@@ -41,5 +41,24 @@ namespace Chhipa_Motors.BL
                 return _customerDL.addCustomer(custDTO);
             }
         }
+        public bool IsCustomer(string userId)
+        {
+            return _customerDL.IsCustomer(userId);
+        }
+
+        public CustomerDTO GetCustomerInfo(string userId)
+        {
+            return _customerDL.GetCustomerInfo(userId);
+        }
+
+        public int UpdateEmail(string userId, string newEmail)
+        {
+            return _customerDL.UpdateEmail(userId, newEmail);
+        }
+
+        public int UpdatePhone(string userId, string newPhone)
+        {
+            return _customerDL.UpdatePhone(userId, newPhone);
+        }
     }
 }

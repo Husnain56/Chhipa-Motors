@@ -43,7 +43,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
         {
             this.Size = new Size(1100, 740);
 
-            // Header Panel with gradient
             headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -52,7 +51,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             };
             headerPanel.Paint += HeaderPanel_Paint;
 
-            // Title
             lblTitle = new Label
             {
                 Text = "User Management",
@@ -62,7 +60,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Location = new Point(40, 25)
             };
 
-            // Subtitle
             lblSubtitle = new Label
             {
                 Text = "Manage admins, users, and customer accounts",
@@ -74,7 +71,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
             headerPanel.Controls.AddRange(new Control[] { lblTitle, lblSubtitle });
 
-            // Filter Panel
             filterPanel = new Panel
             {
                 Location = new Point(40, 140),
@@ -83,7 +79,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             };
             filterPanel.Paint += FilterPanel_Paint;
 
-            // Filter Label
             Label lblFilter = new Label
             {
                 Text = "Filter by Type:",
@@ -93,7 +88,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Location = new Point(30, 23)
             };
 
-            // Radio Buttons
             radioButton_Admins = CreateRadioButton("👨‍💼 Admins", 180, 20, true);
             radioButton_Admins.CheckedChanged += radioButton_Admins_CheckedChanged;
 
@@ -103,7 +97,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             radioButton_Customers = CreateRadioButton("🛍️ Customers", 500, 20, false);
             radioButton_Customers.CheckedChanged += radioButton_Customers_CheckedChanged;
 
-            // Total Count Label
             lblTotalCount = new Label
             {
                 Text = "Total: 0",
@@ -117,7 +110,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 lblFilter, radioButton_Admins, radioButton_Users, radioButton_Customers, lblTotalCount
             });
 
-            // DataGridView Container Panel
             Panel dgvContainer = new Panel
             {
                 Location = new Point(40, 230),
@@ -127,7 +119,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             };
             dgvContainer.Paint += DgvContainer_Paint;
 
-            // DataGridView
             dgv_users = new DataGridView
             {
                 Dock = DockStyle.Fill,
@@ -147,7 +138,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Font = new Font("Segoe UI", 10)
             };
 
-            // Style the header
             dgv_users.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.FromArgb(102, 126, 234),
@@ -157,7 +147,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Padding = new Padding(10, 0, 0, 0)
             };
 
-            // Style the cells
             dgv_users.DefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.White,
@@ -168,7 +157,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Font = new Font("Segoe UI", 10)
             };
 
-            // Alternating row colors
             dgv_users.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.FromArgb(248, 249, 252),
@@ -183,7 +171,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
             dgvContainer.Controls.Add(dgv_users);
 
-            // Bottom Panel
             bottomPanel = new Panel
             {
                 Location = new Point(40, 650),
@@ -191,7 +178,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 BackColor = Color.Transparent
             };
 
-            // Refresh Button
             btn_refresh = new Button
             {
                 Text = "🔄 REFRESH",
@@ -209,7 +195,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             btn_refresh.MouseEnter += (s, e) => btn_refresh.BackColor = Color.FromArgb(240, 243, 250);
             btn_refresh.MouseLeave += (s, e) => btn_refresh.BackColor = Color.White;
 
-            // Delete User Button
             btn_deleteUser = new DeleteButton
             {
                 Text = "🗑️ DELETE USER",
@@ -227,7 +212,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
             bottomPanel.Controls.AddRange(new Control[] { btn_refresh, btn_deleteUser });
 
-            // Add all controls to form
             this.Controls.AddRange(new Control[] { headerPanel, filterPanel, dgvContainer, bottomPanel });
         }
 
@@ -282,7 +266,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             Panel panel = sender as Panel;
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // Draw shadow
             using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(10, 0, 0, 0)))
             {
                 e.Graphics.FillRectangle(shadowBrush, 2, 2, panel.Width - 2, panel.Height - 2);
@@ -346,13 +329,11 @@ namespace Chhipa_Motors.GUI.Admin_Panel
         {
             if (dgv_users.Columns.Count > 0)
             {
-                // Hide password column if it exists
                 if (dgv_users.Columns.Contains("Password"))
                 {
                     dgv_users.Columns["Password"].Visible = false;
                 }
 
-                // Customize column headers based on what's available
                 if (dgv_users.Columns.Contains("UserID"))
                 {
                     dgv_users.Columns["UserID"].HeaderText = "User ID";
@@ -488,7 +469,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                         MessageBox.Show("User deleted successfully!", "Success",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Reload the appropriate list
                         if (radioButton_Users.Checked)
                         {
                             LoadUsers();
@@ -513,7 +493,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
         }
     }
 
-    // Custom Delete Button with red gradient
     public class DeleteButton : Button
     {
         protected override void OnPaint(PaintEventArgs e)
@@ -540,7 +519,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
         }
     }
 
-    // Extension method for rounded rectangles
     public static class GraphicsExtensions
     {
         public static void FillRoundedRectangle(this Graphics graphics, Brush brush,

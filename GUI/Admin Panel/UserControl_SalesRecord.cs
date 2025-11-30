@@ -29,21 +29,23 @@ namespace Chhipa_Motors.GUI.Admin_Panel
         {
             InitializeComponent();
             _adminBL = new AdminBL();
+            this.Dock = DockStyle.Fill;
+            this.AutoSize = false;
+            this.AutoScaleMode = AutoScaleMode.None;
             this.AutoScroll = true;
             InitializeCustomComponents();
             InitializeRefreshButton();
             LoadSalesRecord(0);
+
         }
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             try
             {
-                // Show loading cursor
                 this.Cursor = Cursors.WaitCursor;
                 btnRefresh.Enabled = false;
                 btnRefresh.Text = "⏳ Loading...";
 
-                // Determine which filter is active and reload
                 int filter = 0;
                 if (radioButton_Today.Checked)
                     filter = 1;
@@ -56,7 +58,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
                 LoadSalesRecord(filter);
 
-                // Optional: Show success message briefly
                 btnRefresh.Text = "✓ Refreshed";
                 System.Threading.Tasks.Task.Delay(1000).ContinueWith(_ =>
                 {
@@ -103,7 +104,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
             btnRefresh.Click += BtnRefresh_Click;
 
-            // Add shadow effect on paint
             btnRefresh.Paint += (s, e) =>
             {
                 e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -123,7 +123,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             this.BackColor = Color.FromArgb(245, 247, 250);
             this.Dock = DockStyle.Fill;
 
-            // Header Panel
             headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -132,7 +131,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             };
             headerPanel.Paint += HeaderPanel_Paint;
 
-            // Title
             lblTitle = new Label
             {
                 Text = "Sales Record",
@@ -142,7 +140,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Location = new Point(40, 25)
             };
 
-            // Subtitle
             lblSubtitle = new Label
             {
                 Text = "Track and analyze sales performance",
@@ -154,7 +151,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
             headerPanel.Controls.AddRange(new Control[] { lblTitle, lblSubtitle });
 
-            // Filter Panel (Card with radio buttons)
             filterPanel = new Panel
             {
                 Location = new Point(40, 150),
@@ -173,7 +169,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 AutoSize = true
             };
 
-            // Radio Buttons
             radioButton_Today = new RadioButton
             {
                 Text = "📅 Today",
@@ -239,7 +234,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             radioButton_All.FlatAppearance.CheckedBackColor = Color.FromArgb(102, 126, 234);
             radioButton_All.CheckedChanged += radioButton_All_CheckedChanged;
 
-            // Style radio buttons
             foreach (RadioButton rb in new[] { radioButton_Today, radioButton_7, radioButton_30, radioButton_All })
             {
                 rb.CheckedChanged += (s, e) =>
@@ -261,7 +255,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 lblFilter, radioButton_Today, radioButton_7, radioButton_30, radioButton_All
             });
 
-            // Stats Panel
             statsPanel = new Panel
             {
                 Location = new Point(40, 250),
@@ -270,7 +263,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
             };
 
-            // Stats Cards
             Panel statsCard1 = CreateStatsCard("Total Sales", "0", Color.FromArgb(102, 126, 234), 0);
             Panel statsCard2 = CreateStatsCard("Total Revenue", "$0", Color.FromArgb(76, 175, 80), 1);
             Panel statsCard3 = CreateStatsCard("Avg Order Value", "$0", Color.FromArgb(255, 152, 0), 2);
@@ -281,7 +273,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
             statsPanel.Controls.AddRange(new Control[] { statsCard1, statsCard2, statsCard3 });
 
-            // DataGridView Container
             Panel dgvContainer = new Panel
             {
                 Location = new Point(40, 350),
@@ -291,7 +282,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
             };
 
-            // DataGridView
             dgv_sales = new DataGridView
             {
                 Dock = DockStyle.Fill,
@@ -311,7 +301,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Font = new Font("Segoe UI", 10)
             };
 
-            // Header style
             dgv_sales.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.FromArgb(102, 126, 234),
@@ -321,7 +310,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Padding = new Padding(10, 0, 0, 0)
             };
 
-            // Cell style
             dgv_sales.DefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.White,
@@ -332,7 +320,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 Font = new Font("Segoe UI", 10)
             };
 
-            // Alternating rows
             dgv_sales.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle
             {
                 BackColor = Color.FromArgb(248, 249, 252),
@@ -366,14 +353,11 @@ namespace Chhipa_Motors.GUI.Admin_Panel
             card.Paint += (s, e) =>
             {
                 e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-                // Shadow
                 using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(15, 0, 0, 0)))
                 {
                     e.Graphics.FillRectangle(shadowBrush, 3, 3, card.Width - 3, card.Height - 3);
                 }
 
-                // Card background
                 using (GraphicsPath path = GetRoundedRectPath(new Rectangle(0, 0, card.Width - 1, card.Height - 1), 12))
                 {
                     using (SolidBrush brush = new SolidBrush(Color.White))
@@ -386,8 +370,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                         e.Graphics.DrawPath(pen, path);
                     }
                 }
-
-                // Accent bar
                 using (SolidBrush accentBrush = new SolidBrush(accentColor))
                 {
                     e.Graphics.FillRectangle(accentBrush, 0, 0, 5, card.Height);
@@ -433,13 +415,11 @@ namespace Chhipa_Motors.GUI.Admin_Panel
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // Shadow
             using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(15, 0, 0, 0)))
             {
                 e.Graphics.FillRectangle(shadowBrush, 3, 3, filterPanel.Width - 3, filterPanel.Height - 3);
             }
 
-            // Card
             using (GraphicsPath path = GetRoundedRectPath(
                 new Rectangle(0, 0, filterPanel.Width - 1, filterPanel.Height - 1), 12))
             {
@@ -520,7 +500,6 @@ namespace Chhipa_Motors.GUI.Admin_Panel
                 }
             }
 
-            // Update statistics
             UpdateStatistics();
         }
 
