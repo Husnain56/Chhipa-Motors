@@ -15,5 +15,9 @@ namespace Chhipa_Motors.BL
         {
             _bookingDL = new BookingDL();
         }
+        public int CreateBooking(BookingDTO bookingDTO)
+        {
+            return _bookingDL.addBooking(bookingDTO);
+        }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,10 +15,11 @@ namespace Chhipa_Motors.DL
         public LoginDL() {
             _dbCon = new DBConnection();
         }
-        public bool VerifyUser(UserDTO userDTO)
+        public UserDTO VerifyUser(UserDTO userDTO)
         {
             try
-            {   
+            {
+                UserDTO user = null;
                 _dbCon.OpenConnection();
                 string query = "SELECT UserID FROM Users WHERE Username = @username AND Password = @password AND Role = @Role";
                 SqlCommand com = new SqlCommand(query, _dbCon.Con);
@@ -29,12 +31,16 @@ namespace Chhipa_Motors.DL
 
                 if (reader.HasRows)
                 {
-                    return true;
+                    reader.Read();
+                    user = new UserDTO();   
+                    user.Id = reader["UserID"].ToString();  
                 }
                 else
                 {
-                    return false;
+                    return user;
                 }
+                reader.Close();
+                return user;
             }
             catch (Exception ex)
             {
@@ -64,6 +70,35 @@ namespace Chhipa_Motors.DL
             catch (Exception ex)
             {
                 throw new Exception("An Error Occured while creating new user account", ex);
+            }
+            finally
+            {
+                _dbCon.CloseConnection();
+            }
+        }
+        public bool IsUsernameExists(UserDTO dto)
+        {
+            try
+            {
+                _dbCon.OpenConnection();
+                string query = "SELECT UserID FROM Users WHERE Username = @username";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@Username", dto.Username);
+                SqlDataReader reader = com.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Close();
+                    return true;
+                }
+                else
+                {
+                    reader.Close();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An Error Occured while checking username existence", ex);
             }
             finally
             {

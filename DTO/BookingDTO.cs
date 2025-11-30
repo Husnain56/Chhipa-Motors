@@ -8,9 +8,9 @@ namespace Chhipa_Motors.DTO
 {
     public class BookingDTO
     {
-        public int BookingID { get; set; }
-        public int UserID { get; set; }
-        public int CarID { get; set; }
+        public string BookingID { get; set; }
+        public string UserID { get; set; }
+        public string CarID { get; set; }
         public string Status { get; set; }
         public string AdminNote { get; set; }
     }

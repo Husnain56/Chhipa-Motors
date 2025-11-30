@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Chhipa_Motors.BL;
+using Chhipa_Motors.DTO;
+using Chhipa_Motors.Factory;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using Chhipa_Motors.BL;
-using Chhipa_Motors.DTO;
 
 namespace Chhipa_Motors.GUI.Booking_Form
 {
@@ -11,8 +12,8 @@ namespace Chhipa_Motors.GUI.Booking_Form
     {
         private CustomerBL _customerBL;
         private BookingBL _bookingBL;
-        private CarDTO _carDTO;
-        private string _userId;
+        private CarProduct _carProduct;
+        private UserDTO _userDTO;
 
         private Panel headerPanel;
         private Label lblTitle;
@@ -30,13 +31,15 @@ namespace Chhipa_Motors.GUI.Booking_Form
         private TextBox txt_city;
         private Button btn_confirm;
         private Button btn_cancel;
+        
 
-        public BookingForm(CarDTO car, Image carImage, string userId)
+        public BookingForm(CarProduct carProduct, Image carImage,UserDTO dto)
         {
             _customerBL = new CustomerBL();
             _bookingBL = new BookingBL();
-            _carDTO = car;
-            _userId = "3";
+            _carProduct = carProduct;
+
+            _userDTO = dto;
 
             InitializeComponent();
             InitializeComponents();
@@ -374,9 +377,9 @@ namespace Chhipa_Motors.GUI.Booking_Form
         {
             try
             {
-                lblCarName.Text = _carDTO.CarName;
-                lblManufacturer.Text = _carDTO.Make;
-                lblPrice.Text = $"${_carDTO.Price:N0}";
+                lblCarName.Text = _carProduct.CarName;
+                lblManufacturer.Text = _carProduct.Manufacturer;
+                lblPrice.Text = $"{_carProduct.Price:N0}";
             }
             catch (Exception ex)
             {
@@ -432,65 +435,52 @@ namespace Chhipa_Motors.GUI.Booking_Form
 
             try
             {
-                // TODO: Step 1 - Create or Update Customer Record
-                // CustomerDTO customerDTO = new CustomerDTO
-                // {
-                //     CustomerID = _userId, // or generate new ID
-                //     FullName = txt_fullName.Text.Trim(),
-                //     Email = txt_email.Text.Trim(),
-                //     PhoneNumber = txt_phone.Text.Trim(),
-                //     Address = txt_address.Text.Trim(),
-                //     City = txt_city.Text.Trim()
-                // };
-                //
-                // int customerResult = _customerBL.AddOrUpdateCustomer(customerDTO);
-                // if (customerResult <= 0)
-                // {
-                //     MessageBox.Show("Failed to save customer information.", "Error",
-                //         MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //     return;
-                // }
+                CustomerDTO customerDTO = new CustomerDTO
+                {
+                    CustomerID = _userDTO.Id, 
+                    FullName = txt_fullName.Text,
+                    Email = txt_email.Text,
+                    PhoneNumber = txt_phone.Text,
+                    Address = txt_address.Text,
+                    City = txt_city.Text
+                };
+                int customerResult = _customerBL.addorUpdateCustomer(customerDTO);
+                if (customerResult <= 0)
+                {
+                    MessageBox.Show("Failed to save customer information.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Saved customer information.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-                // TODO: Step 2 - Create Booking Record
-                // BookingDTO bookingDTO = new BookingDTO
-                // {
-                //     UserID = _userId,
-                //     CarID = _carDTO.CarID,
-                //     BookingDate = DateTime.Now,
-                //     Status = "Pending"
-                // };
-                //
-                // int bookingResult = _bookingBL.CreateBooking(bookingDTO);
-                // if (bookingResult > 0)
-                // {
-                //     MessageBox.Show($"Booking confirmed successfully!\n\n" +
-                //         $"Vehicle: {_carDTO.CarName}\n" +
-                //         $"Price: ${_carDTO.Price:N0}\n\n" +
-                //         $"We will contact you shortly at {txt_phone.Text}",
-                //         "Booking Confirmed",
-                //         MessageBoxButtons.OK,
-                //         MessageBoxIcon.Information);
-                //     this.DialogResult = DialogResult.OK;
-                //     this.Close();
-                // }
-                // else
-                // {
-                //     MessageBox.Show("Failed to create booking. Please try again.", "Error",
-                //         MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // }
+                BookingDTO bookingDTO = new BookingDTO
+                {
+                    UserID = _userDTO.Id,
+                    CarID = _carProduct.CarID.ToString(),  // ✓ Use _carProduct instead
+                    Status = "Pending"
+                };
 
-                // Temporary success message (remove when implementing backend)
-                MessageBox.Show($"Booking confirmed successfully!\n\n" +
-                    $"Vehicle: {_carDTO.CarName}\n" +
-                    $"Price: ${_carDTO.Price:N0}\n\n" +
-                    $"Customer: {txt_fullName.Text}\n" +
-                    $"Phone: {txt_phone.Text}\n" +
-                    $"Email: {txt_email.Text}",
-                    "Booking Confirmed",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                int bookingResult = _bookingBL.CreateBooking(bookingDTO);
+                if (bookingResult > 0)
+                {
+                    MessageBox.Show($"Booking confirmed successfully!\n\n" +
+                        $"Vehicle: {_carProduct.CarName}\n" +        // ✓ Use _carProduct
+                        $"Price: ${_carProduct.Price:N0}\n\n" +      // ✓ Use _carProduct
+                        $"We will contact you shortly at {txt_phone.Text}",
+                        "Booking Confirmed",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to create booking. Please try again.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -514,9 +504,7 @@ namespace Chhipa_Motors.GUI.Booking_Form
 
         private bool IsValidPhone(string phone)
         {
-            // Remove spaces and dashes
             string cleanPhone = phone.Replace(" ", "").Replace("-", "").Replace("+", "");
-            // Check if it contains only digits and is at least 10 characters
             return cleanPhone.All(char.IsDigit) && cleanPhone.Length >= 10;
         }
     }

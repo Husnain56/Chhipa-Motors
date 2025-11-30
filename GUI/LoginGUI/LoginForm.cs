@@ -249,13 +249,17 @@ namespace Chhipa_Motors.GUI.LoginGUI
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             _userDTO.Username = username;
             _userDTO.Password = password;
+            _userDTO.Role = rbAdmin.Checked ? "Admin" : "User"; 
+
+            UserDTO verifiedUser = _loginBL.VerifyUser(_userDTO); 
             
-            if (rbAdmin.Checked)
+
+            if (verifiedUser != null)
             {
-                _userDTO.Role = rbAdmin.Checked ? "Admin" : "User";
-                if (_loginBL.VerifyUser(_userDTO))
+                if (rbAdmin.Checked)
                 {
                     AdminDashboard dashboard = new AdminDashboard();
                     dashboard.FormClosed += (s, args) => this.Show();
@@ -264,28 +268,16 @@ namespace Chhipa_Motors.GUI.LoginGUI
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password", "Login Failed",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-            }
-            else
-            {
-                _userDTO.Role = rbAdmin.Checked ? "Admin" : "User";
-                if (_loginBL.VerifyUser(_userDTO))
-                {
-                    MainForm mainForm = new MainForm();
+                    MainForm mainForm = new MainForm(verifiedUser.Id); 
                     mainForm.FormClosed += (s, args) => this.Show();
                     this.Hide();
                     mainForm.ShowDialog();
                 }
-                else
-                {
-                    MessageBox.Show("Invalid username or password", "Login Failed",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password", "Login Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -295,8 +287,7 @@ namespace Chhipa_Motors.GUI.LoginGUI
             {
                 if (registerDialog.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Account created successfully! You can now login.",
-                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
             }
         }

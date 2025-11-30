@@ -458,7 +458,7 @@ namespace Chhipa_Motors.GUI.Admin_Panel
 
         private void UpdateBookingInDatabase(int id, string status, string note)
         {
-            _bookDTO.BookingID = id;
+            _bookDTO.BookingID = id.ToString();
             _bookDTO.Status = status;
             _bookDTO.AdminNote = note;
 

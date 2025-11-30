@@ -15,13 +15,17 @@ namespace Chhipa_Motors.BL
             _loginDl = new LoginDL();   
         }
 
-        public bool VerifyUser(UserDTO userDTO)
+        public UserDTO VerifyUser(UserDTO userDTO)
         {
             return _loginDl.VerifyUser(userDTO);
         }
 
         public int CreateUserAccount(UserDTO userDTO)
-        {
+        {   
+            if(_loginDl.IsUsernameExists(userDTO))
+            {
+                return -1;
+            }
             return _loginDl.CreateNewUser(userDTO);
         }
     }

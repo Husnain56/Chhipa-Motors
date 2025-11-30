@@ -1,14 +1,11 @@
 ﻿using SiticoneNetCoreUI;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Chhipa_Motors.BL;
+using Chhipa_Motors.Factory;
+using Chhipa_Motors.GUI.Booking_Form;
 using Chhipa_Motors.DTO;
 
 namespace Chhipa_Motors.GUI.Car_Cards
@@ -16,11 +13,14 @@ namespace Chhipa_Motors.GUI.Car_Cards
     public partial class UserControl_Nissan : UserControl
     {
         private CarBL _carBL;
-
-        public UserControl_Nissan()
+        private NissanCreator _nissanFactory;
+        private UserDTO _userDTO;
+        public UserControl_Nissan(UserDTO dto)
         {
             InitializeComponent();
             _carBL = new CarBL();
+            _nissanFactory = new NissanCreator();
+            _userDTO = dto; 
         }
 
         private void HoverEnter(object sender, EventArgs e)
@@ -59,10 +59,9 @@ namespace Chhipa_Motors.GUI.Car_Cards
             {
                 if (ctrl is SiticoneContainer container)
                 {
-                    // Add events to the container itself
                     container.MouseEnter += HoverEnter;
                     container.MouseLeave += HoverLeave;
-                    // Add events to all children inside container
+
                     foreach (Control child in container.Controls)
                     {
                         child.MouseEnter += HoverEnter;
@@ -71,8 +70,17 @@ namespace Chhipa_Motors.GUI.Car_Cards
                 }
             }
 
-            // Load Nissan prices and availability
             LoadNissanPricesDirect();
+            AttachButtonEvents();
+        }
+
+        private void AttachButtonEvents()
+        {
+            // Attach click event handlers to booking buttons
+            btn_book_GTR.Click += btn_book_GTR_Click;
+            btn_book_Z.Click += btn_book_Z_Click;
+            btn_book_leaf.Click += btn_book_leaf_Click;
+            btn_book_frontier_PRO4X.Click += btn_book_frontier_PRO4X_Click;
         }
 
         private void LoadNissanPricesDirect()
@@ -95,18 +103,14 @@ namespace Chhipa_Motors.GUI.Car_Cards
                     {
                         var (priceLabel, bookButton) = carLookup[car.CarName];
 
-                        // Update price label
                         decimal price = decimal.Parse(car.Price);
                         priceLabel.Text = $"{price:N0}";
                         priceLabel.Tag = car.CarID;
 
-                        // Update book button
                         bookButton.Tag = car.CarID;
 
-                        // Parse stock
                         int stock = int.Parse(car.Stock);
 
-                        // Parse active status
                         bool isActive = false;
                         if (!string.IsNullOrEmpty(car.Status))
                         {
@@ -114,13 +118,11 @@ namespace Chhipa_Motors.GUI.Car_Cards
                             isActive = status == "active" || status == "1" || status == "true";
                         }
 
-                        // Enable button only if stock > 0 AND car is active
                         bool shouldEnable = (stock > 0 && isActive);
 
                         bookButton.Enabled = shouldEnable;
                         bookButton.Cursor = shouldEnable ? Cursors.Hand : Cursors.No;
 
-                        // Change button text based on availability
                         if (shouldEnable)
                         {
                             bookButton.Text = "Book Vehicle";
@@ -139,6 +141,86 @@ namespace Chhipa_Motors.GUI.Car_Cards
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading Nissan prices: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ========================
+        // Booking Button Click Handlers using Factory Pattern
+        // ========================
+
+        private void btn_book_GTR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _nissanFactory.CreateCar("Nissan GT-R", pb_GTR.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadNissanPricesDirect();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_book_Z_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _nissanFactory.CreateCar("Nissan Z", pb_NissanZ.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadNissanPricesDirect();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_book_leaf_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _nissanFactory.CreateCar("Nissan Leaf", pb_Leaf.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadNissanPricesDirect();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_book_frontier_PRO4X_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _nissanFactory.CreateCar("Frontier Pro-4X", pb_frontierpro.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadNissanPricesDirect();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

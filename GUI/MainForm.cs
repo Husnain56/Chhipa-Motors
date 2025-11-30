@@ -11,19 +11,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Chhipa_Motors.GUI.Menu_Pages;
+using Chhipa_Motors.DTO;
 
 namespace Chhipa_Motors.GUI
 {
     public partial class MainForm : Form
     {
-        private bool _menuPressed;
-        private bool _loggedIn;
-        public MainForm()
+        UserDTO _userDTO;
+        public MainForm(string ID)
         {
             InitializeComponent();
             setStates();
-            _menuPressed = false;
-            _loggedIn = false;
+            _userDTO = new UserDTO();
+            _userDTO.Id = ID;
         }
         public void setStates()
         {
@@ -71,9 +71,9 @@ namespace Chhipa_Motors.GUI
         private void pnl_AfterNavigate(object sender, SiticoneContentPanel.NavigationEventArgs e)
         {
             pnl_dynamic_menu.AddContentToView("Manufacturers", new Manufacturers_menu());
-            pnl_dynamic_menu.AddContentToView("Purchases", new PurchasedCars("13"));
-            pnl_dynamic_menu.AddContentToView("Bookings", new CustomerBookings("23"));
-            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo("13"));
+            pnl_dynamic_menu.AddContentToView("Purchases", new PurchasedCars(_userDTO.Id));
+            pnl_dynamic_menu.AddContentToView("Bookings", new CustomerBookings(_userDTO.Id));
+            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo(_userDTO.Id));
         }
         private void btn_menu_Click(object sender, EventArgs e)
         {
@@ -93,7 +93,7 @@ namespace Chhipa_Motors.GUI
             pb_menu.Hide();
             pnl_main.AutoScroll = false;
             pnl_dynamic_menu.AfterNavigate += pnl_AfterNavigate;
-            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo("3"));
+            pnl_dynamic_menu.AddContentToView("Account Settings", new UserInfo(_userDTO.Id));
             navbar_menu.SelectedItem = navbar_menu.Items[3];
         }
 
@@ -121,12 +121,12 @@ namespace Chhipa_Motors.GUI
 
         private void btn_menu_acc_Click(object sender, EventArgs e)
         {
-            LoadContent(new UserInfo("3"));
+            LoadContent(new UserInfo(_userDTO.Id));
         }
         private void manufacturerCard_Click(object sender, EventArgs e)
         {
             string manufacturer = ((Control)sender).Tag.ToString();
-            TestForm manufacturerForm = new TestForm(manufacturer);
+            TestForm manufacturerForm = new TestForm(manufacturer,_userDTO);
             manufacturerForm.FormClosed += (s, args) => this.Show();
             this.Hide();
             manufacturerForm.ShowDialog();

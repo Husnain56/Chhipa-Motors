@@ -339,7 +339,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
             btn_book_TaycanTurbo.TextShadowColor = Color.FromArgb(100, 0, 0, 0);
             btn_book_TaycanTurbo.TextShadowOffsetX = 1;
             btn_book_TaycanTurbo.TextShadowOffsetY = 1;
-            btn_book_TaycanTurbo.Click += btn_book_taycanturbo_Click;
+          //  btn_book_TaycanTurbo.Click += btn_book_taycanturbo_Click;
             // 
             // lbl_taycangt
             // 

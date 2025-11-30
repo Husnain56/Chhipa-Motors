@@ -46,7 +46,7 @@
             siticoneButton2 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneButton1 = new SiticoneNetCoreUI.SiticoneButton();
             lbl_taycan_turbo_gt = new SiticoneNetCoreUI.SiticoneShimmerLabel();
-            pb_taycan = new SiticoneNetCoreUI.SiticonePictureBox();
+            pb_GTS = new SiticoneNetCoreUI.SiticonePictureBox();
             siticoneContainer2 = new SiticoneNetCoreUI.SiticoneContainer();
             lbl_p_750S = new SiticoneNetCoreUI.SiticoneLabel();
             btn_book_750S = new SiticoneNetCoreUI.SiticoneButtonAdvanced();
@@ -62,7 +62,7 @@
             siticoneButton5 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneButton6 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneShimmerLabel1 = new SiticoneNetCoreUI.SiticoneShimmerLabel();
-            siticonePictureBox1 = new SiticoneNetCoreUI.SiticonePictureBox();
+            pb_750S = new SiticoneNetCoreUI.SiticonePictureBox();
             siticoneContainer3 = new SiticoneNetCoreUI.SiticoneContainer();
             lbl_p_765LT_Spider = new SiticoneNetCoreUI.SiticoneLabel();
             btn_book_765LT_Spider = new SiticoneNetCoreUI.SiticoneButtonAdvanced();
@@ -78,7 +78,7 @@
             siticoneButton8 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneButton9 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneShimmerLabel2 = new SiticoneNetCoreUI.SiticoneShimmerLabel();
-            siticonePictureBox2 = new SiticoneNetCoreUI.SiticonePictureBox();
+            pb_765LT_Spider = new SiticoneNetCoreUI.SiticonePictureBox();
             siticoneContainer4 = new SiticoneNetCoreUI.SiticoneContainer();
             lbl_p_ArturaSpider = new SiticoneNetCoreUI.SiticoneLabel();
             btn_book_ArturaSpider = new SiticoneNetCoreUI.SiticoneButtonAdvanced();
@@ -94,7 +94,7 @@
             siticoneButton11 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneButton12 = new SiticoneNetCoreUI.SiticoneButton();
             Artura = new SiticoneNetCoreUI.SiticoneShimmerLabel();
-            siticonePictureBox3 = new SiticoneNetCoreUI.SiticonePictureBox();
+            pb_artura_spider = new SiticoneNetCoreUI.SiticonePictureBox();
             siticoneContainer5 = new SiticoneNetCoreUI.SiticoneContainer();
             lbl_p_750S_Spider = new SiticoneNetCoreUI.SiticoneLabel();
             btn_book_750S_Spider = new SiticoneNetCoreUI.SiticoneButtonAdvanced();
@@ -110,7 +110,7 @@
             siticoneButton14 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneButton15 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneShimmerLabel3 = new SiticoneNetCoreUI.SiticoneShimmerLabel();
-            siticonePictureBox4 = new SiticoneNetCoreUI.SiticonePictureBox();
+            pb_750S_Spider = new SiticoneNetCoreUI.SiticonePictureBox();
             siticoneContainer1.SuspendLayout();
             siticoneContainer2.SuspendLayout();
             siticoneContainer3.SuspendLayout();
@@ -209,7 +209,7 @@
             siticoneContainer1.Controls.Add(siticoneButton2);
             siticoneContainer1.Controls.Add(siticoneButton1);
             siticoneContainer1.Controls.Add(lbl_taycan_turbo_gt);
-            siticoneContainer1.Controls.Add(pb_taycan);
+            siticoneContainer1.Controls.Add(pb_GTS);
             siticoneContainer1.CustomDashPattern = null;
             siticoneContainer1.DataSource = null;
             siticoneContainer1.Elevation = 0;
@@ -651,47 +651,47 @@
             lbl_taycan_turbo_gt.Text = "McLaren GTS";
             lbl_taycan_turbo_gt.ToolTipText = "";
             // 
-            // pb_taycan
+            // pb_GTS
             // 
-            pb_taycan.BackColor = Color.FromArgb(30, 0, 0, 0);
-            pb_taycan.BorderColor = Color.Black;
-            pb_taycan.BorderWidth = 1;
-            pb_taycan.Brightness = 1F;
-            pb_taycan.Contrast = 1F;
-            pb_taycan.CornerRadius = 0;
-            pb_taycan.DraggingSpeed = 3.15F;
-            pb_taycan.EnableAsyncLoading = false;
-            pb_taycan.EnableCaching = false;
-            pb_taycan.EnableDragDrop = false;
-            pb_taycan.EnableExtendedImageSources = false;
-            pb_taycan.EnableFilters = false;
-            pb_taycan.EnableFlipping = false;
-            pb_taycan.EnableGlow = false;
-            pb_taycan.EnableHighDpiSupport = false;
-            pb_taycan.EnableMouseInteraction = false;
-            pb_taycan.EnablePlaceholder = false;
-            pb_taycan.EnableRotation = false;
-            pb_taycan.EnableShadow = false;
-            pb_taycan.EnableSlideshow = false;
-            pb_taycan.FlipHorizontal = false;
-            pb_taycan.FlipVertical = false;
-            pb_taycan.Grayscale = false;
-            pb_taycan.Image = (Image)resources.GetObject("pb_taycan.Image");
-            pb_taycan.ImageOpacity = 1F;
-            pb_taycan.Images = (List<Image>)resources.GetObject("pb_taycan.Images");
-            pb_taycan.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            pb_taycan.IsCircular = false;
-            pb_taycan.Location = new Point(15, 32);
-            pb_taycan.MaintainAspectRatio = true;
-            pb_taycan.Name = "pb_taycan";
-            pb_taycan.PlaceholderImage = null;
-            pb_taycan.RotationAngle = 0F;
-            pb_taycan.Saturation = 1F;
-            pb_taycan.ShowBorder = true;
-            pb_taycan.Size = new Size(521, 251);
-            pb_taycan.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
-            pb_taycan.TabIndex = 0;
-            pb_taycan.Text = "siticonePictureBox1";
+            pb_GTS.BackColor = Color.FromArgb(30, 0, 0, 0);
+            pb_GTS.BorderColor = Color.Black;
+            pb_GTS.BorderWidth = 1;
+            pb_GTS.Brightness = 1F;
+            pb_GTS.Contrast = 1F;
+            pb_GTS.CornerRadius = 0;
+            pb_GTS.DraggingSpeed = 3.15F;
+            pb_GTS.EnableAsyncLoading = false;
+            pb_GTS.EnableCaching = false;
+            pb_GTS.EnableDragDrop = false;
+            pb_GTS.EnableExtendedImageSources = false;
+            pb_GTS.EnableFilters = false;
+            pb_GTS.EnableFlipping = false;
+            pb_GTS.EnableGlow = false;
+            pb_GTS.EnableHighDpiSupport = false;
+            pb_GTS.EnableMouseInteraction = false;
+            pb_GTS.EnablePlaceholder = false;
+            pb_GTS.EnableRotation = false;
+            pb_GTS.EnableShadow = false;
+            pb_GTS.EnableSlideshow = false;
+            pb_GTS.FlipHorizontal = false;
+            pb_GTS.FlipVertical = false;
+            pb_GTS.Grayscale = false;
+            pb_GTS.Image = (Image)resources.GetObject("pb_GTS.Image");
+            pb_GTS.ImageOpacity = 1F;
+            pb_GTS.Images = (List<Image>)resources.GetObject("pb_GTS.Images");
+            pb_GTS.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_GTS.IsCircular = false;
+            pb_GTS.Location = new Point(15, 32);
+            pb_GTS.MaintainAspectRatio = true;
+            pb_GTS.Name = "pb_GTS";
+            pb_GTS.PlaceholderImage = null;
+            pb_GTS.RotationAngle = 0F;
+            pb_GTS.Saturation = 1F;
+            pb_GTS.ShowBorder = true;
+            pb_GTS.Size = new Size(521, 251);
+            pb_GTS.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
+            pb_GTS.TabIndex = 0;
+            pb_GTS.Text = "siticonePictureBox1";
             // 
             // siticoneContainer2
             // 
@@ -731,7 +731,7 @@
             siticoneContainer2.Controls.Add(siticoneButton5);
             siticoneContainer2.Controls.Add(siticoneButton6);
             siticoneContainer2.Controls.Add(siticoneShimmerLabel1);
-            siticoneContainer2.Controls.Add(siticonePictureBox1);
+            siticoneContainer2.Controls.Add(pb_750S);
             siticoneContainer2.CustomDashPattern = null;
             siticoneContainer2.DataSource = null;
             siticoneContainer2.Elevation = 0;
@@ -1173,47 +1173,47 @@
             siticoneShimmerLabel1.Text = "McLaren 750S";
             siticoneShimmerLabel1.ToolTipText = "";
             // 
-            // siticonePictureBox1
+            // pb_750S
             // 
-            siticonePictureBox1.BackColor = Color.FromArgb(30, 0, 0, 0);
-            siticonePictureBox1.BorderColor = Color.Black;
-            siticonePictureBox1.BorderWidth = 1;
-            siticonePictureBox1.Brightness = 1F;
-            siticonePictureBox1.Contrast = 1F;
-            siticonePictureBox1.CornerRadius = 0;
-            siticonePictureBox1.DraggingSpeed = 3.15F;
-            siticonePictureBox1.EnableAsyncLoading = false;
-            siticonePictureBox1.EnableCaching = false;
-            siticonePictureBox1.EnableDragDrop = false;
-            siticonePictureBox1.EnableExtendedImageSources = false;
-            siticonePictureBox1.EnableFilters = false;
-            siticonePictureBox1.EnableFlipping = false;
-            siticonePictureBox1.EnableGlow = false;
-            siticonePictureBox1.EnableHighDpiSupport = false;
-            siticonePictureBox1.EnableMouseInteraction = false;
-            siticonePictureBox1.EnablePlaceholder = false;
-            siticonePictureBox1.EnableRotation = false;
-            siticonePictureBox1.EnableShadow = false;
-            siticonePictureBox1.EnableSlideshow = false;
-            siticonePictureBox1.FlipHorizontal = false;
-            siticonePictureBox1.FlipVertical = false;
-            siticonePictureBox1.Grayscale = false;
-            siticonePictureBox1.Image = (Image)resources.GetObject("siticonePictureBox1.Image");
-            siticonePictureBox1.ImageOpacity = 1F;
-            siticonePictureBox1.Images = (List<Image>)resources.GetObject("siticonePictureBox1.Images");
-            siticonePictureBox1.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            siticonePictureBox1.IsCircular = false;
-            siticonePictureBox1.Location = new Point(3, 19);
-            siticonePictureBox1.MaintainAspectRatio = true;
-            siticonePictureBox1.Name = "siticonePictureBox1";
-            siticonePictureBox1.PlaceholderImage = null;
-            siticonePictureBox1.RotationAngle = 0F;
-            siticonePictureBox1.Saturation = 1F;
-            siticonePictureBox1.ShowBorder = true;
-            siticonePictureBox1.Size = new Size(521, 251);
-            siticonePictureBox1.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
-            siticonePictureBox1.TabIndex = 0;
-            siticonePictureBox1.Text = "siticonePictureBox1";
+            pb_750S.BackColor = Color.FromArgb(30, 0, 0, 0);
+            pb_750S.BorderColor = Color.Black;
+            pb_750S.BorderWidth = 1;
+            pb_750S.Brightness = 1F;
+            pb_750S.Contrast = 1F;
+            pb_750S.CornerRadius = 0;
+            pb_750S.DraggingSpeed = 3.15F;
+            pb_750S.EnableAsyncLoading = false;
+            pb_750S.EnableCaching = false;
+            pb_750S.EnableDragDrop = false;
+            pb_750S.EnableExtendedImageSources = false;
+            pb_750S.EnableFilters = false;
+            pb_750S.EnableFlipping = false;
+            pb_750S.EnableGlow = false;
+            pb_750S.EnableHighDpiSupport = false;
+            pb_750S.EnableMouseInteraction = false;
+            pb_750S.EnablePlaceholder = false;
+            pb_750S.EnableRotation = false;
+            pb_750S.EnableShadow = false;
+            pb_750S.EnableSlideshow = false;
+            pb_750S.FlipHorizontal = false;
+            pb_750S.FlipVertical = false;
+            pb_750S.Grayscale = false;
+            pb_750S.Image = (Image)resources.GetObject("pb_750S.Image");
+            pb_750S.ImageOpacity = 1F;
+            pb_750S.Images = (List<Image>)resources.GetObject("pb_750S.Images");
+            pb_750S.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_750S.IsCircular = false;
+            pb_750S.Location = new Point(3, 19);
+            pb_750S.MaintainAspectRatio = true;
+            pb_750S.Name = "pb_750S";
+            pb_750S.PlaceholderImage = null;
+            pb_750S.RotationAngle = 0F;
+            pb_750S.Saturation = 1F;
+            pb_750S.ShowBorder = true;
+            pb_750S.Size = new Size(521, 251);
+            pb_750S.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
+            pb_750S.TabIndex = 0;
+            pb_750S.Text = "siticonePictureBox1";
             // 
             // siticoneContainer3
             // 
@@ -1253,7 +1253,7 @@
             siticoneContainer3.Controls.Add(siticoneButton8);
             siticoneContainer3.Controls.Add(siticoneButton9);
             siticoneContainer3.Controls.Add(siticoneShimmerLabel2);
-            siticoneContainer3.Controls.Add(siticonePictureBox2);
+            siticoneContainer3.Controls.Add(pb_765LT_Spider);
             siticoneContainer3.CustomDashPattern = null;
             siticoneContainer3.DataSource = null;
             siticoneContainer3.Elevation = 0;
@@ -1695,47 +1695,47 @@
             siticoneShimmerLabel2.Text = "765LT Spider";
             siticoneShimmerLabel2.ToolTipText = "";
             // 
-            // siticonePictureBox2
+            // pb_765LT_Spider
             // 
-            siticonePictureBox2.BackColor = Color.FromArgb(30, 0, 0, 0);
-            siticonePictureBox2.BorderColor = Color.Black;
-            siticonePictureBox2.BorderWidth = 1;
-            siticonePictureBox2.Brightness = 1F;
-            siticonePictureBox2.Contrast = 1F;
-            siticonePictureBox2.CornerRadius = 0;
-            siticonePictureBox2.DraggingSpeed = 3.15F;
-            siticonePictureBox2.EnableAsyncLoading = false;
-            siticonePictureBox2.EnableCaching = false;
-            siticonePictureBox2.EnableDragDrop = false;
-            siticonePictureBox2.EnableExtendedImageSources = false;
-            siticonePictureBox2.EnableFilters = false;
-            siticonePictureBox2.EnableFlipping = false;
-            siticonePictureBox2.EnableGlow = false;
-            siticonePictureBox2.EnableHighDpiSupport = false;
-            siticonePictureBox2.EnableMouseInteraction = false;
-            siticonePictureBox2.EnablePlaceholder = false;
-            siticonePictureBox2.EnableRotation = false;
-            siticonePictureBox2.EnableShadow = false;
-            siticonePictureBox2.EnableSlideshow = false;
-            siticonePictureBox2.FlipHorizontal = false;
-            siticonePictureBox2.FlipVertical = false;
-            siticonePictureBox2.Grayscale = false;
-            siticonePictureBox2.Image = (Image)resources.GetObject("siticonePictureBox2.Image");
-            siticonePictureBox2.ImageOpacity = 1F;
-            siticonePictureBox2.Images = (List<Image>)resources.GetObject("siticonePictureBox2.Images");
-            siticonePictureBox2.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            siticonePictureBox2.IsCircular = false;
-            siticonePictureBox2.Location = new Point(3, 3);
-            siticonePictureBox2.MaintainAspectRatio = true;
-            siticonePictureBox2.Name = "siticonePictureBox2";
-            siticonePictureBox2.PlaceholderImage = null;
-            siticonePictureBox2.RotationAngle = 0F;
-            siticonePictureBox2.Saturation = 1F;
-            siticonePictureBox2.ShowBorder = true;
-            siticonePictureBox2.Size = new Size(521, 251);
-            siticonePictureBox2.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
-            siticonePictureBox2.TabIndex = 0;
-            siticonePictureBox2.Text = "siticonePictureBox2";
+            pb_765LT_Spider.BackColor = Color.FromArgb(30, 0, 0, 0);
+            pb_765LT_Spider.BorderColor = Color.Black;
+            pb_765LT_Spider.BorderWidth = 1;
+            pb_765LT_Spider.Brightness = 1F;
+            pb_765LT_Spider.Contrast = 1F;
+            pb_765LT_Spider.CornerRadius = 0;
+            pb_765LT_Spider.DraggingSpeed = 3.15F;
+            pb_765LT_Spider.EnableAsyncLoading = false;
+            pb_765LT_Spider.EnableCaching = false;
+            pb_765LT_Spider.EnableDragDrop = false;
+            pb_765LT_Spider.EnableExtendedImageSources = false;
+            pb_765LT_Spider.EnableFilters = false;
+            pb_765LT_Spider.EnableFlipping = false;
+            pb_765LT_Spider.EnableGlow = false;
+            pb_765LT_Spider.EnableHighDpiSupport = false;
+            pb_765LT_Spider.EnableMouseInteraction = false;
+            pb_765LT_Spider.EnablePlaceholder = false;
+            pb_765LT_Spider.EnableRotation = false;
+            pb_765LT_Spider.EnableShadow = false;
+            pb_765LT_Spider.EnableSlideshow = false;
+            pb_765LT_Spider.FlipHorizontal = false;
+            pb_765LT_Spider.FlipVertical = false;
+            pb_765LT_Spider.Grayscale = false;
+            pb_765LT_Spider.Image = (Image)resources.GetObject("pb_765LT_Spider.Image");
+            pb_765LT_Spider.ImageOpacity = 1F;
+            pb_765LT_Spider.Images = (List<Image>)resources.GetObject("pb_765LT_Spider.Images");
+            pb_765LT_Spider.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_765LT_Spider.IsCircular = false;
+            pb_765LT_Spider.Location = new Point(3, 3);
+            pb_765LT_Spider.MaintainAspectRatio = true;
+            pb_765LT_Spider.Name = "pb_765LT_Spider";
+            pb_765LT_Spider.PlaceholderImage = null;
+            pb_765LT_Spider.RotationAngle = 0F;
+            pb_765LT_Spider.Saturation = 1F;
+            pb_765LT_Spider.ShowBorder = true;
+            pb_765LT_Spider.Size = new Size(521, 251);
+            pb_765LT_Spider.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
+            pb_765LT_Spider.TabIndex = 0;
+            pb_765LT_Spider.Text = "siticonePictureBox2";
             // 
             // siticoneContainer4
             // 
@@ -1775,7 +1775,7 @@
             siticoneContainer4.Controls.Add(siticoneButton11);
             siticoneContainer4.Controls.Add(siticoneButton12);
             siticoneContainer4.Controls.Add(Artura);
-            siticoneContainer4.Controls.Add(siticonePictureBox3);
+            siticoneContainer4.Controls.Add(pb_artura_spider);
             siticoneContainer4.CustomDashPattern = null;
             siticoneContainer4.DataSource = null;
             siticoneContainer4.Elevation = 0;
@@ -2217,47 +2217,47 @@
             Artura.Text = "Artura Spider";
             Artura.ToolTipText = "";
             // 
-            // siticonePictureBox3
+            // pb_artura_spider
             // 
-            siticonePictureBox3.BackColor = Color.FromArgb(30, 0, 0, 0);
-            siticonePictureBox3.BorderColor = Color.Black;
-            siticonePictureBox3.BorderWidth = 1;
-            siticonePictureBox3.Brightness = 1F;
-            siticonePictureBox3.Contrast = 1F;
-            siticonePictureBox3.CornerRadius = 0;
-            siticonePictureBox3.DraggingSpeed = 3.15F;
-            siticonePictureBox3.EnableAsyncLoading = false;
-            siticonePictureBox3.EnableCaching = false;
-            siticonePictureBox3.EnableDragDrop = false;
-            siticonePictureBox3.EnableExtendedImageSources = false;
-            siticonePictureBox3.EnableFilters = false;
-            siticonePictureBox3.EnableFlipping = false;
-            siticonePictureBox3.EnableGlow = false;
-            siticonePictureBox3.EnableHighDpiSupport = false;
-            siticonePictureBox3.EnableMouseInteraction = false;
-            siticonePictureBox3.EnablePlaceholder = false;
-            siticonePictureBox3.EnableRotation = false;
-            siticonePictureBox3.EnableShadow = false;
-            siticonePictureBox3.EnableSlideshow = false;
-            siticonePictureBox3.FlipHorizontal = false;
-            siticonePictureBox3.FlipVertical = false;
-            siticonePictureBox3.Grayscale = false;
-            siticonePictureBox3.Image = (Image)resources.GetObject("siticonePictureBox3.Image");
-            siticonePictureBox3.ImageOpacity = 1F;
-            siticonePictureBox3.Images = (List<Image>)resources.GetObject("siticonePictureBox3.Images");
-            siticonePictureBox3.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            siticonePictureBox3.IsCircular = false;
-            siticonePictureBox3.Location = new Point(3, 34);
-            siticonePictureBox3.MaintainAspectRatio = true;
-            siticonePictureBox3.Name = "siticonePictureBox3";
-            siticonePictureBox3.PlaceholderImage = null;
-            siticonePictureBox3.RotationAngle = 0F;
-            siticonePictureBox3.Saturation = 1F;
-            siticonePictureBox3.ShowBorder = true;
-            siticonePictureBox3.Size = new Size(544, 251);
-            siticonePictureBox3.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
-            siticonePictureBox3.TabIndex = 0;
-            siticonePictureBox3.Text = "siticonePictureBox3";
+            pb_artura_spider.BackColor = Color.FromArgb(30, 0, 0, 0);
+            pb_artura_spider.BorderColor = Color.Black;
+            pb_artura_spider.BorderWidth = 1;
+            pb_artura_spider.Brightness = 1F;
+            pb_artura_spider.Contrast = 1F;
+            pb_artura_spider.CornerRadius = 0;
+            pb_artura_spider.DraggingSpeed = 3.15F;
+            pb_artura_spider.EnableAsyncLoading = false;
+            pb_artura_spider.EnableCaching = false;
+            pb_artura_spider.EnableDragDrop = false;
+            pb_artura_spider.EnableExtendedImageSources = false;
+            pb_artura_spider.EnableFilters = false;
+            pb_artura_spider.EnableFlipping = false;
+            pb_artura_spider.EnableGlow = false;
+            pb_artura_spider.EnableHighDpiSupport = false;
+            pb_artura_spider.EnableMouseInteraction = false;
+            pb_artura_spider.EnablePlaceholder = false;
+            pb_artura_spider.EnableRotation = false;
+            pb_artura_spider.EnableShadow = false;
+            pb_artura_spider.EnableSlideshow = false;
+            pb_artura_spider.FlipHorizontal = false;
+            pb_artura_spider.FlipVertical = false;
+            pb_artura_spider.Grayscale = false;
+            pb_artura_spider.Image = (Image)resources.GetObject("pb_artura_spider.Image");
+            pb_artura_spider.ImageOpacity = 1F;
+            pb_artura_spider.Images = (List<Image>)resources.GetObject("pb_artura_spider.Images");
+            pb_artura_spider.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_artura_spider.IsCircular = false;
+            pb_artura_spider.Location = new Point(3, 34);
+            pb_artura_spider.MaintainAspectRatio = true;
+            pb_artura_spider.Name = "pb_artura_spider";
+            pb_artura_spider.PlaceholderImage = null;
+            pb_artura_spider.RotationAngle = 0F;
+            pb_artura_spider.Saturation = 1F;
+            pb_artura_spider.ShowBorder = true;
+            pb_artura_spider.Size = new Size(544, 251);
+            pb_artura_spider.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
+            pb_artura_spider.TabIndex = 0;
+            pb_artura_spider.Text = "siticonePictureBox3";
             // 
             // siticoneContainer5
             // 
@@ -2297,7 +2297,7 @@
             siticoneContainer5.Controls.Add(siticoneButton14);
             siticoneContainer5.Controls.Add(siticoneButton15);
             siticoneContainer5.Controls.Add(siticoneShimmerLabel3);
-            siticoneContainer5.Controls.Add(siticonePictureBox4);
+            siticoneContainer5.Controls.Add(pb_750S_Spider);
             siticoneContainer5.CustomDashPattern = null;
             siticoneContainer5.DataSource = null;
             siticoneContainer5.Elevation = 0;
@@ -2739,47 +2739,47 @@
             siticoneShimmerLabel3.Text = "750S SPIDER";
             siticoneShimmerLabel3.ToolTipText = "";
             // 
-            // siticonePictureBox4
+            // pb_750S_Spider
             // 
-            siticonePictureBox4.BackColor = Color.FromArgb(30, 0, 0, 0);
-            siticonePictureBox4.BorderColor = Color.Black;
-            siticonePictureBox4.BorderWidth = 1;
-            siticonePictureBox4.Brightness = 1F;
-            siticonePictureBox4.Contrast = 1F;
-            siticonePictureBox4.CornerRadius = 0;
-            siticonePictureBox4.DraggingSpeed = 3.15F;
-            siticonePictureBox4.EnableAsyncLoading = false;
-            siticonePictureBox4.EnableCaching = false;
-            siticonePictureBox4.EnableDragDrop = false;
-            siticonePictureBox4.EnableExtendedImageSources = false;
-            siticonePictureBox4.EnableFilters = false;
-            siticonePictureBox4.EnableFlipping = false;
-            siticonePictureBox4.EnableGlow = false;
-            siticonePictureBox4.EnableHighDpiSupport = false;
-            siticonePictureBox4.EnableMouseInteraction = false;
-            siticonePictureBox4.EnablePlaceholder = false;
-            siticonePictureBox4.EnableRotation = false;
-            siticonePictureBox4.EnableShadow = false;
-            siticonePictureBox4.EnableSlideshow = false;
-            siticonePictureBox4.FlipHorizontal = false;
-            siticonePictureBox4.FlipVertical = false;
-            siticonePictureBox4.Grayscale = false;
-            siticonePictureBox4.Image = (Image)resources.GetObject("siticonePictureBox4.Image");
-            siticonePictureBox4.ImageOpacity = 1F;
-            siticonePictureBox4.Images = (List<Image>)resources.GetObject("siticonePictureBox4.Images");
-            siticonePictureBox4.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            siticonePictureBox4.IsCircular = false;
-            siticonePictureBox4.Location = new Point(3, 59);
-            siticonePictureBox4.MaintainAspectRatio = true;
-            siticonePictureBox4.Name = "siticonePictureBox4";
-            siticonePictureBox4.PlaceholderImage = null;
-            siticonePictureBox4.RotationAngle = 0F;
-            siticonePictureBox4.Saturation = 1F;
-            siticonePictureBox4.ShowBorder = true;
-            siticonePictureBox4.Size = new Size(521, 251);
-            siticonePictureBox4.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
-            siticonePictureBox4.TabIndex = 0;
-            siticonePictureBox4.Text = "siticonePictureBox4";
+            pb_750S_Spider.BackColor = Color.FromArgb(30, 0, 0, 0);
+            pb_750S_Spider.BorderColor = Color.Black;
+            pb_750S_Spider.BorderWidth = 1;
+            pb_750S_Spider.Brightness = 1F;
+            pb_750S_Spider.Contrast = 1F;
+            pb_750S_Spider.CornerRadius = 0;
+            pb_750S_Spider.DraggingSpeed = 3.15F;
+            pb_750S_Spider.EnableAsyncLoading = false;
+            pb_750S_Spider.EnableCaching = false;
+            pb_750S_Spider.EnableDragDrop = false;
+            pb_750S_Spider.EnableExtendedImageSources = false;
+            pb_750S_Spider.EnableFilters = false;
+            pb_750S_Spider.EnableFlipping = false;
+            pb_750S_Spider.EnableGlow = false;
+            pb_750S_Spider.EnableHighDpiSupport = false;
+            pb_750S_Spider.EnableMouseInteraction = false;
+            pb_750S_Spider.EnablePlaceholder = false;
+            pb_750S_Spider.EnableRotation = false;
+            pb_750S_Spider.EnableShadow = false;
+            pb_750S_Spider.EnableSlideshow = false;
+            pb_750S_Spider.FlipHorizontal = false;
+            pb_750S_Spider.FlipVertical = false;
+            pb_750S_Spider.Grayscale = false;
+            pb_750S_Spider.Image = (Image)resources.GetObject("pb_750S_Spider.Image");
+            pb_750S_Spider.ImageOpacity = 1F;
+            pb_750S_Spider.Images = (List<Image>)resources.GetObject("pb_750S_Spider.Images");
+            pb_750S_Spider.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_750S_Spider.IsCircular = false;
+            pb_750S_Spider.Location = new Point(3, 59);
+            pb_750S_Spider.MaintainAspectRatio = true;
+            pb_750S_Spider.Name = "pb_750S_Spider";
+            pb_750S_Spider.PlaceholderImage = null;
+            pb_750S_Spider.RotationAngle = 0F;
+            pb_750S_Spider.Saturation = 1F;
+            pb_750S_Spider.ShowBorder = true;
+            pb_750S_Spider.Size = new Size(521, 251);
+            pb_750S_Spider.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
+            pb_750S_Spider.TabIndex = 0;
+            pb_750S_Spider.Text = "siticonePictureBox4";
             // 
             // UserControl_McLaren
             // 
@@ -2795,7 +2795,7 @@
             Controls.Add(lbl_avail);
             Controls.Add(pb_porsche);
             Name = "UserControl_McLaren";
-            Size = new Size(1315, 786);
+            Size = new Size(1298, 786);
             Load += UserControl_McLaren_Load;
             siticoneContainer1.ResumeLayout(false);
             siticoneContainer2.ResumeLayout(false);
@@ -2824,7 +2824,7 @@
         private SiticoneNetCoreUI.SiticoneButton siticoneButton2;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton1;
         private SiticoneNetCoreUI.SiticoneShimmerLabel lbl_taycan_turbo_gt;
-        private SiticoneNetCoreUI.SiticonePictureBox pb_taycan;
+        private SiticoneNetCoreUI.SiticonePictureBox pb_GTS;
         private SiticoneNetCoreUI.SiticoneContainer siticoneContainer2;
         private SiticoneNetCoreUI.SiticoneLabel lbl_p_750S;
         private SiticoneNetCoreUI.SiticoneButtonAdvanced btn_book_750S;
@@ -2840,7 +2840,7 @@
         private SiticoneNetCoreUI.SiticoneButton siticoneButton5;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton6;
         private SiticoneNetCoreUI.SiticoneShimmerLabel siticoneShimmerLabel1;
-        private SiticoneNetCoreUI.SiticonePictureBox siticonePictureBox1;
+        private SiticoneNetCoreUI.SiticonePictureBox pb_750S;
         private SiticoneNetCoreUI.SiticoneContainer siticoneContainer3;
         private SiticoneNetCoreUI.SiticoneLabel lbl_p_765LT_Spider;
         private SiticoneNetCoreUI.SiticoneButtonAdvanced btn_book_765LT_Spider;
@@ -2856,7 +2856,7 @@
         private SiticoneNetCoreUI.SiticoneButton siticoneButton8;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton9;
         private SiticoneNetCoreUI.SiticoneShimmerLabel siticoneShimmerLabel2;
-        private SiticoneNetCoreUI.SiticonePictureBox siticonePictureBox2;
+        private SiticoneNetCoreUI.SiticonePictureBox pb_765LT_Spider;
         private SiticoneNetCoreUI.SiticoneContainer siticoneContainer4;
         private SiticoneNetCoreUI.SiticoneLabel lbl_p_ArturaSpider;
         private SiticoneNetCoreUI.SiticoneButtonAdvanced btn_book_ArturaSpider;
@@ -2872,7 +2872,7 @@
         private SiticoneNetCoreUI.SiticoneButton siticoneButton11;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton12;
         private SiticoneNetCoreUI.SiticoneShimmerLabel Artura;
-        private SiticoneNetCoreUI.SiticonePictureBox siticonePictureBox3;
+        private SiticoneNetCoreUI.SiticonePictureBox pb_artura_spider;
         private SiticoneNetCoreUI.SiticoneContainer siticoneContainer5;
         private SiticoneNetCoreUI.SiticoneLabel lbl_p_750S_Spider;
         private SiticoneNetCoreUI.SiticoneButtonAdvanced btn_book_750S_Spider;
@@ -2888,6 +2888,6 @@
         private SiticoneNetCoreUI.SiticoneButton siticoneButton14;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton15;
         private SiticoneNetCoreUI.SiticoneShimmerLabel siticoneShimmerLabel3;
-        private SiticoneNetCoreUI.SiticonePictureBox siticonePictureBox4;
+        private SiticoneNetCoreUI.SiticonePictureBox pb_750S_Spider;
     }
 }

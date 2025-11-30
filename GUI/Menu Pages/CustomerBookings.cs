@@ -386,7 +386,7 @@ namespace Chhipa_Motors.GUI.Menu_Pages
                 {
                     BookingDTO bookingDTO = new BookingDTO
                     {
-                        BookingID = bookingId,
+                        BookingID = bookingId.ToString(),
                         Status = "Cancelled",
                         AdminNote = "Cancelled by customer"
                     };

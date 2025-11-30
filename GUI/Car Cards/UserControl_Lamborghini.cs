@@ -1,14 +1,11 @@
 ﻿using SiticoneNetCoreUI;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Chhipa_Motors.BL;
+using Chhipa_Motors.Factory;
+using Chhipa_Motors.GUI.Booking_Form;
 using Chhipa_Motors.DTO;
 
 namespace Chhipa_Motors.GUI.Car_Cards
@@ -16,11 +13,16 @@ namespace Chhipa_Motors.GUI.Car_Cards
     public partial class UserControl_Lamborghini : UserControl
     {
         private CarBL _carBL;
+        private LamborghiniCreator _lamborghiniFactory;
+        UserDTO _userDTO;
 
-        public UserControl_Lamborghini()
+        public UserControl_Lamborghini(UserDTO dto)
         {
             InitializeComponent();
             _carBL = new CarBL();
+            _lamborghiniFactory = new LamborghiniCreator();
+            HandleEvents();
+            _userDTO = dto;
         }
 
         private void HoverEnter(object sender, EventArgs e)
@@ -59,10 +61,9 @@ namespace Chhipa_Motors.GUI.Car_Cards
             {
                 if (ctrl is SiticoneContainer container)
                 {
-                    // Add events to the container itself
                     container.MouseEnter += HoverEnter;
                     container.MouseLeave += HoverLeave;
-                    // Add events to all children inside container
+
                     foreach (Control child in container.Controls)
                     {
                         child.MouseEnter += HoverEnter;
@@ -71,7 +72,6 @@ namespace Chhipa_Motors.GUI.Car_Cards
                 }
             }
 
-            // Load Lamborghini prices and availability
             LoadLamborghiniPricesDirect();
         }
 
@@ -95,18 +95,14 @@ namespace Chhipa_Motors.GUI.Car_Cards
                     {
                         var (priceLabel, bookButton) = carLookup[car.CarName];
 
-                        // Update price label
                         decimal price = decimal.Parse(car.Price);
                         priceLabel.Text = $"{price:N0}";
                         priceLabel.Tag = car.CarID;
 
-                        // Update book button
                         bookButton.Tag = car.CarID;
 
-                        // Parse stock
                         int stock = int.Parse(car.Stock);
 
-                        // Parse active status
                         bool isActive = false;
                         if (!string.IsNullOrEmpty(car.Status))
                         {
@@ -114,13 +110,11 @@ namespace Chhipa_Motors.GUI.Car_Cards
                             isActive = status == "active" || status == "1" || status == "true";
                         }
 
-                        // Enable button only if stock > 0 AND car is active
                         bool shouldEnable = (stock > 0 && isActive);
 
                         bookButton.Enabled = shouldEnable;
                         bookButton.Cursor = shouldEnable ? Cursors.Hand : Cursors.No;
 
-                        // Change button text based on availability
                         if (shouldEnable)
                         {
                             bookButton.Text = "Book Vehicle";
@@ -139,6 +133,93 @@ namespace Chhipa_Motors.GUI.Car_Cards
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading Lamborghini prices: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ========================
+        // Booking Button Click Handlers using Factory Pattern
+        // ========================
+        public void HandleEvents()
+        {
+            btn_book_UrusSE.Click += btn_book_UrusSE_Click;
+            btn_book_UrusP.Click += btn_book_UrusP_Click;
+            btn_book_Temerario.Click += btn_book_Temerario_Click;
+            btn_book_Revuelto.Click += btn_book_Revuelto_Click;
+        }
+        private void btn_book_UrusSE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _lamborghiniFactory.CreateCar("Urus SE", pb_urus_se.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    // Refresh prices after booking
+                    LoadLamborghiniPricesDirect();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_book_UrusP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _lamborghiniFactory.CreateCar("Urus Performance", pb_urus_p.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadLamborghiniPricesDirect();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_book_Temerario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _lamborghiniFactory.CreateCar("Temerario", pb_temerario.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadLamborghiniPricesDirect();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_book_Revuelto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _lamborghiniFactory.CreateCar("Revuelto", pb_revuelto.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadLamborghiniPricesDirect();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

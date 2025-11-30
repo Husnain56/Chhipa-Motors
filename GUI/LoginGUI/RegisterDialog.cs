@@ -202,6 +202,10 @@ namespace Chhipa_Motors.GUI.LoginGUI
             {
                 MessageBox.Show("User Created Successfully!","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
+            else if(_loginBL.CreateUserAccount(_userDTO) == -1)
+            {
+                MessageBox.Show("Username already exists. Please choose a different username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 MessageBox.Show("Failed to create user account. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -1,4 +1,8 @@
-﻿using SiticoneNetCoreUI;
+﻿using Chhipa_Motors.BL;
+using Chhipa_Motors.DTO;
+using Chhipa_Motors.Factory;
+using Chhipa_Motors.GUI.Booking_Form;
+using SiticoneNetCoreUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,21 +12,121 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Chhipa_Motors.GUI.Booking_Form;
-using Chhipa_Motors.DTO;
-using Chhipa_Motors.BL;
 
 namespace Chhipa_Motors.GUI.Car_Cards
 {
     public partial class UserControl_Porsche : UserControl
     {
         CarBL _carBL;
-        public UserControl_Porsche()
+        private PorscheCreator _porscheFactory;
+        UserDTO _userDTO;
+        public UserControl_Porsche(UserDTO dto)
         {
             InitializeComponent();
             _carBL = new CarBL();
+            _porscheFactory = new PorscheCreator();
             LoadPorschePricesDirect();
+            HandleButtonEvents();
+            _userDTO = dto; 
         }
+        private void HandleButtonEvents()
+        {;
+            btn_book_TaycanTurbo.Click += btn_book_taycan_Click;
+            btn_book_macan4.Click += btn_book_macan4_Click;
+            btn_book_carrera4S.Click += btn_book_carrera4S_Click;
+            btn_book_panamera.Click += btn_book_panamera_Click;
+            btn_book_panamera4S.Click += btn_book_panamera4S_Click;
+            btn_book_718Cayman.Click += btn_book_718Cayman_Click;   
+        }
+        private void btn_book_taycan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _porscheFactory.CreateCar("Taycan Turbo GT", pb_taycan.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_book_carrera4S_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _porscheFactory.CreateCar("911 Carrera 4S", pb_carrera_4S.Image);
+                BookingForm form = new BookingForm(car, car.CarImage,_userDTO);
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_book_panamera_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _porscheFactory.CreateCar("Panamera", pb_panamera.Image);
+                BookingForm form = new BookingForm(car, car.CarImage,_userDTO);
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_book_panamera4S_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _porscheFactory.CreateCar("Panamera 4S E-Hybrid", pb_panamera_4S.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_book_macan4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _porscheFactory.CreateCar("Macan 4 Electric", pb_macan4.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btn_book_718Cayman_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarProduct car = _porscheFactory.CreateCar("718 Cayman GT4 RS", pb_718_cayman.Image);
+                BookingForm form = new BookingForm(car, car.CarImage, _userDTO);
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void HoverEnter(object sender, EventArgs e)
         {
@@ -78,12 +182,6 @@ namespace Chhipa_Motors.GUI.Car_Cards
             }
         }
 
-        private void btn_book_taycanturbo_Click(object sender, EventArgs e)
-        {
-            BookingForm form = new BookingForm(new CarDTO(), pb_taycan.Image, "3");
-            form.ShowDialog();
-        }
-
         private void LoadPorschePricesDirect()
         {
             try
@@ -109,7 +207,7 @@ namespace Chhipa_Motors.GUI.Car_Cards
 
                         // Update price label
                         decimal price = decimal.Parse(car.Price);
-                        priceLabel.Text = $"Rs. {price:N0}";
+                        priceLabel.Text = $"{price:N0}";
                         priceLabel.Tag = car.CarID;
 
                         // Update book button

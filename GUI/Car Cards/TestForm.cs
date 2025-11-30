@@ -1,4 +1,5 @@
-﻿using SiticoneNetCoreUI;
+﻿using Chhipa_Motors.DTO;
+using SiticoneNetCoreUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,14 @@ namespace Chhipa_Motors.GUI.Car_Cards
     public partial class TestForm : Form
     {
         private SiticoneButton btnBack;
+        UserDTO _userDTO;
 
-        public TestForm(string manufacturer)
+        public TestForm(string manufacturer,UserDTO dto)
         {
             InitializeComponent();
             this.ControlBox = false;
             LoadManufacturerControl(manufacturer);
+            _userDTO = dto;
         }
 
         public void SetupBackButton()
@@ -48,19 +51,19 @@ namespace Chhipa_Motors.GUI.Car_Cards
         {
             if (manufacturer == "Porsche")
             {
-                LoadPage(new UserControl_Porsche());
+                LoadPage(new UserControl_Porsche(_userDTO));
             }
             else if(manufacturer=="Nissan")
             {
-                LoadPage(new UserControl_Nissan());
+                LoadPage(new UserControl_Nissan(_userDTO));
             }
             else if (manufacturer == "Lamborghini")
             {
-                LoadPage(new UserControl_Lamborghini());
+                LoadPage(new UserControl_Lamborghini(_userDTO));
             }
             else if (manufacturer == "McLaren")
             {
-                LoadPage(new UserControl_McLaren());
+                LoadPage(new UserControl_McLaren(_userDTO));
             }
         }
     }

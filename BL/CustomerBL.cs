@@ -30,6 +30,16 @@ namespace Chhipa_Motors.BL
         {
             return _customerDL.cancelBooking(bookDTO);
         }
-
+        public int addorUpdateCustomer(CustomerDTO custDTO)
+        {
+            if (_customerDL.customerExists(custDTO))
+            {
+                return _customerDL.updateCustomer(custDTO);
+            }
+            else
+            {
+                return _customerDL.addCustomer(custDTO);
+            }
+        }
     }
 }

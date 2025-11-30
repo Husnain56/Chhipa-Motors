@@ -46,7 +46,7 @@
             siticoneButton2 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneButton1 = new SiticoneNetCoreUI.SiticoneButton();
             lbl_taycan_turbo_gt = new SiticoneNetCoreUI.SiticoneShimmerLabel();
-            pb_taycan = new SiticoneNetCoreUI.SiticonePictureBox();
+            pb_GTR = new SiticoneNetCoreUI.SiticonePictureBox();
             siticoneContainer2 = new SiticoneNetCoreUI.SiticoneContainer();
             lbl_p_Z = new SiticoneNetCoreUI.SiticoneLabel();
             btn_book_Z = new SiticoneNetCoreUI.SiticoneButtonAdvanced();
@@ -62,7 +62,7 @@
             siticoneButton5 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneButton6 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneShimmerLabel1 = new SiticoneNetCoreUI.SiticoneShimmerLabel();
-            siticonePictureBox1 = new SiticoneNetCoreUI.SiticonePictureBox();
+            pb_NissanZ = new SiticoneNetCoreUI.SiticonePictureBox();
             siticoneContainer3 = new SiticoneNetCoreUI.SiticoneContainer();
             lbl_p_leaf = new SiticoneNetCoreUI.SiticoneLabel();
             btn_book_leaf = new SiticoneNetCoreUI.SiticoneButtonAdvanced();
@@ -78,7 +78,7 @@
             siticoneButton8 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneButton9 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneShimmerLabel2 = new SiticoneNetCoreUI.SiticoneShimmerLabel();
-            siticonePictureBox2 = new SiticoneNetCoreUI.SiticonePictureBox();
+            pb_Leaf = new SiticoneNetCoreUI.SiticonePictureBox();
             siticoneContainer4 = new SiticoneNetCoreUI.SiticoneContainer();
             lbl_p_FrontierPro4X = new SiticoneNetCoreUI.SiticoneLabel();
             btn_book_frontier_PRO4X = new SiticoneNetCoreUI.SiticoneButtonAdvanced();
@@ -94,7 +94,7 @@
             siticoneButton11 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneButton12 = new SiticoneNetCoreUI.SiticoneButton();
             siticoneShimmerLabel3 = new SiticoneNetCoreUI.SiticoneShimmerLabel();
-            siticonePictureBox3 = new SiticoneNetCoreUI.SiticonePictureBox();
+            pb_frontierpro = new SiticoneNetCoreUI.SiticonePictureBox();
             siticoneContainer1.SuspendLayout();
             siticoneContainer2.SuspendLayout();
             siticoneContainer3.SuspendLayout();
@@ -192,7 +192,7 @@
             siticoneContainer1.Controls.Add(siticoneButton2);
             siticoneContainer1.Controls.Add(siticoneButton1);
             siticoneContainer1.Controls.Add(lbl_taycan_turbo_gt);
-            siticoneContainer1.Controls.Add(pb_taycan);
+            siticoneContainer1.Controls.Add(pb_GTR);
             siticoneContainer1.CustomDashPattern = null;
             siticoneContainer1.DataSource = null;
             siticoneContainer1.Elevation = 0;
@@ -634,47 +634,47 @@
             lbl_taycan_turbo_gt.Text = "Nissan GT-R";
             lbl_taycan_turbo_gt.ToolTipText = "";
             // 
-            // pb_taycan
+            // pb_GTR
             // 
-            pb_taycan.BackColor = Color.FromArgb(30, 0, 0, 0);
-            pb_taycan.BorderColor = Color.Black;
-            pb_taycan.BorderWidth = 1;
-            pb_taycan.Brightness = 1F;
-            pb_taycan.Contrast = 1F;
-            pb_taycan.CornerRadius = 0;
-            pb_taycan.DraggingSpeed = 3.15F;
-            pb_taycan.EnableAsyncLoading = false;
-            pb_taycan.EnableCaching = false;
-            pb_taycan.EnableDragDrop = false;
-            pb_taycan.EnableExtendedImageSources = false;
-            pb_taycan.EnableFilters = false;
-            pb_taycan.EnableFlipping = false;
-            pb_taycan.EnableGlow = false;
-            pb_taycan.EnableHighDpiSupport = false;
-            pb_taycan.EnableMouseInteraction = false;
-            pb_taycan.EnablePlaceholder = false;
-            pb_taycan.EnableRotation = false;
-            pb_taycan.EnableShadow = false;
-            pb_taycan.EnableSlideshow = false;
-            pb_taycan.FlipHorizontal = false;
-            pb_taycan.FlipVertical = false;
-            pb_taycan.Grayscale = false;
-            pb_taycan.Image = (Image)resources.GetObject("pb_taycan.Image");
-            pb_taycan.ImageOpacity = 1F;
-            pb_taycan.Images = (List<Image>)resources.GetObject("pb_taycan.Images");
-            pb_taycan.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            pb_taycan.IsCircular = false;
-            pb_taycan.Location = new Point(15, 32);
-            pb_taycan.MaintainAspectRatio = true;
-            pb_taycan.Name = "pb_taycan";
-            pb_taycan.PlaceholderImage = null;
-            pb_taycan.RotationAngle = 0F;
-            pb_taycan.Saturation = 1F;
-            pb_taycan.ShowBorder = true;
-            pb_taycan.Size = new Size(521, 251);
-            pb_taycan.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
-            pb_taycan.TabIndex = 0;
-            pb_taycan.Text = "siticonePictureBox1";
+            pb_GTR.BackColor = Color.FromArgb(30, 0, 0, 0);
+            pb_GTR.BorderColor = Color.Black;
+            pb_GTR.BorderWidth = 1;
+            pb_GTR.Brightness = 1F;
+            pb_GTR.Contrast = 1F;
+            pb_GTR.CornerRadius = 0;
+            pb_GTR.DraggingSpeed = 3.15F;
+            pb_GTR.EnableAsyncLoading = false;
+            pb_GTR.EnableCaching = false;
+            pb_GTR.EnableDragDrop = false;
+            pb_GTR.EnableExtendedImageSources = false;
+            pb_GTR.EnableFilters = false;
+            pb_GTR.EnableFlipping = false;
+            pb_GTR.EnableGlow = false;
+            pb_GTR.EnableHighDpiSupport = false;
+            pb_GTR.EnableMouseInteraction = false;
+            pb_GTR.EnablePlaceholder = false;
+            pb_GTR.EnableRotation = false;
+            pb_GTR.EnableShadow = false;
+            pb_GTR.EnableSlideshow = false;
+            pb_GTR.FlipHorizontal = false;
+            pb_GTR.FlipVertical = false;
+            pb_GTR.Grayscale = false;
+            pb_GTR.Image = (Image)resources.GetObject("pb_GTR.Image");
+            pb_GTR.ImageOpacity = 1F;
+            pb_GTR.Images = (List<Image>)resources.GetObject("pb_GTR.Images");
+            pb_GTR.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_GTR.IsCircular = false;
+            pb_GTR.Location = new Point(15, 32);
+            pb_GTR.MaintainAspectRatio = true;
+            pb_GTR.Name = "pb_GTR";
+            pb_GTR.PlaceholderImage = null;
+            pb_GTR.RotationAngle = 0F;
+            pb_GTR.Saturation = 1F;
+            pb_GTR.ShowBorder = true;
+            pb_GTR.Size = new Size(521, 251);
+            pb_GTR.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
+            pb_GTR.TabIndex = 0;
+            pb_GTR.Text = "siticonePictureBox1";
             // 
             // siticoneContainer2
             // 
@@ -714,7 +714,7 @@
             siticoneContainer2.Controls.Add(siticoneButton5);
             siticoneContainer2.Controls.Add(siticoneButton6);
             siticoneContainer2.Controls.Add(siticoneShimmerLabel1);
-            siticoneContainer2.Controls.Add(siticonePictureBox1);
+            siticoneContainer2.Controls.Add(pb_NissanZ);
             siticoneContainer2.CustomDashPattern = null;
             siticoneContainer2.DataSource = null;
             siticoneContainer2.Elevation = 0;
@@ -1156,47 +1156,47 @@
             siticoneShimmerLabel1.Text = "Nissan Z";
             siticoneShimmerLabel1.ToolTipText = "";
             // 
-            // siticonePictureBox1
+            // pb_NissanZ
             // 
-            siticonePictureBox1.BackColor = Color.FromArgb(30, 0, 0, 0);
-            siticonePictureBox1.BorderColor = Color.Black;
-            siticonePictureBox1.BorderWidth = 1;
-            siticonePictureBox1.Brightness = 1F;
-            siticonePictureBox1.Contrast = 1F;
-            siticonePictureBox1.CornerRadius = 0;
-            siticonePictureBox1.DraggingSpeed = 3.15F;
-            siticonePictureBox1.EnableAsyncLoading = false;
-            siticonePictureBox1.EnableCaching = false;
-            siticonePictureBox1.EnableDragDrop = false;
-            siticonePictureBox1.EnableExtendedImageSources = false;
-            siticonePictureBox1.EnableFilters = false;
-            siticonePictureBox1.EnableFlipping = false;
-            siticonePictureBox1.EnableGlow = false;
-            siticonePictureBox1.EnableHighDpiSupport = false;
-            siticonePictureBox1.EnableMouseInteraction = false;
-            siticonePictureBox1.EnablePlaceholder = false;
-            siticonePictureBox1.EnableRotation = false;
-            siticonePictureBox1.EnableShadow = false;
-            siticonePictureBox1.EnableSlideshow = false;
-            siticonePictureBox1.FlipHorizontal = false;
-            siticonePictureBox1.FlipVertical = false;
-            siticonePictureBox1.Grayscale = false;
-            siticonePictureBox1.Image = (Image)resources.GetObject("siticonePictureBox1.Image");
-            siticonePictureBox1.ImageOpacity = 1F;
-            siticonePictureBox1.Images = (List<Image>)resources.GetObject("siticonePictureBox1.Images");
-            siticonePictureBox1.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            siticonePictureBox1.IsCircular = false;
-            siticonePictureBox1.Location = new Point(15, 32);
-            siticonePictureBox1.MaintainAspectRatio = true;
-            siticonePictureBox1.Name = "siticonePictureBox1";
-            siticonePictureBox1.PlaceholderImage = null;
-            siticonePictureBox1.RotationAngle = 0F;
-            siticonePictureBox1.Saturation = 1F;
-            siticonePictureBox1.ShowBorder = true;
-            siticonePictureBox1.Size = new Size(521, 251);
-            siticonePictureBox1.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
-            siticonePictureBox1.TabIndex = 0;
-            siticonePictureBox1.Text = "siticonePictureBox1";
+            pb_NissanZ.BackColor = Color.FromArgb(30, 0, 0, 0);
+            pb_NissanZ.BorderColor = Color.Black;
+            pb_NissanZ.BorderWidth = 1;
+            pb_NissanZ.Brightness = 1F;
+            pb_NissanZ.Contrast = 1F;
+            pb_NissanZ.CornerRadius = 0;
+            pb_NissanZ.DraggingSpeed = 3.15F;
+            pb_NissanZ.EnableAsyncLoading = false;
+            pb_NissanZ.EnableCaching = false;
+            pb_NissanZ.EnableDragDrop = false;
+            pb_NissanZ.EnableExtendedImageSources = false;
+            pb_NissanZ.EnableFilters = false;
+            pb_NissanZ.EnableFlipping = false;
+            pb_NissanZ.EnableGlow = false;
+            pb_NissanZ.EnableHighDpiSupport = false;
+            pb_NissanZ.EnableMouseInteraction = false;
+            pb_NissanZ.EnablePlaceholder = false;
+            pb_NissanZ.EnableRotation = false;
+            pb_NissanZ.EnableShadow = false;
+            pb_NissanZ.EnableSlideshow = false;
+            pb_NissanZ.FlipHorizontal = false;
+            pb_NissanZ.FlipVertical = false;
+            pb_NissanZ.Grayscale = false;
+            pb_NissanZ.Image = (Image)resources.GetObject("pb_NissanZ.Image");
+            pb_NissanZ.ImageOpacity = 1F;
+            pb_NissanZ.Images = (List<Image>)resources.GetObject("pb_NissanZ.Images");
+            pb_NissanZ.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_NissanZ.IsCircular = false;
+            pb_NissanZ.Location = new Point(15, 32);
+            pb_NissanZ.MaintainAspectRatio = true;
+            pb_NissanZ.Name = "pb_NissanZ";
+            pb_NissanZ.PlaceholderImage = null;
+            pb_NissanZ.RotationAngle = 0F;
+            pb_NissanZ.Saturation = 1F;
+            pb_NissanZ.ShowBorder = true;
+            pb_NissanZ.Size = new Size(521, 251);
+            pb_NissanZ.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
+            pb_NissanZ.TabIndex = 0;
+            pb_NissanZ.Text = "siticonePictureBox1";
             // 
             // siticoneContainer3
             // 
@@ -1236,7 +1236,7 @@
             siticoneContainer3.Controls.Add(siticoneButton8);
             siticoneContainer3.Controls.Add(siticoneButton9);
             siticoneContainer3.Controls.Add(siticoneShimmerLabel2);
-            siticoneContainer3.Controls.Add(siticonePictureBox2);
+            siticoneContainer3.Controls.Add(pb_Leaf);
             siticoneContainer3.CustomDashPattern = null;
             siticoneContainer3.DataSource = null;
             siticoneContainer3.Elevation = 0;
@@ -1678,47 +1678,47 @@
             siticoneShimmerLabel2.Text = "Nissan Leaf";
             siticoneShimmerLabel2.ToolTipText = "";
             // 
-            // siticonePictureBox2
+            // pb_Leaf
             // 
-            siticonePictureBox2.BackColor = Color.FromArgb(30, 0, 0, 0);
-            siticonePictureBox2.BorderColor = Color.Black;
-            siticonePictureBox2.BorderWidth = 1;
-            siticonePictureBox2.Brightness = 1F;
-            siticonePictureBox2.Contrast = 1F;
-            siticonePictureBox2.CornerRadius = 0;
-            siticonePictureBox2.DraggingSpeed = 3.15F;
-            siticonePictureBox2.EnableAsyncLoading = false;
-            siticonePictureBox2.EnableCaching = false;
-            siticonePictureBox2.EnableDragDrop = false;
-            siticonePictureBox2.EnableExtendedImageSources = false;
-            siticonePictureBox2.EnableFilters = false;
-            siticonePictureBox2.EnableFlipping = false;
-            siticonePictureBox2.EnableGlow = false;
-            siticonePictureBox2.EnableHighDpiSupport = false;
-            siticonePictureBox2.EnableMouseInteraction = false;
-            siticonePictureBox2.EnablePlaceholder = false;
-            siticonePictureBox2.EnableRotation = false;
-            siticonePictureBox2.EnableShadow = false;
-            siticonePictureBox2.EnableSlideshow = false;
-            siticonePictureBox2.FlipHorizontal = false;
-            siticonePictureBox2.FlipVertical = false;
-            siticonePictureBox2.Grayscale = false;
-            siticonePictureBox2.Image = (Image)resources.GetObject("siticonePictureBox2.Image");
-            siticonePictureBox2.ImageOpacity = 1F;
-            siticonePictureBox2.Images = (List<Image>)resources.GetObject("siticonePictureBox2.Images");
-            siticonePictureBox2.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            siticonePictureBox2.IsCircular = false;
-            siticonePictureBox2.Location = new Point(3, 3);
-            siticonePictureBox2.MaintainAspectRatio = true;
-            siticonePictureBox2.Name = "siticonePictureBox2";
-            siticonePictureBox2.PlaceholderImage = null;
-            siticonePictureBox2.RotationAngle = 0F;
-            siticonePictureBox2.Saturation = 1F;
-            siticonePictureBox2.ShowBorder = true;
-            siticonePictureBox2.Size = new Size(544, 251);
-            siticonePictureBox2.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
-            siticonePictureBox2.TabIndex = 0;
-            siticonePictureBox2.Text = "siticonePictureBox2";
+            pb_Leaf.BackColor = Color.FromArgb(30, 0, 0, 0);
+            pb_Leaf.BorderColor = Color.Black;
+            pb_Leaf.BorderWidth = 1;
+            pb_Leaf.Brightness = 1F;
+            pb_Leaf.Contrast = 1F;
+            pb_Leaf.CornerRadius = 0;
+            pb_Leaf.DraggingSpeed = 3.15F;
+            pb_Leaf.EnableAsyncLoading = false;
+            pb_Leaf.EnableCaching = false;
+            pb_Leaf.EnableDragDrop = false;
+            pb_Leaf.EnableExtendedImageSources = false;
+            pb_Leaf.EnableFilters = false;
+            pb_Leaf.EnableFlipping = false;
+            pb_Leaf.EnableGlow = false;
+            pb_Leaf.EnableHighDpiSupport = false;
+            pb_Leaf.EnableMouseInteraction = false;
+            pb_Leaf.EnablePlaceholder = false;
+            pb_Leaf.EnableRotation = false;
+            pb_Leaf.EnableShadow = false;
+            pb_Leaf.EnableSlideshow = false;
+            pb_Leaf.FlipHorizontal = false;
+            pb_Leaf.FlipVertical = false;
+            pb_Leaf.Grayscale = false;
+            pb_Leaf.Image = (Image)resources.GetObject("pb_Leaf.Image");
+            pb_Leaf.ImageOpacity = 1F;
+            pb_Leaf.Images = (List<Image>)resources.GetObject("pb_Leaf.Images");
+            pb_Leaf.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_Leaf.IsCircular = false;
+            pb_Leaf.Location = new Point(3, 3);
+            pb_Leaf.MaintainAspectRatio = true;
+            pb_Leaf.Name = "pb_Leaf";
+            pb_Leaf.PlaceholderImage = null;
+            pb_Leaf.RotationAngle = 0F;
+            pb_Leaf.Saturation = 1F;
+            pb_Leaf.ShowBorder = true;
+            pb_Leaf.Size = new Size(544, 251);
+            pb_Leaf.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
+            pb_Leaf.TabIndex = 0;
+            pb_Leaf.Text = "siticonePictureBox2";
             // 
             // siticoneContainer4
             // 
@@ -1758,7 +1758,7 @@
             siticoneContainer4.Controls.Add(siticoneButton11);
             siticoneContainer4.Controls.Add(siticoneButton12);
             siticoneContainer4.Controls.Add(siticoneShimmerLabel3);
-            siticoneContainer4.Controls.Add(siticonePictureBox3);
+            siticoneContainer4.Controls.Add(pb_frontierpro);
             siticoneContainer4.CustomDashPattern = null;
             siticoneContainer4.DataSource = null;
             siticoneContainer4.Elevation = 0;
@@ -2200,47 +2200,47 @@
             siticoneShimmerLabel3.Text = "Frontier Pro-4X";
             siticoneShimmerLabel3.ToolTipText = "";
             // 
-            // siticonePictureBox3
+            // pb_frontierpro
             // 
-            siticonePictureBox3.BackColor = Color.FromArgb(30, 0, 0, 0);
-            siticonePictureBox3.BorderColor = Color.Black;
-            siticonePictureBox3.BorderWidth = 1;
-            siticonePictureBox3.Brightness = 1F;
-            siticonePictureBox3.Contrast = 1F;
-            siticonePictureBox3.CornerRadius = 0;
-            siticonePictureBox3.DraggingSpeed = 3.15F;
-            siticonePictureBox3.EnableAsyncLoading = false;
-            siticonePictureBox3.EnableCaching = false;
-            siticonePictureBox3.EnableDragDrop = false;
-            siticonePictureBox3.EnableExtendedImageSources = false;
-            siticonePictureBox3.EnableFilters = false;
-            siticonePictureBox3.EnableFlipping = false;
-            siticonePictureBox3.EnableGlow = false;
-            siticonePictureBox3.EnableHighDpiSupport = false;
-            siticonePictureBox3.EnableMouseInteraction = false;
-            siticonePictureBox3.EnablePlaceholder = false;
-            siticonePictureBox3.EnableRotation = false;
-            siticonePictureBox3.EnableShadow = false;
-            siticonePictureBox3.EnableSlideshow = false;
-            siticonePictureBox3.FlipHorizontal = false;
-            siticonePictureBox3.FlipVertical = false;
-            siticonePictureBox3.Grayscale = false;
-            siticonePictureBox3.Image = (Image)resources.GetObject("siticonePictureBox3.Image");
-            siticonePictureBox3.ImageOpacity = 1F;
-            siticonePictureBox3.Images = (List<Image>)resources.GetObject("siticonePictureBox3.Images");
-            siticonePictureBox3.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            siticonePictureBox3.IsCircular = false;
-            siticonePictureBox3.Location = new Point(6, 18);
-            siticonePictureBox3.MaintainAspectRatio = true;
-            siticonePictureBox3.Name = "siticonePictureBox3";
-            siticonePictureBox3.PlaceholderImage = null;
-            siticonePictureBox3.RotationAngle = 0F;
-            siticonePictureBox3.Saturation = 1F;
-            siticonePictureBox3.ShowBorder = true;
-            siticonePictureBox3.Size = new Size(530, 251);
-            siticonePictureBox3.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
-            siticonePictureBox3.TabIndex = 0;
-            siticonePictureBox3.Text = "siticonePictureBox3";
+            pb_frontierpro.BackColor = Color.FromArgb(30, 0, 0, 0);
+            pb_frontierpro.BorderColor = Color.Black;
+            pb_frontierpro.BorderWidth = 1;
+            pb_frontierpro.Brightness = 1F;
+            pb_frontierpro.Contrast = 1F;
+            pb_frontierpro.CornerRadius = 0;
+            pb_frontierpro.DraggingSpeed = 3.15F;
+            pb_frontierpro.EnableAsyncLoading = false;
+            pb_frontierpro.EnableCaching = false;
+            pb_frontierpro.EnableDragDrop = false;
+            pb_frontierpro.EnableExtendedImageSources = false;
+            pb_frontierpro.EnableFilters = false;
+            pb_frontierpro.EnableFlipping = false;
+            pb_frontierpro.EnableGlow = false;
+            pb_frontierpro.EnableHighDpiSupport = false;
+            pb_frontierpro.EnableMouseInteraction = false;
+            pb_frontierpro.EnablePlaceholder = false;
+            pb_frontierpro.EnableRotation = false;
+            pb_frontierpro.EnableShadow = false;
+            pb_frontierpro.EnableSlideshow = false;
+            pb_frontierpro.FlipHorizontal = false;
+            pb_frontierpro.FlipVertical = false;
+            pb_frontierpro.Grayscale = false;
+            pb_frontierpro.Image = (Image)resources.GetObject("pb_frontierpro.Image");
+            pb_frontierpro.ImageOpacity = 1F;
+            pb_frontierpro.Images = (List<Image>)resources.GetObject("pb_frontierpro.Images");
+            pb_frontierpro.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            pb_frontierpro.IsCircular = false;
+            pb_frontierpro.Location = new Point(6, 18);
+            pb_frontierpro.MaintainAspectRatio = true;
+            pb_frontierpro.Name = "pb_frontierpro";
+            pb_frontierpro.PlaceholderImage = null;
+            pb_frontierpro.RotationAngle = 0F;
+            pb_frontierpro.Saturation = 1F;
+            pb_frontierpro.ShowBorder = true;
+            pb_frontierpro.Size = new Size(530, 251);
+            pb_frontierpro.SizeMode = SiticoneNetCoreUI.Helpers.Enum.SiticonePictureBoxSizeMode.CenterImage;
+            pb_frontierpro.TabIndex = 0;
+            pb_frontierpro.Text = "siticonePictureBox3";
             // 
             // UserControl_Nissan
             // 
@@ -2255,7 +2255,7 @@
             Controls.Add(lbl_avail);
             Controls.Add(pb_porsche);
             Name = "UserControl_Nissan";
-            Size = new Size(1332, 786);
+            Size = new Size(1315, 786);
             Load += UserControl_Nissan_Load;
             siticoneContainer1.ResumeLayout(false);
             siticoneContainer2.ResumeLayout(false);
@@ -2283,7 +2283,7 @@
         private SiticoneNetCoreUI.SiticoneButton siticoneButton2;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton1;
         private SiticoneNetCoreUI.SiticoneShimmerLabel lbl_taycan_turbo_gt;
-        private SiticoneNetCoreUI.SiticonePictureBox pb_taycan;
+        private SiticoneNetCoreUI.SiticonePictureBox pb_GTR;
         private SiticoneNetCoreUI.SiticoneContainer siticoneContainer2;
         private SiticoneNetCoreUI.SiticoneLabel lbl_p_Z;
         private SiticoneNetCoreUI.SiticoneButtonAdvanced btn_book_Z;
@@ -2299,7 +2299,7 @@
         private SiticoneNetCoreUI.SiticoneButton siticoneButton5;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton6;
         private SiticoneNetCoreUI.SiticoneShimmerLabel siticoneShimmerLabel1;
-        private SiticoneNetCoreUI.SiticonePictureBox siticonePictureBox1;
+        private SiticoneNetCoreUI.SiticonePictureBox pb_NissanZ;
         private SiticoneNetCoreUI.SiticoneContainer siticoneContainer3;
         private SiticoneNetCoreUI.SiticoneLabel lbl_p_leaf;
         private SiticoneNetCoreUI.SiticoneButtonAdvanced btn_book_leaf;
@@ -2315,7 +2315,7 @@
         private SiticoneNetCoreUI.SiticoneButton siticoneButton8;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton9;
         private SiticoneNetCoreUI.SiticoneShimmerLabel siticoneShimmerLabel2;
-        private SiticoneNetCoreUI.SiticonePictureBox siticonePictureBox2;
+        private SiticoneNetCoreUI.SiticonePictureBox pb_Leaf;
         private SiticoneNetCoreUI.SiticoneContainer siticoneContainer4;
         private SiticoneNetCoreUI.SiticoneLabel lbl_p_FrontierPro4X;
         private SiticoneNetCoreUI.SiticoneButtonAdvanced btn_book_frontier_PRO4X;
@@ -2331,6 +2331,6 @@
         private SiticoneNetCoreUI.SiticoneButton siticoneButton11;
         private SiticoneNetCoreUI.SiticoneButton siticoneButton12;
         private SiticoneNetCoreUI.SiticoneShimmerLabel siticoneShimmerLabel3;
-        private SiticoneNetCoreUI.SiticonePictureBox siticonePictureBox3;
+        private SiticoneNetCoreUI.SiticonePictureBox pb_frontierpro;
     }
 }

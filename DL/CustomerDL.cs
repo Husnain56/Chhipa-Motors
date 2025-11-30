@@ -12,7 +12,7 @@ using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Chhipa_Motors.DL
-{   
+{
     public class CustomerDL
     {
         private DBConnection _dbCon;
@@ -26,8 +26,8 @@ namespace Chhipa_Motors.DL
             try
             {
                 _dbCon.OpenConnection();
-               string query = "SELECT Bookings.BookingID, Bookings.CarID, Cars.CarName, Cars.Manufacturer, Bookings.BookingDate, Bookings.Status, Bookings.UpdatedAt, Bookings.AdminNote FROM Bookings " +
-                    "INNER JOIN Cars ON Bookings.CarID = Cars.CarID WHERE Bookings.UserID = @UserID ORDER BY Bookings.BookingDate DESC;";
+                string query = "SELECT Bookings.BookingID, Bookings.CarID, Cars.CarName, Cars.Manufacturer, Bookings.BookingDate, Bookings.Status, Bookings.UpdatedAt, Bookings.AdminNote FROM Bookings " +
+                     "INNER JOIN Cars ON Bookings.CarID = Cars.CarID WHERE Bookings.UserID = @UserID ORDER BY Bookings.BookingDate DESC;";
 
                 SqlCommand com = new SqlCommand(query, _dbCon.Con);
                 com.Parameters.AddWithValue("@UserID", userDTO.Id);
@@ -36,7 +36,8 @@ namespace Chhipa_Motors.DL
                 dt.Load(reader);
                 return dt;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 throw ex;
             }
             finally
@@ -79,6 +80,79 @@ namespace Chhipa_Motors.DL
                 com.Parameters.AddWithValue("@AdminNote", bookDTO.AdminNote);
                 com.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
                 com.Parameters.AddWithValue("@BookingID", bookDTO.BookingID);
+                int result = com.ExecuteNonQuery();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _dbCon.CloseConnection();
+            }
+        }
+
+        public int addCustomer(CustomerDTO custDTO)
+        {
+            try
+            {
+                _dbCon.OpenConnection();
+                string query = "INSERT INTO Customers (CustomerID, FullName, Email, PhoneNumber, Address, City) " +
+                               "VALUES (@CustomerID, @FullName, @Email, @PhoneNumber, @Address, @City);";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@CustomerID", custDTO.CustomerID);
+                com.Parameters.AddWithValue("@FullName", custDTO.FullName);
+                com.Parameters.AddWithValue("@Email", custDTO.Email);
+                com.Parameters.AddWithValue("@PhoneNumber", custDTO.PhoneNumber);
+                com.Parameters.AddWithValue("@Address", custDTO.Address);
+                com.Parameters.AddWithValue("@City", custDTO.City);
+                int result = com.ExecuteNonQuery();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _dbCon.CloseConnection();
+            }
+        }
+        public bool customerExists(CustomerDTO custDTO)
+        {
+            try
+            {
+                _dbCon.OpenConnection();
+                string query = "SELECT COUNT(1) FROM Customers WHERE CustomerID = @CustomerID;";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@CustomerID", custDTO.CustomerID);
+                int count = Convert.ToInt32(com.ExecuteScalar());
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _dbCon.CloseConnection();
+            }
+        }
+        public int updateCustomer(CustomerDTO custDTO)
+        {
+            try
+            {
+                _dbCon.OpenConnection();
+                string query = "UPDATE Customers SET FullName = @FullName, Email = @Email, PhoneNumber = @PhoneNumber, Address = @Address, City = @City " +
+                               "WHERE CustomerID = @CustomerID;";
+                SqlCommand com = new SqlCommand(query, _dbCon.Con);
+                com.Parameters.AddWithValue("@FullName", custDTO.FullName);
+                com.Parameters.AddWithValue("@Email", custDTO.Email);
+                com.Parameters.AddWithValue("@PhoneNumber", custDTO.PhoneNumber);
+                com.Parameters.AddWithValue("@Address", custDTO.Address);
+                com.Parameters.AddWithValue("@City", custDTO.City);
+                com.Parameters.AddWithValue("@CustomerID", custDTO.CustomerID);
                 int result = com.ExecuteNonQuery();
                 return result;
             }
